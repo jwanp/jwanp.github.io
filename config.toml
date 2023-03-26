@@ -11,6 +11,13 @@ languageCode = "en"
 # language name ["English", "简体中文", "Français", "Polski", ...]
 languageName = "English"
 
+googleAnalytics = "G-DZ2VH32QXR"
+
+# default amount of posts in each pages
+paginate = 12
+# whether to use robots.txt
+enableRobotsTXT = true
+
 # Author config
 [author]
   name = "박주환"
@@ -60,6 +67,29 @@ languageName = "English"
       # whether to use typeit animation for title name
       # 是否为标题显示打字机动画
       typeit = false
+
+  # LoveIt NEW | 0.2.0 Search config
+  [params.search]
+    enable = true
+    # type of search engine ["lunr", "algolia"]
+    type = "lunr"
+    # max index length of the chunked content
+    contentLength = 4000
+    # placeholder of the search bar
+    placeholder = ""
+    # LoveIt NEW | 0.2.1 max number of results length
+    maxResultLength = 10
+    # LoveIt NEW | 0.2.3 snippet length of the result
+    snippetLength = 30
+    # LoveIt NEW | 0.2.1 HTML tag name of the highlight part in results
+    highlightTag = "em"
+    # LoveIt NEW | 0.2.4 whether to use the absolute URL based on the baseURL in search index
+    absoluteURL = false
+    [params.search.algolia]
+      index = ""
+      appID = ""
+      searchKey = ""
+  
   [params.home]
     # amount of RSS pages
     # RSS 文章数目
@@ -90,13 +120,36 @@ languageName = "English"
       # 免责声明 (支持 HTML 格式)
       disclaimer = ""
     # Home page posts
-    # 主页文章列表
-
+    params.home.posts]
+      enable = true
+      # special amount of posts in each home posts page
+      paginate = 6
+      # LoveIt DELETED | 0.2.0 replaced with hiddenFromHomePage in params.page
+      # default behavior when you don't set "hiddenFromHomePage" in front matter
+      defaultHiddenFromHomePage = false
+    
+  # Social config about the author
   [params.social]
     GitHub = "joop87"
     Email = "joohwan726@naver.com"
     Steam = "Jwan_Park"
     Kaggle = "joohwan456"
+
+# LoveIt CHANGED | 0.2.0 Page global config
+  [params.page]
+    # LoveIt NEW | 0.2.0 whether to hide a page from home page
+    hiddenFromHomePage = false
+    # LoveIt NEW | 0.2.0 whether to hide a page from search results
+    hiddenFromSearch = false
+    [params.page.code]
+      # whether to show the copy button of the code block
+      copy = true
+
+  [params.seo]
+    # image URL
+    image = "https://user-images.githubusercontent.com/77142334/227780652-4a867037-5843-4d78-b5e7-9c27f6203e23.png"
+    # thumbnail URL
+    thumbnailUrl = "https://user-images.githubusercontent.com/77142334/227780652-4a867037-5843-4d78-b5e7-9c27f6203e23.png"
 # Menu config
 [menu]
   [[menu.main]]

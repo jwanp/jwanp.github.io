@@ -120,7 +120,7 @@ enableRobotsTXT = true
       # 免责声明 (支持 HTML 格式)
       disclaimer = ""
     # Home page posts
-    params.home.posts]
+    [params.home.posts]
       enable = true
       # special amount of posts in each home posts page
       paginate = 6

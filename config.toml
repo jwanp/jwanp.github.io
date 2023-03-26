@@ -1,4 +1,4 @@
-baseURL = "http://joop87.github.io/git-blog/"
+baseURL = "http://jwanp.github.io/git-blog/"
 
 # Change the default theme to be use when building the site with Hugo
 theme = "LoveIt"

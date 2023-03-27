@@ -10,6 +10,8 @@ featuredImage:
 **SKKRPTO 11기**
 
 **Satoshi Nakamoto. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Retrieved from https://bitcoin.org/bitcoin.pdf**
+
+
 **Satoshi Nakamoto (2008). 비트코인: 개인 대 개인 전자 화폐 시스템. (임민철 역)(2013) Retrieved from https://mincheol.im/bitcoin**
 
 **Vitalik Buterin. (2014). Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform. Retrieved from [https://ethereum.org/en/whitepaper/](https://ethereum.org/en/whitepaper/)**

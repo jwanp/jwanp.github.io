@@ -4,13 +4,13 @@ date: 2023-03-26T15:29:48+09:00
 draft: false
 tags: ["bitcoin","block-chain","paper","skkrpto"]
 categories: ["block-chain","paper-review"]
-featuredImage: /images/bitcoin-white-paper-review/main.png
+featuredImage: 
 ---
 **SKKRPTO 11기**
 
-**영문원본 : [https://bitcoin.org/bitcoin.pdf](https://bitcoin.org/bitcoin.pdf)**
+**Satoshi Nakamoto. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Retrieved from [https://bitcoin.org/bitcoin.pdf](https://bitcoin.org/bitcoin.pdf)**
+**Satoshi Nakamoto (2008). 비트코인: 개인 대 개인 전자 화폐 시스템. (임민철 역)(2013) Retrieved from [https://mincheol.im/bitcoin](https://mincheol.im/bitcoin)**
 
-2008년 10월에 Satoshi Nakamoto 에 의해서 작성 되었다고 알려져 있다.
 
 ## Abstract. 
  > A  purely   peer-to-peer   version   of   <u>electronic   cash</u>   would   allow   online payments   to   be   sent   directly   from   one   party   to   another   <u>without   going   through   a financial   institution.</u>    <u>Digital   signatures</u>  provide  part   of   the  solution,  but  the  main benefits are lost if a trusted third party is <u>still required to prevent double-spending.</u> We propose a solution to the double-spending problem using a peer-to-peer network. <u>The   network   timestamps   transactions   by   hashing   them   into   an   ongoing   chain   of hash-based proof-of-work</u>, forming a record that cannot be changed without redoing the proof-of-work.   The longest chain not only serves as  proof  of the sequence of events witnessed, but proof  that it came from the largest pool of CPU power.   As long as a majority of CPU power is controlled by nodes that are not cooperating to attack   the   network,   they'll   generate   the  longest   chain   and   outpace   attackers.    The network itself requires minimal structure.   Messages are broadcast on a best effort basis,   and   nodes   can   leave   and   rejoin   the   network   at   will,   accepting   the   longest proof-of-work chain as proof of what happened while they were gone.

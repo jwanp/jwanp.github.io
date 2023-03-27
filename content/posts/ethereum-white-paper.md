@@ -5,9 +5,15 @@ draft: false
 
 tags: ["ethereum","block-chain","paper","skkrpto"]
 categories: ["block-chain","paper-review"]
-featuredImage: /images/ethereum-white-paper/main.png
+featuredImage: 
 ---
 **SKKRPTO 11기**
+
+**Satoshi Nakamoto. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Retrieved from https://bitcoin.org/bitcoin.pdf**
+**Satoshi Nakamoto (2008). 비트코인: 개인 대 개인 전자 화폐 시스템. (임민철 역)(2013) Retrieved from https://mincheol.im/bitcoin**
+
+**Vitalik Buterin. (2014). Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform. Retrieved from [https://ethereum.org/en/whitepaper/](https://ethereum.org/en/whitepaper/)**
+**Vitalik Buterin. (2014). 차세대 스마트 컨트랙트와 탈중앙화된 어플리케이션 플랫폼. (EthereumKorea 편역) Retrieved from [https://ethereum.org/ko/whitepaper/](https://ethereum.org/ko/whitepaper/)**
 ## 서론
 > 사토시  나카모토에  의해  2009 년  개발된  비트코인은  종종  화폐와  통화분야에서  매우  근본적인  혁신으로 묘사되어  왔는데,  이것은  비트코인이  어떤  **담보나 내재적인  가치를  가지지  않으며,  중앙화된  발행기관이나 통제기관도  없는**  디지털  자산의  첫  번째  사례였기  때문이다.  하지만  비트코인  실험의  더욱  중요한  측면은 비트코인을  떠받치고  있는  분산  합의  수단으로서의  블록체인  기술이며,  이에  대한  관심이  급격하게  늘어나고  있다.
 

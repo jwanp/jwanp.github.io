@@ -130,7 +130,7 @@ enableRobotsTXT = true
     
   # Social config about the author
   [params.social]
-    GitHub = "joop87"
+    GitHub = "jwanp"
     Email = "joohwan726@naver.com"
     Steam = "Jwan_Park"
     Kaggle = "joohwan456"

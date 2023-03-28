@@ -5,7 +5,7 @@ draft: false
 
 tags: ["ethereum","block-chain","paper","skkrpto"]
 categories: ["block-chain","paper-review"]
-featuredImage: 
+featuredImage: /images/ethereum-white-paper/ethereum-main.png
 ---
 **SKKRPTO 11기**
 

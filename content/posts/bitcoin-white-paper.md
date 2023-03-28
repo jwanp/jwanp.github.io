@@ -4,7 +4,7 @@ date: 2023-03-26T15:29:48+09:00
 draft: false
 tags: ["bitcoin","block-chain","paper","skkrpto"]
 categories: ["block-chain","paper-review"]
-featuredImage: 
+featuredImage: /images/bitcoin-white-paper-review/bitcoin-main.png
 ---
 **SKKRPTO 11기**
 

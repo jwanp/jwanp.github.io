@@ -89,6 +89,16 @@ enableRobotsTXT = true
       index = ""
       appID = ""
       searchKey = ""
+
+      
+
+  [params.analytics]
+    enable = true
+    # Google Analytics
+    [params.analytics.google]
+      id = "G-DZ2VH32QXR"
+      # whether to anonymize IP
+      anonymizeIP = true
   
   [params.home]
     # amount of RSS pages
@@ -144,6 +154,27 @@ enableRobotsTXT = true
     [params.page.code]
       # whether to show the copy button of the code block
       copy = true
+    [params.page.share]
+      enable = true
+      Twitter = true
+      Facebook = true
+      Linkedin = true
+      Blogger = true
+    [params.page.code]
+      # whether to show the copy button of the code block
+      copy = true
+      # the maximum number of lines of displayed code by default
+      maxShownLines = 500
+    [params.page.comment]
+      enable = true
+      [params.page.comment.utterances]
+        enable = true
+        repo="jwanp/blog-comment"
+        issueTerm="pathname"
+        label="Comment"
+        lightTheme = "github-light"
+        darkTheme = "github-dark"
+    
 
   [params.seo]
     # image URL

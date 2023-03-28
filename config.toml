@@ -90,8 +90,6 @@ enableRobotsTXT = true
       appID = ""
       searchKey = ""
 
-      
-
   [params.analytics]
     enable = true
     # Google Analytics
@@ -172,8 +170,7 @@ enableRobotsTXT = true
         repo="jwanp/blog-comment"
         issueTerm="pathname"
         label="Comment"
-        lightTheme = "github-light"
-        darkTheme = "github-dark"
+
     
 
   [params.seo]

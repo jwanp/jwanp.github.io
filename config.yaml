@@ -113,6 +113,13 @@ menu:
       name: Categories
       url: /categories/
       title: ''
+    - weight: 4
+      identifier: personal page
+      pre: ''
+      post: ''
+      name: Personal Page
+      url: /personal/
+      title: ''
 markup:
   highlight:
     noClasses: false

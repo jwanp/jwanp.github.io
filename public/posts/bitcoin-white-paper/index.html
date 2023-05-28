@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Bitcoin White Paper - Joohwan&#39;s blog</title><meta name="Description" content="Hello this is description"><meta property="og:title" content="Bitcoin White Paper" />
+<meta property="og:description" content="SKKRPTO 11기
+Satoshi Nakamoto. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Retrieved from https://bitcoin.org/bitcoin.pdf
+Satoshi Nakamoto (2008). 비트코인: 개인 대 개인 전자 화폐 시스템. (임민철 역)(2013) Retrieved from https://mincheol.im/bitcoin
+Abstract. A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-26T15:29:48+09:00" />
+<meta property="article:modified_time" content="2023-03-26T15:29:48+09:00" /><meta property="og:site_name" content="Hello this is title" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bitcoin White Paper"/>
+<meta name="twitter:description" content="SKKRPTO 11기
+Satoshi Nakamoto. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Retrieved from https://bitcoin.org/bitcoin.pdf
+Satoshi Nakamoto (2008). 비트코인: 개인 대 개인 전자 화폐 시스템. (임민철 역)(2013) Retrieved from https://mincheol.im/bitcoin
+Abstract. A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/" /><link rel="next" href="http://jwanp.github.io/git-blog/posts/ethereum-white-paper/" /><link rel="stylesheet" href="/git-blog/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Bitcoin White Paper",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/jwanp.github.io\/git-blog\/posts\/bitcoin-white-paper\/"
+        },"image": ["https:\/\/user-images.githubusercontent.com\/77142334\/227780652-4a867037-5843-4d78-b5e7-9c27f6203e23.png"],"genre": "posts","keywords": "bitcoin, block-chain, paper, skkrpto","wordcount":  3479 ,
+        "url": "http:\/\/jwanp.github.io\/git-blog\/posts\/bitcoin-white-paper\/","datePublished": "2023-03-26T15:29:48+09:00","dateModified": "2023-03-26T15:29:48+09:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "박주환"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/git-blog/" title="Joohwan&#39;s blog">Joohwan&#39;s dev blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/git-blog/posts/"> Posts </a><a class="menu-item" href="/git-blog/tags/"> Tags </a><a class="menu-item" href="/git-blog/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/git-blog/" title="Joohwan&#39;s blog">Joohwan&#39;s dev blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/git-blog/posts/" title="">Posts</a><a class="menu-item" href="/git-blog/tags/" title="">Tags</a><a class="menu-item" href="/git-blog/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Bitcoin White Paper</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/git-blog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>박주환</a></span>&nbsp;<span class="post-category">included in <a href="/git-blog/categories/block-chain/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>block-chain</a>&nbsp;<a href="/git-blog/categories/paper-review/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>paper-review</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-26">2023-03-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3479 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;17 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/bitcoin-main.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/bitcoin-main.png, /git-blog/images/bitcoin-white-paper-review/bitcoin-main.png 1.5x, /git-blog/images/bitcoin-white-paper-review/bitcoin-main.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/bitcoin-main.png"
+        title="/git-blog/images/bitcoin-white-paper-review/bitcoin-main.png" width="1019" height="624" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#abstract">Abstract.</a></li>
+    <li><a href="#1-서론">1. 서론</a></li>
+    <li><a href="#2거래">2.거래</a></li>
+    <li><a href="#3-타임스탬프-서버">3. 타임스탬프 서버</a></li>
+    <li><a href="#4-작업증명">4. 작업증명</a></li>
+    <li><a href="#5-네트워크">5. 네트워크</a></li>
+    <li><a href="#6-인센티브">6. 인센티브</a></li>
+    <li><a href="#7-디스크-공간-회수">7. 디스크 공간 회수</a></li>
+    <li><a href="#8-간소화한-결제-검증">8. 간소화한 결제 검증</a></li>
+    <li><a href="#9-가치-합치기와-나누기">9. 가치 합치기와 나누기</a></li>
+    <li><a href="#10-프라이버시">10. 프라이버시</a></li>
+    <li><a href="#11-계산">11. 계산</a></li>
+    <li><a href="#12-결론">12. 결론</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><strong>SKKRPTO 11기</strong></p>
+<p><strong>Satoshi Nakamoto. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Retrieved from <a href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener noreffer ">https://bitcoin.org/bitcoin.pdf</a></strong></p>
+<p><strong>Satoshi Nakamoto (2008). 비트코인: 개인 대 개인 전자 화폐 시스템. (임민철 역)(2013) Retrieved from <a href="https://mincheol.im/bitcoin" target="_blank" rel="noopener noreffer ">https://mincheol.im/bitcoin</a></strong></p>
+<h2 id="abstract">Abstract.</h2>
+<blockquote>
+<p>A  purely   peer-to-peer   version   of   <!-- raw HTML omitted -->electronic   cash<!-- raw HTML omitted -->   would   allow   online payments   to   be   sent   directly   from   one   party   to   another   <!-- raw HTML omitted -->without   going   through   a financial   institution.<!-- raw HTML omitted -->    <!-- raw HTML omitted -->Digital   signatures<!-- raw HTML omitted -->  provide  part   of   the  solution,  but  the  main benefits are lost if a trusted third party is <!-- raw HTML omitted -->still required to prevent double-spending.<!-- raw HTML omitted --> We propose a solution to the double-spending problem using a peer-to-peer network. <!-- raw HTML omitted -->The   network   timestamps   transactions   by   hashing   them   into   an   ongoing   chain   of hash-based proof-of-work<!-- raw HTML omitted -->, forming a record that cannot be changed without redoing the proof-of-work.   The longest chain not only serves as  proof  of the sequence of events witnessed, but proof  that it came from the largest pool of CPU power.   As long as a majority of CPU power is controlled by nodes that are not cooperating to attack   the   network,   they&rsquo;ll   generate   the  longest   chain   and   outpace   attackers.    The network itself requires minimal structure.   Messages are broadcast on a best effort basis,   and   nodes   can   leave   and   rejoin   the   network   at   will,   accepting   the   longest proof-of-work chain as proof of what happened while they were gone.</p>
+</blockquote>
+<p>금융기관을 거치지 않는 p2p 결제로 전자서명은 이중지불의 문제점을 해결 하지 못함으로 해시 함수를 이용해서 타임스탬프를 찍어 작업증명을 연결한 사슬을 만드는 방식의 거래를 제안한다고 한다.</p>
+<ul>
+<li>이중지불(double-spending): 하나의 전자화폐로 두 번 이상의 거래를 하는 것</li>
+</ul>
+<p><strong>p2p 결제</strong></p>
+<ol>
+<li>전자서명이 쓰일 수도 있으나 송금자가 전자서명을 남발하고 나중에 돈이 없다고 할 수 있으니 이중지불의 위험성은 해결하지 못한다.</li>
+<li>해시 기반의 작업증명으로 타임스탬프를 찍어서 변경할 수 없는 기록을 생성함으로 이중지불의 문제점을 해결한다.</li>
+</ol>
+<p>마지막으로 일부 PC 가 해킹을 당하더라도 과반의 CPU 파워를 확보 하면 작업 증명으로 공격자를 압도 할수 있다. 또한 어떤 노드가 중간에 네트워크에서 빠지더라도 가장 긴 사슬을 택함으로 재합류할 수 있다.</p>
+<h2 id="1-서론">1. 서론</h2>
+<blockquote>
+<p><!-- raw HTML omitted -->인터넷 기반 상거래는 전자 결제를 처리할 신뢰받는 제 3 자 역할을 거의 전적으로 금융기관에 의존해 왔다<!-- raw HTML omitted -->. 이 시스템은 대다수 거래에 충분히 잘 동작하지만, 여전히 신뢰 기반 모델의 태생적 약점을 극복하지 못한다. 금융 기관은 분쟁 중재를 피할 수 없기에, <!-- raw HTML omitted -->완전한 비가역 거래는 실제로 가능하지 않다<!-- raw HTML omitted -->. <!-- raw HTML omitted -->중재 비용<!-- raw HTML omitted -->은 거래 비용을 높여, 실거래 최소 규모를 제한하고 소액의 일상적 거래 가능성을 가로막으며, 비가역 서비스에 맞는 비가역 결제 기능의   상실로   더   큰   비용이   발생한다.  <!-- raw HTML omitted -->가역성때문에   신뢰   결핍(the   need   for   trust)이   퍼진다<!-- raw HTML omitted -->.  상거래자 (Merchants)는 많은 정보를 요구하지 않을 경우보다 더 그를 괴롭히는 고객을 경계해야 한다. 사기의 일정 비율 은 불가피한 것으로 간주된다. 이런 비용과 결제 불확실성은 대면 거래에 물리적 통화(currency)를 사용해 피할 수 있지만, 통신 채널로 신뢰(받는 제 3)자 없이 결제를 수행할 방법은 존재하지 않는다.</p>
+</blockquote>
+<blockquote>
+<p>필요한 것은 신뢰 대신 암호학적 증명(cryptographic proof)에 기반해, 거래 의사가 있는 두 당사자가 신뢰받 는 제 3 자를 필요로 하지 않고 서로 직접 거래하게 해주는 전자 화폐 시스템이다. <!-- raw HTML omitted -->철회가 전산적으로 불가능한 거래는 사기로부터 판매자를 보호하고,  통상적인 제 3 자 예치(escrow)  방법은 구매자를 보호하기 위해 쉽게 구 현될 수 있다. 이 논문에서, 우리는 거래 시간순의 전산적 증명을 생성하는 개인 대 개인간 분산 타임스탬프 서 버를 사용한 이중지불 문제의 솔루션을 제안한다. 이 시스템은 정직한 노드가 공격자 노드의 협력 그룹보다 총 체적으로 더 많은 CPU 파워를 통제하는 한 보안상 안전하다.<!-- raw HTML omitted --></p>
+</blockquote>
+<p>기존의 인터넷 기반 상거래는 금융기관을 거쳐야지만 가능 했다. 금융기관을 거치는 것에 대한 문제점들을 지적 하고 있다.</p>
+<ul>
+<li><strong>문제점</strong>
+<ol>
+<li>완전한 비가역 거래는 실제로 가능 하지 않다.</li>
+<li>중재 비용이 거래 비용을 높여서 소액결제에 한계가 있다. -&gt; 수수료로 인해서 소액결제 부담이 높다.</li>
+</ol>
+</li>
+</ul>
+<p><strong>가역</strong>이란 되돌릴수 있다는 것이다. 반대로 <strong>비가역</strong>이란 되돌릴 수 없다는 뜻인데 결국 제3자에 의한 거래는 여러 문제들로 언제든지 거래가 취소 될 수 있음을 의미한다.</p>
+<p>우리는 결제를 할때 은행을 신뢰하고 정직하게 중재해줄 것을 믿는다. 하지만 결국 은행의 시스템이나 결정에 따라서 결제가 취소 될 수도 있고 은행이 제대로된 역할을 수행 하지 못하면 신뢰의 문제가 생긴다.</p>
+<p>은행에 대한 신뢰 대신에 암호화적 증명에 기반해 제 3자를 거치지 않고 개인 대 개인으로 결제한다.</p>
+<ul>
+<li><strong>이점</strong>
+<ol>
+<li>철회가 전산적으로 불가능함으로 <strong>판매자를 보호</strong> (임의적으로 거래를 되돌리지 못한다.) -&gt; 비가역 결제</li>
+<li>escrow ( 결제를 할때, 상품이나 서비스가 제공되기 전까지 에스크로 시스템 내부에서 보관하고 거래가 완료되고 나서 전송된다.) 시스템으로 <strong>구매자를 보호</strong></li>
+<li>타임스탬프 서버를 사용한 <strong>이중지불 문제의 해결</strong></li>
+</ol>
+</li>
+</ul>
+<h2 id="2거래">2.거래</h2>
+<blockquote>
+<p>우리는 디지털 서명의 사슬로써 전자적 화폐(electronic coin)를 정의한다. <!-- raw HTML omitted -->각 소유자는 화폐를 송금할 때 먼젓번 거래 내역 및 다음 소유자 공개키의 해시값에 전자적으로 서명을 하고 이 정보를 이 화폐의 끝에 첨가한다. <!-- raw HTML omitted -->수 금자(payee)는 그 소유권(ownership)의 사슬을 검증할 서명을 검증할 수 있다.</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B0%84%EC%86%8C%ED%99%94%ED%95%9C-1.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B0%84%EC%86%8C%ED%99%94%ED%95%9C-1.png, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B0%84%EC%86%8C%ED%99%94%ED%95%9C-1.png 1.5x, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B0%84%EC%86%8C%ED%99%94%ED%95%9C-1.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B0%84%EC%86%8C%ED%99%94%ED%95%9C-1.png"
+        title="title" width="1077" height="434" /></p>
+<blockquote>
+<p>이 과정상 문제는 수금자가 소유자 가운데 누군가 화폐를 이중지불하지 않았는지 검증할 수 없다는 점이 다.  통상적인 해법은 신뢰받는 중앙통제기관(trusted central authority)이나 조폐국(mint)을 세우고 모든 거래마다 이중지불 여부를 점검하는 것이다. 거래를 마칠 때마다 이 화폐는 조폐국으로 회수돼 새로운 화폐로 발행돼야 하고, 조폐국에서 직접 발행된 화폐만이 이중지불되지 않았다는 신뢰를 받는다. 이 해법을 적용시 문제는 전체 통화체계(the entire money system)가,  은행처럼 모든 거래가 거쳐가야하는,  조폐국을 운영하는 회사에 의존한다 는 점이다.</p>
+</blockquote>
+<blockquote>
+<p>우리에게는 먼젓번 소유자가 이전에 어떤 거래에도 서명하지 않았음을 수금자에게 알릴 수단이 필요하다. 이런 목적에서 우리는 가장 앞선 거래 하나를 인정하고, 이후 이중지불 시도에는 신경쓰지 않는다. <!-- raw HTML omitted -->그런 (이중 지불된) 거래가 없음을 확인할 유일한 방법은 모든 거래를 인식하는 것뿐이다.<!-- raw HTML omitted --> 조폐국 기반 모델에서, 조폐국은 모든 거래를 인식했고 최초로 받은 거래를 (승인 대상으로) 결정했다. 어떤 신뢰받는 자도 없이 이 방식을 실현 하려면, <!-- raw HTML omitted -->거래는 공개적으로 알려져야 하고[1], 참가자들에게는 그걸 받은 순서의 단일한 이력에 합의하는 시스 템이 필요하다. 수금자는 각 거래의 시점에 그게 최초로 받은 거래임을 노드 다수가 동의했다는 증명을 요한다.
+<!-- raw HTML omitted --></p>
+</blockquote>
+<p>위의 그림을 참고하면 전자적 화폐가 만들어 지는 과정을 참고 할 수 있다. 거래 블록 안에는 해시함수와 서명으로 전 화폐와 연결된다. 해시 함수에는 두가지가 들어간다.</p>
+<ol>
+<li>전 거래 내용</li>
+<li>소유자의 공개키</li>
+</ol>
+<p>이후에 해시값이 생성되고 전 소유자의 공개키로 해시값이 옮바르게 나왔는지 확인하고 전 소유자의 개인키로 서명한다.</p>
+<ul>
+<li>해시 함수: 임의의 길이를 갖는 데이터를 고정된 길이의 데이터로 변환시켜주는 함수. 해시 함수는 입력이 같으면 항상 결과가 같고, 다른 함수와 다르게 입력을 알고 있어도 결과값을 예측 할 수 없다.</li>
+</ul>
+<p><strong>문제</strong> : 이중지불하지 않았는지 검증할 수 없다.</p>
+<p>이중지불 하지 않았는지 확인하기 위해서 모든 거래를 인식한다. 이를 위해서 <strong>거래를 공개적으로 알리고</strong>, 이 거래들을 모두 포함한 <strong>하나의 순서를 만들어서</strong> 여기에 합의하는 시스템을 만드는 것이다.</p>
+<p>이 시스템은 타임스탬프 서버로 다음 섹션에서 다룬다.</p>
+<h2 id="3-타임스탬프-서버">3. 타임스탬프 서버</h2>
+<blockquote>
+<p>우리가 제안하는 해법은 <!-- raw HTML omitted -->타임스탬프 서버<!-- raw HTML omitted -->로 시작한다. 타임스탬프 서버는 타임스탬프가 찍힌 항목 블록의 해시 를 가져가 그 해시를 신문이나 유즈넷 게시물[2-5]처럼 <!-- raw HTML omitted -->널리 배포하는 식으로 작동한다<!-- raw HTML omitted -->. 이 타임스탬프는 그 데이터가, 명백히, 해시(과정)에 들어가기 위해 해당 시각부터 존재했음을 증명한다. <!-- raw HTML omitted -->각 타임스탬프는 그 해시 안 에 먼젓번 타임스탬프를 포함하고,  그에 앞선 것들을 하나씩 연장하는(reinforcing the ones)  타임스탬프가 찍힌 사슬을 생성한다.<!-- raw HTML omitted --></p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/77142334/226358758-c5981885-8577-4dca-937b-7059b2169f76.png"
+        data-srcset="https://user-images.githubusercontent.com/77142334/226358758-c5981885-8577-4dca-937b-7059b2169f76.png, https://user-images.githubusercontent.com/77142334/226358758-c5981885-8577-4dca-937b-7059b2169f76.png 1.5x, https://user-images.githubusercontent.com/77142334/226358758-c5981885-8577-4dca-937b-7059b2169f76.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/77142334/226358758-c5981885-8577-4dca-937b-7059b2169f76.png"
+        title="title" /></p>
+<p>여기에서 의미하는 <strong>타임스탬프는 시간적 의미가 아니라 단순히 순서를 의미한다.</strong>
+<strong>이중지불 문제를 해결 하려면 거래들 간의 순서가 정해져야하고 이 순서는 모든 노드들과 공유 되어야한다.</strong> 순서를 만들기 위해서 전 결과값과 현 블록의 내용이 들어가서 현재의 결과값을 만들고 이것이 반복되어서 앞선 것들을 하나씩 연장하는 사슬을 생성한다.</p>
+<h2 id="4-작업증명">4. 작업증명</h2>
+<blockquote>
+<p>개인 대 개인 기반으로 분산 타임스탬프 서버를 구현하기 위해 우리는 신문이나 유즈넷 게시물 대신 애덤 백의 해시캐시(Adam Back&rsquo;s Hashcash)와 유사한 작업증명 시스템[6]을 사용할 필요가 있다. <!-- raw HTML omitted -->작업증명은 SHA-256 같은 걸로 해시 연산을 거친 결과가 0 비트(zero bits) 여러 개로 시작할, 특정 값을 찾는 작업을 수반한다.<!-- raw HTML omitted --> 여기에 평균 적으로 필요한 연산 작업은 결과값에 필요한 0 비트 개수에 따라 지수적으로 달라지며 해시 연산을 한 번 실행 하는 걸로 검증될 수 있다.</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->타임스탬프 네트워크용으로, 우리는 블록의 해시에 필요한 0 비트를 주는 값이 발견될 때까지 블록 안에 임 시값을 증분(incrementing a nonce)하는 것으로 작업증명을 구현했다.<!-- raw HTML omitted -->  CPU  동작(CPU effort)이 한 번 작업증명을 충족하는 데 동원됐다면, 그 블록은 해당 작업을 재수행하지 않고는 변경될 수 없다. 그 뒤에 이어서 나중에 생 성된 블록이 연결되는만큼, 그 블록을 변경하는 재수행 작업은 그 뒤 모든 블록을 생성하는 연산까지 포함한다.</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EC%9E%91%EC%97%85%EC%A6%9D%EB%AA%85-1.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EC%9E%91%EC%97%85%EC%A6%9D%EB%AA%85-1.png, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EC%9E%91%EC%97%85%EC%A6%9D%EB%AA%85-1.png 1.5x, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EC%9E%91%EC%97%85%EC%A6%9D%EB%AA%85-1.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EC%9E%91%EC%97%85%EC%A6%9D%EB%AA%85-1.png"
+        title="title" width="817" height="188" /></p>
+<blockquote>
+<p>작업증명은 다수결(majority decision making)의 대표성 문제도 해결한다. IP 주소당 1 표에 기반한 다수 조건이라 면 누구든지 많은 IP 를 할당할 수 있는 이에 의해 장악될(subverted) 수 있다. 작업증명은 기본적으로 CPU 당 1 표다. <!-- raw HTML omitted -->다수의사는 최다 작업증명 동작이 투입된 가장 긴 사슬로 대표된다<!-- raw HTML omitted -->. 만일 다수 CPU 파워가 정직한 노드에 의해 통제된다면,<!-- raw HTML omitted --> 가장 정직한 사슬이 가장 빠르게 늘어나 다른 경쟁 사슬을 압도(outpace)할 것이다.<!-- raw HTML omitted --> 과거 블록 을 변경하려면 공격자는 그 블록과 그 뒤를 잇는 모든 블록의 작업증명을 재수행해야 하고 그러면서 가장 정직 한 노드들의 작업을 따라잡아 앞질러야 한다. 뒤에서 우리는 이어지는 블록이 추가될수록 더 느린 공격자가 따 라잡을 확률이 지수적으로 감소함을 보이겠다.</p>
+</blockquote>
+<blockquote>
+<p>시간이 지날수록 노드를 구동하는 하드웨어의 속도 증가와 변화하는 관여도(interest)를 보상하기 위해, <!-- raw HTML omitted -->작업 증명 난도(difficulty)는 시간당 평균 블록 수에 따른 평균 목표치를 조정해 결정된다. 그것들(블록)이 너무 빨리 생성되면 난도가 증가한다.<!-- raw HTML omitted --></p>
+</blockquote>
+<p>작업증명을 을 수행함으로 블록을 형성하는 과정, 그에대한 이점 등을 설명</p>
+<p><strong>작업증명은 한마디로 원하는 값을 찾을 때까지 임시값을 변경하면서 해시 함수를 반복적으로 수행하는 일을 뜻한다.</strong></p>
+<p><strong>해시함수</strong></p>
+<ol>
+<li>
+<p>Input</p>
+<ul>
+<li>고정값: 앞블록 해시값, 거래내용들</li>
+<li>증분해주는 값: 임시값</li>
+</ul>
+</li>
+<li>
+<p>output</p>
+<ul>
+<li>해시값 (문자열)</li>
+</ul>
+</li>
+</ol>
+<p>임시값을 계속 올려가면서 원하는 output 문자열에 특정 0 의 개수가 나올때 까지 반복한다.</p>
+<p><strong>다수결 대표성 문제 해결</strong>: IP 주소가 아니라 CPU 파워를 표?로 채택함으로서 표를 얻으려면 그만큼의 비용이 든다. (IP 주소는 마구 할당 할 수 있지만 CPU 파워를 얻는 것은 비용이 들기 때문에 제약이 따른다.)</p>
+<p>짧은 시간안에 참여자가 많아지면 (CPU 파워가 쎌수록) 너무 많은 블록이 생기기 때문에 난도가 증가한다. 예) 0 을 맞추어야하는 목표치가 2개 에서 4개로 늘어난다.</p>
+<h2 id="5-네트워크">5. 네트워크</h2>
+<blockquote>
+<p>네트워크를 실행하는 단계는 다음과 같다:
+<img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-1.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-1.png, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-1.png 1.5x, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-1.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-1.png"
+        title="title" width="1192" height="277" />
+<!-- raw HTML omitted -->노드는 항상 가장 긴 사슬을 정확한 것으로 간주하고 그걸 잇는 작업을 지속한다 <!-- raw HTML omitted -->.  만일 두 노드가 동시에
+다음 블록의 서로 다른 버전을 브로드캐스트하면, 어떤 노드는 그 중 하나 또는 다른 것을 먼저 받을 수 있다. 이 경우 그들이 먼저 받은 것을 작업하지만,  <!-- raw HTML omitted -->다른 브랜치도 저장해 그게 더 길어질 경우에 대비한다.<!-- raw HTML omitted -->  이 동수 (tie)는 다음 작업증명이 발견되면서 깨지고 한쪽 브랜치가 더 길어진다. <!-- raw HTML omitted -->다른 브랜치를 작업하던 노드는 그 뒤 더 긴 브랜치로 전환한다.<!-- raw HTML omitted --></p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->새로운 거래 브로드캐스트가 반드시 모든 노드에 도달할 필요는 없다<!-- raw HTML omitted -->. 브로드캐스트는 많은 노드에 도달하 는대로 곧 한 블록 안에 들어간다. 블록 브로드캐스트는 또한 메시지 누락에 내성을 갖는다. <!-- raw HTML omitted -->만일 노드가 블록 을 받지 못하면 그는 다음 블록을 받을 때 누락된 것을 알아차리고 그걸 요청한다.<!-- raw HTML omitted --></p>
+</blockquote>
+<p>위의 1~6 단계는 네트워크에서 블록이 형성되고 유지되는 과정을 나타낸 것이다.</p>
+<p>한 노드는 두개의 브랜치를 받을 수 있다. 이 상황에서 두개 모두가 유효하다는 것을 확인하고 둘 중 먼저 온것에 이어서 다른 블록을 생성하고 브로드 캐스팅 한다. 하지만 다른 브랜치도 저장해 두어서  작업중에 다른 노드에서 브로드캐스팅이 오면 더 긴 브랜치로 전환할 준비를 한다.</p>
+<p>여기에서 중요한 것은 작업중에 <strong>다른 노드에서 브로드캐스팅 된 더 긴 브랜치로 전환한다는 것이고 또한 내가 작업하는 브랜치 외에 다른 브랜치가 더 길어질 것에 대비 한다</strong>는 것이다.</p>
+<p>블록을 받지 못하면 누락된 것을 알아차리고 요청한다고 한다. 어떻게 알아차릴까 생각을 해보았다.
+블록이 브로드캐스팅 될때 만약 한 노드에서 브랜치 중간에 누락이 생기는 것을 <strong>해쉬값을 통해 알아 차리고</strong> 누락된 블록들을 요청할 것 같다.</p>
+<h2 id="6-인센티브">6. 인센티브</h2>
+<blockquote>
+<p>관례상 블록 안의 첫 거래는 블록을 만든 이의 몫이 될 새 화폐로 시작하는 특별한 거래다. 이는 화폐를 발행하 는 중앙기관 없이,<!-- raw HTML omitted --> 노드가 네트워크를 지원할 인센티브를 더해 주며 초기에 발행한 화폐를 유통할 방법을 제공 한다<!-- raw HTML omitted -->. 새 화폐를 일정량 꾸준히 추가하는 것은 금 채굴자가 유통하는 금을 추가하기 위해 자원을 소비하는 것과 유사하다. <!-- raw HTML omitted -->우리의 경우 소비되는 것은 CPU 시간과 전기다.<!-- raw HTML omitted --></p>
+</blockquote>
+<blockquote>
+<p>이 인센티브는 거래 수수료(transaction fees)로 충당될 수도 있다. 만일 거래에서 도출된 가치가 투입된 가치 보다 작다면, 그 차이가 거래를 포함한 블록의 인센티브 가치에 더해질 거래 수수료다.<!-- raw HTML omitted --> 애초 정해 놓은 수 만큼 의 화폐가 유통되면, 인센티브는 전부 거래 수수료로 바뀌어 인플레이션에서 완전히 자유로워질 수 있다.<!-- raw HTML omitted --></p>
+</blockquote>
+<blockquote>
+<p>이 인센티브는 노드가 계속 정직하게 행동하길 유도하는 데 도움을 줄 수 있다. 만일 탐욕스러운 공격자가 모든 정직한 노드보다 더 많은 CPU 파워를 모을 수 있다면, <!-- raw HTML omitted -->그는 그걸 자신의 결제를 도로 훔쳐 사람들을 속이 는 데 쓰는 것, 또는 새로운 화폐를 만들어내는 데 쓰는 것 사이에서 선택해야 한다.<!-- raw HTML omitted --> 그는 규칙대로 움직이는 게 더 이득임을 알게 돼 있는데, 규칙은 그에게 다른 모두의 몫을 합친 것보다, 시스템과 그가 보유한 부의 유효성 을 해치는 것보다 더 많은 새 화폐를 베푼다.</p>
+</blockquote>
+<p>이 섹션에서는 화폐 발행, 거래 수수료, 과반이 넘은 CPU 파워를 모은 탐욕스러운 사람 과 그들의 관계에 대해서 설명 하고 있다.</p>
+<p>여기에서 거래 수수료는 CPU 시간과 전기를 의미하는 건지 정확하게 모르겠지만 그렇다고 가정할것이다.</p>
+<p><strong>인센티브란 거래가 발생 했을때 새 화폐를 새로 발행해서 거래자에게 새 화폐를 주는 것을 의미하는 한다.</strong> 블록안에 실제 결제 거래도 있지만 거래중에서 새 화폐 발행도 포함 되어있어서 블록을 만든이가 이 새 화폐를 가지게 된다. 이러한 시스템의 이점이 몇가지 있다.</p>
+<ol>
+<li><strong>인플레이션에서 자유롭다</strong> -인플레이션은 화폐를 무분별하게 찍어 냈을때 발생 한다. 블록을 새로 형성하는 과정에서 화폐를 계속 찍어 내지만 그것은 블록을 형성하는 자의 수수료(CPU 시간과 전력)를 보상 해주는 것이다. 또한 앞선 섹션에서 봤던것과 같이 한번에 블록이 너무 많이 생성 되면 난도가 올라 가기 때문에 새로 만들어지는 화폐의 수는 일정 하다고 볼 수 있다.</li>
+<li><strong>과반의 CPU 파워를 가졌더라도 시스템을 해치지 않을것 이다.</strong> - 과반의 CPU 파워를 모으면 거짓 거래를 생성 할 수 있다. 하지만 그렇게 하는것 보다 새로운 블록을 형성하는 것이 더 많은 화폐를 가져올 수 있기 때문에(이득이기 때문에) 정직한 블록을 만드는데에 더욱 힘쓸 것이다.</li>
+</ol>
+<h2 id="7-디스크-공간-회수">7. 디스크 공간 회수</h2>
+<blockquote>
+<p>화폐 안의 최종 거래가 충분한 블록에 묻히면, <!-- raw HTML omitted -->그 전에 지불된 거래는 디스크 공간을 절약하기 위해 폐기될 수 있다.<!-- raw HTML omitted --> 블록의 해시를 깨지 않고 이걸 촉진하기 위해, 거래는 머클트리(Merkle Tree)[7][2][5]로 해시되며, 그 루트 (root)만 블록의 해시 안에 포함된다. 그러면 오래된 블록은 트리의 분기를 쳐냄으로써 작아질 수 있다. 내부 해 시는 저장될 필요가 없다.
+<img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EB%94%94%EC%8A%A4%ED%81%AC-1.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EB%94%94%EC%8A%A4%ED%81%AC-1.png, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EB%94%94%EC%8A%A4%ED%81%AC-1.png 1.5x, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EB%94%94%EC%8A%A4%ED%81%AC-1.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EB%94%94%EC%8A%A4%ED%81%AC-1.png"
+        title="title" width="938" height="501" />
+거래가 없는 블록 헤더는 약 80 바이트가 된다. 블록이 10 분마다 만들어진다고 가정하면, 80 바이트 * 6 * 24 *   365   =  연간  4.2MB 다.   2008 년부터   통상적으로   판매되는  RAM   2GB 짜리   컴퓨터   시스템,  그리고   현재   연간 1.2GB 씩 성장을 예측하는 무어의 법칙으로 보면, 만일 블록 헤더가 메모리에 보존돼야 한다더라도 저장공간은 문제가 되지 않는다.</p>
+</blockquote>
+<p>여기에는 딱히 설명해야할게 없는 것 같다.</p>
+<p>블록이 충분히 많이 생성 되었으니 필요없는 거래 내역들은 삭제하고 체인이 유지되는데 필요한 <strong>루트 해시값만 남긴다.</strong></p>
+<p><strong>그럼에도 불구하고 체인이 계속 길어지고 저장공간은 더욱 많이 필요하게 되는데.. 이것은 무어의 법칙으로 해결 된다.</strong></p>
+<ul>
+<li>무어의 법칙 - 마이크로칩 기술의 발전 속도에 관한 일종의 법칙으로 마이크로칩에 저장할 수 있는 데이터 분량이 18-24개월 마다 두 배씩 증가한다는 법칙이다.</li>
+</ul>
+<p>2016년에 많은 사람들은 무어의 법칙의 종말을 예상 했지만 실제로 무어의 법칙은 이 백서가 나온 2008년 의 14년 뒤 작년 2022년까지도 지켜졌다고 한다&hellip;! 😯</p>
+<h2 id="8-간소화한-결제-검증">8. 간소화한 결제 검증</h2>
+<blockquote>
+<p>결제 검증은 전체 네트워크 노드를 구동하지 않고도 가능하다. 사용자는 그가 최장 작업증명 사슬을 가졌다고 확신할 때까지 네트워크 노드를 조회해, 얻을 수 있는 가장 긴 사슬의 블록 헤더 사본을 유지하면서, <!-- raw HTML omitted -->해당 거래 를 타임스탬프가 찍힌 블록에 연결한 머클 분기를 얻기만 하면 된다.<!-- raw HTML omitted -->  그는 자신의 거래를 검사할 수는 없지만 그걸 사슬 내 장소에 연결함으로써, 네트워크 노드가 그걸 받아들인 것과, 이후 그게 받아들여졌음을 확인한 뒤 추가된 블록을 볼 수 있다.
+<img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B0%84%EC%86%8C%ED%99%94%ED%95%9C-1.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B0%84%EC%86%8C%ED%99%94%ED%95%9C-1.png, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B0%84%EC%86%8C%ED%99%94%ED%95%9C-1.png 1.5x, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B0%84%EC%86%8C%ED%99%94%ED%95%9C-1.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B0%84%EC%86%8C%ED%99%94%ED%95%9C-1.png"
+        title="title" width="1077" height="434" />
+이처럼, 네트워크를 제어하는 노드가 정직한 한 검증은 믿을만하지만, <!-- raw HTML omitted -->만일 네트워크가 공격자에 의해 과점 된다면 더 취약해진다.<!-- raw HTML omitted --> 네트워크 노드가 거래를 자체 검증할 수 있긴 하지만, 간소화한 방법은 공격자가 네트워 크를 계속 과점할 수 있는 한 그가 조작한 거래에 속을 수 있다. <!-- raw HTML omitted -->이를 방어하기 위한 한 가지 전략은 네트워크 노드가 유효하지 않은 블록을 탐지해 그 경고를 받을 때, 사용자의 소프트웨어가 그 온전한 블록을 내려받게 하고 경고된 거래에 그 모순(inconsistency)을 확인하게 하는 것이다.<!-- raw HTML omitted --> 아마도 수금이 잦은 비즈니스는 여전히 더 독 립적인 보안과 더 빠른 검증을 위해 그들의 자체 노드 구동을 원할 것이다.</p>
+</blockquote>
+<p><strong>결제 검증은 머클분기만 확인 함으로 간편하게 처리한다.</strong> 다만 이 방식은 만일 공격자가 운좋게 혹은 <strong>CPU를 과점하고 있어서 거짓된 정보를 가지고 있는 블록을 만들 었을때 취약해진다.</strong></p>
+<p>이 취약점을 해결 하기 위해서 거짓 정보를 가지고 있는 블록을 생성하기 더욱 어렵게 하였다. <strong>공격자가 유효하지 않은 블록 생성하고 있을때 이를 감지해 강제로 온전한 블록으로 대체 되게 하는 것이다.</strong> 이렇게 하면 잘못된 거래내역을 만들기가 상당히 까다로울 것이다.</p>
+<p>하지만 개인적으로 생각 하기에는 이방법은 끝에있는 블록들을 보호할수 없다고 생각했다. 사슬 중간에 있는 블록을 바꾸는 것은 해당 방법을 통해서 안전하게 해결 될 수 있지만 끝에 있는 블록만 생성하는 것은 유일하게 가장 긴 사슬이 되기때문에 막기 어렵다고 생각 된다.. 그럼에도 불구하고 끝에 있는 블록을 제외하면 안전 하다고 할 수 있으니 좋은 것 같다.</p>
+<h2 id="9-가치-합치기와-나누기">9. 가치 합치기와 나누기</h2>
+<blockquote>
+<p>화폐를 독립적으로 다루는 것은 가능하더라도,  송금에 모든 푼돈(every cent)을 별도 거래로 만드는 건 무리한 일이다. 가치를 나누고 합칠 수 있도록, 거래는 복수의 입출금을 포함한다. 일반적으로 입금은 더 큰 먼젓번 거 래의 단수  입금  또는 더 작은 양을 결합한  복수  입금이며,   출금은 지불용 출금  하나와 만일 있다면 송금인 (sender)에게 돌려줄 거스름돈 출금 하나, 이렇게 많아야 둘이다.</p>
+</blockquote>
+<blockquote>
+<p>펼친 부채꼴(fan-out)처럼, 거래가 여러 거래에 의존하고 그 여러 거래가 더 많은 거래에 의존하는 것은 문제 가 되지 않는다는 것에 주목해야 한다.<!-- raw HTML omitted --> 완전 독립된(standalone) 거래 내역 사본을 추출해야 할 필요는 전혀 없다.<!-- raw HTML omitted --></p>
+</blockquote>
+<p>하나의 송금이 무조건 하나의 거래가 되면 블록을 수도 없이 많이 생성 해야 할 것이다. 이는 CPU 전력 과 시간 낭비가 너무 크다. <strong>따라서 화폐와 송금은 다 따로 다루어 지더라도 여러 송금들이 합쳐져 하나의 거래가 될 수 있다.</strong></p>
+<p>여기에서 거래란 내가 이해하기로는 블록으로 받아들였다. 영문에서는 transaction 으로 나오는데 이 transaction 이 블록 하나를 생성한다.</p>
+<h2 id="10-프라이버시">10. 프라이버시</h2>
+<blockquote>
+<p>전통적인 은행 모델은 참여 당사자(the parties involved)와 신뢰받는 제 3 자에게 정보 접근을 제한함으로써 일정 수준 프라이버시를 달성한다. 이 방법은 모든 거래를 공개할 필요성에 따라 배제되지만, 공개키 익명성을 보존 해 다른 장소에서 정보의 흐름을 끊는 걸로 여전히 프라이버시가 보장될 수 있다.  공중(the public)은 누군가가 다른 누군가에게 보내는 금액을 볼 수 있지만, 그 거래에 연결된 누군가에 대한 정보는 볼 수 없다. 이는 증권거 래소에서 공개되는 정보 수준과 비슷하게, 개별 거래 시각과 규모를 나타내는 &ldquo;테이프(tape)&ldquo;는 공개되지만,  그 거래 당사자가 누구인지 알지는 못하는 것이다.
+<img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%8B%9C-1.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%8B%9C-1.png, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%8B%9C-1.png 1.5x, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%8B%9C-1.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%8B%9C-1.png"
+        title="title" width="918" height="287" /><br>
+부가적인 방책으로, <!-- raw HTML omitted -->각 거래마다 새로운 키 쌍이 사용돼야 그게 어떤 공통된 소유자에게 연결되는 일을 계 속 피할 수 있다. 여러 입금이 동일 소유자의 소유임을 부득이 드러내는 다중입금 거래에서 어떤 연결은 여전히 불가피하다. 그 거래의 키 소유자가 드러나면, 연결이 동일 소유자에게 속한 다른 거래까지 노출할 위험이 있다.<!-- raw HTML omitted --></p>
+</blockquote>
+<p>거래가 이루어 질때 <strong>공개키는 공개가 된다</strong>. 따라서 위험성이 어느 정도는 있다고 보여 진다. 특히 거래마다 다른 키쌍이 아니라 <strong>다중입금 거래가 이루어져 같은 키쌍으로 공개가 되어 있다면 어느정도의 유추는 불가피하다고 말한다</strong>. 그러나 <strong>공개키나 누구의 소유인지는 공개가 되지 않기 때문에</strong> 기존 은행과 비슷 한 수준의 프라이버시를 달성한다고 한다.</p>
+<h2 id="11-계산">11. 계산</h2>
+<blockquote>
+<p>정직한 사슬보다 더 빨리 대체 사슬을 만들어내려는 공격자의 시나리오를 고려해 보자.<!-- raw HTML omitted --> 만일 이런 시도가 성공 한다 하더라도, 그게 아무것도 없는 곳에서 가치를 만들어내거나 공격자가 소유한 적도 없는 돈을 얻게 만드는 식으로 이 시스템을 무단 변경되도록 허용하진 않는다<!-- raw HTML omitted -->. 노드는 유효하지 않은 거래를 결제로 받아들이지 않으 며, 정직한 노드는 그걸 포함하는 블록을 절대 받아들이지 않는다. 공격자는 오로지 자신의 거래에서 그가 최근 지출한 돈을 거둬들이는 것 하나만을 바꿀 수 있다.</p>
+</blockquote>
+<p><strong>이는 서명이 없음을 뜻한다</strong>. 공격자가 유효하지 않은 거래를 임의로 만들어서 정직한 사슬 보다 더빨리 블록을 만들었더라도 전 사슬의 서명이 없기 때문에 받아 들여 질 수 없다. 만약 서명이 가능하다면 그것은 자기 자신의 개인키 일때만 가능하다.</p>
+<blockquote>
+<p>정직한 사슬과 공격자 사슬간의 경주는 이항임의보행(Binomial Random Walk)으로 특징지을 수 있다.  <!-- raw HTML omitted -->성공 이벤트는 정직한 사슬이 그 우위(lead)를 +1 만큼 늘리는 블록 하나를 연장한 것이고, 실패 이벤트는 공격자 사 슬이 그 격차를 -1 만큼 좁히는 블록 하나를 연장한 것이다.<!-- raw HTML omitted --></p>
+</blockquote>
+<blockquote>
+<p>공격자가 주어진 열세를 따라잡을 확률은 도박꾼의 파산(Gambler&rsquo;s Ruin) 문제와 유사하다. 도박꾼이 무제한 의 신용을 갖고 열세로 시작하고 손익분기(breakeven)에 도달하려는 시도를 잠재적으로 무한한 횟수에 걸쳐 시 행한다고 가정해 보자. 우리는 그가 점차 손익분기에 도달할 확률, 다시말해 공격자가 정직한 사슬을 따라잡을 확률을 다음과 같이 계산할 수 있다 [8]:
+<img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-1.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-1.png, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-1.png 1.5x, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-1.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-1.png"
+        title="title" width="818" height="250" />
+<!-- raw HTML omitted -->p &gt; q 라 가정하면, 공격자가 따라잡아야 하는 블록 수가 늘어날수록 그럴 수 있는 확률은 지수적으로 감소한다.<!-- raw HTML omitted --> 그에게 주어진 조건상, 만일 그가 초기에 운좋게 앞으로 치고나가지 못한다면, 그의 기회는 그가 뒤쳐질수록 보 이지 않을만큼 작아진다.</p>
+</blockquote>
+<p>지수 함수의 그래프를 생각 해보면 처음에는 완만하지만 갈수록 가팔라진다. z 는 공격자가 공격을 시도한 블록뒤로 쌓이는 블록에 개수 이다.</p>
+<blockquote>
+<p><!-- raw HTML omitted --> 이제  송금인이  새로운 거래를 변경할 수 없다고 충분히 확신하기 전까지 수취인(recipient)이  얼마나 오래 기다려야할지 고려해 보자.<!-- raw HTML omitted -->  송금인을 수취인이 자신에게 지불받았다고 한동안 믿게 하고,  얼마간 시간이 흐르 면 지불한 돈을 되찾고 싶어하는 공격자라 가정한다. 거래 수신자(receiver)는 그런 일이 생길 때 경고를 받겠지 만, 송금인은 그게 늦기를 바란다.</p>
+</blockquote>
+<p>이말의 뜻은, 거래 블록이 생성 되고 난 뒤에 몇개의 블록이 더 쌓이면 완전하게 안심 할 수 있을까? 이다. 이제부터 그것을 알아 볼 것이다.</p>
+<blockquote>
+<p>수신자는 새로운 키 쌍을 생성하고 서명 직전에 송금인에게 공개키를 준다.  이는 송금인이 운좋게 충분히 앞설 때까지 계속 그 작업을 수행함으로써 미리 블록의 사슬을 준비하지 못하게 방지하고, 그 시점에 거래를 실 행한다. 거래가 한 번 발신되면, 이 부정직한(dishonest)  송금인은 몰래 그의 거래를 대신할 버전으로 사슬 작업 을 병행하기 시작한다.</p>
+</blockquote>
+<blockquote>
+<p>수신자는 해당 거래가 블록에 추가되고 그 뒤에 z 블록이 연결될 때까지 기다린다. 그는 공격자가 (블록 처 리를) 진척시킨 규모를 알지 못하지만, 정직한 블록이 예상되는 블록당 시간 평균치를 따른다고 가정하면, 공격 자의 잠재적 진척도는 기대값을 갖는 <!-- raw HTML omitted -->푸아송 분포(Poisson distribution)가 될 것이다:<!-- raw HTML omitted --></p>
+</blockquote>
+<ul>
+<li>푸아송 분포 -  단위 시간 안에 어떤 사건이 몇 번 발생할 것인지를 표현하는 이산 확률 분포</li>
+</ul>
+<p>정해진 시간 안에 어떤 사건이 일어날 횟수에 대한 기댓값을 lambda 라고 했을 때, 그 사건이 k회 일어날 확률은 다음과 같다.</p>
+<p><img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1cd5cdd5203fb356cbc548eaff66c3661b9f3d6f"
+        data-srcset="https://wikimedia.org/api/rest_v1/media/math/render/svg/1cd5cdd5203fb356cbc548eaff66c3661b9f3d6f, https://wikimedia.org/api/rest_v1/media/math/render/svg/1cd5cdd5203fb356cbc548eaff66c3661b9f3d6f 1.5x, https://wikimedia.org/api/rest_v1/media/math/render/svg/1cd5cdd5203fb356cbc548eaff66c3661b9f3d6f 2x"
+        data-sizes="auto"
+        alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/1cd5cdd5203fb356cbc548eaff66c3661b9f3d6f"
+        title="title" /></p>
+<blockquote>
+<p><img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-3.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-3.png, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-3.png 1.5x, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-3.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-3.png"
+        title="title" width="170" height="96" />
+현재 공격자가 여전히 따라잡을 수 있는 확률을 얻기 위해, 그가 해당 시점부터 따라잡을 수 있는 확률로 만들 어낼 각 진척 규모별 푸아송 밀도를 곱한다:
+<img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-4.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-4.png, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-4.png 1.5x, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-4.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-4.png"
+        title="title" width="432" height="122" /><br>
+분포의 무한꼬리 합산을 피하도록 정리하고…
+<img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-5.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-5.png, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-5.png 1.5x, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-5.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-5.png"
+        title="title" width="402" height="114" />
+C 코드로 바꿔서&hellip;
+<img
+        class="lazyload"
+        src="/git-blog/svg/loading.min.svg"
+        data-src="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-6.png"
+        data-srcset="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-6.png, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-6.png 1.5x, /git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-6.png 2x"
+        data-sizes="auto"
+        alt="/git-blog/images/bitcoin-white-paper-review/Bitcoin-%EA%B3%84%EC%82%B0-6.png"
+        title="title" width="950" height="1098" /></p>
+</blockquote>
+<p>먼저 위의 식에서 람다는 기댓값이다. 예를 들어서 q = 2/10, p = 8/10 이고 총 10개의 코인을 생성 했다고 하면 평균적으로 10 * (2/10) / (8/10) =  2.5 개의 거짓코인이 생성 될 것이다.</p>
+<p>결과를 해석 하자면</p>
+<ol>
+<li>공격자의 CPU 파워풀이 전체의 1/10 이라면 1 블록 뒤에서 따라잡을 확률 = 20퍼 센트</li>
+<li>공격자의 CPU 파워풀이 전체의 3/10 이라면 평균적으로 5개의 블록 뒤에서 따라잡을 확률 17퍼센트</li>
+<li>0.1% 미만이 충분이 안심해도 되는 정도라고 치면
+<ul>
+<li>q = 1/10 일때 블록이 5개 생성되었으면 안심해도 된다.</li>
+<li>q = 45/100 일때 블록이 340개 생성되었으면 안심해도 된다.</li>
+</ul>
+</li>
+</ol>
+<h2 id="12-결론">12. 결론</h2>
+<blockquote>
+<p>우리는 신뢰에 의존하지 않는 전자거래용 시스템을 제안했다.<!-- raw HTML omitted --> 강력한 소유권 통제를 제공하는 디지털 서명으로 만든 화폐(coins made from digital signatures)라는 평범한 프레임워크로 시작했지만, 이는 이중지불 방지수단 없이 는 불완전하다.<!-- raw HTML omitted --> 이를 해결하려고, 우리는 정직한 노드가 CPU 파워 대부분을 통제하면 공격자가 바꾸기는 신속 하게 계산적으로 불가능해지는 <!-- raw HTML omitted -->공중 거래 이력(a public history of transactions) 기록에 작업증명을 사용하는 개인 대 개인 네트워크를 제안했다.<!-- raw HTML omitted --> 이 네트워크의 견고함은 그 통일성없는 단순함(unstructured simplicity)에 있다. 노 드는 거의 조정(coordination)없이 한 번에 모두 동작한다.  이들은 메시지가 경로를 지정받아 어떤 특정 위치로 가는 게 아니라 단지 최선의 노력을 다해 전달되면 그만이기 때문에 식별될 필요가 없다 . <!-- raw HTML omitted -->노드는 마음대로 네트 워크를 떠났다가 그가 없는 동안 벌어진 일의 증명으로 작업증명 사슬을 받아들여 재합류할 수 있다. <!-- raw HTML omitted --> <!-- raw HTML omitted -->이들은 CPU 파워를 사용한 투표로, 유효한 블록을 연장하는 작업을 통해 그걸 승인했음을 나타내고 유효하지 않은 블 록에 대한 작업을 거부함으로써 그걸 기각한다. 어떤 필요 규칙과 유인이든 이 합의 작용(consensus mechanism) 을 통해 집행될 수 있다.<!-- raw HTML omitted --></p>
+</blockquote>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-03-26</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/" data-title="Bitcoin White Paper" data-hashtags="bitcoin,block-chain,paper,skkrpto"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/" data-hashtag="bitcoin"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/" data-title="Bitcoin White Paper"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/" data-title="Bitcoin White Paper"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/" data-title="Bitcoin White Paper" data-image="/images/bitcoin-white-paper-review/bitcoin-main.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/" data-title="Bitcoin White Paper" data-description=""><i class="fab fa-blogger fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/git-blog/tags/bitcoin/">bitcoin</a>,&nbsp;<a href="/git-blog/tags/block-chain/">block-chain</a>,&nbsp;<a href="/git-blog/tags/paper/">paper</a>,&nbsp;<a href="/git-blog/tags/skkrpto/">skkrpto</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/git-blog/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/git-blog/posts/ethereum-white-paper/" class="next" rel="next" title="Ethereum White Paper">Ethereum White Paper<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="utterances" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/git-blog/" target="_blank">박주환</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"Comment","lightTheme":"github-light","repo":"jwanp/blog-comment"}},"search":{"algoliaAppID":"NHNYJRG99Q","algoliaIndex":"git-blog","algoliaSearchKey":"8a1b6e86e2304fd4735c8d6ab035f76f","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/git-blog/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-DZ2VH32QXR', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-DZ2VH32QXR" async></script></body>
+</html>

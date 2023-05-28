@@ -1,0 +1,20 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>bitcoin - Tag - Joohwan&#39;s blog</title>
+        <link>http://jwanp.github.io/git-blog/tags/bitcoin/</link>
+        <description>bitcoin - Tag - Joohwan&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 26 Mar 2023 15:29:48 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/git-blog/tags/bitcoin/" rel="self" type="application/rss+xml" /><item>
+    <title>Bitcoin White Paper</title>
+    <link>http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/</link>
+    <pubDate>Sun, 26 Mar 2023 15:29:48 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/bitcoin-white-paper-review/bitcoin-main.png" referrerpolicy="no-referrer">
+            </div>SKKRPTO 11기
+Satoshi Nakamoto. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Retrieved from https://bitcoin.org/bitcoin.pdf
+Satoshi Nakamoto (2008). 비트코인: 개인 대 개인 전자 화폐 시스템. (임민철 역)(2013) Retrieved from https://mincheol.im/bitcoin
+Abstract. A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending.]]></description>
+</item>
+</channel>
+</rss>

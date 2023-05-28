@@ -117,8 +117,8 @@ menu:
       identifier: personal page
       pre: ''
       post: ''
-      name: Personal Page
-      url: /personal/
+      name: About
+      url: /about/
       title: ''
 markup:
   highlight:

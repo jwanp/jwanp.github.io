@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>skkrpto - Tag - Joohwan&#39;s blog</title>
-        <link>http://jwanp.github.io/git-blog/tags/skkrpto/</link>
+        <link>http://jwanp.github.io/tags/skkrpto/</link>
         <description>skkrpto - Tag - Joohwan&#39;s blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 26 Mar 2023 15:29:59 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/git-blog/tags/skkrpto/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 26 Mar 2023 15:29:59 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/skkrpto/" rel="self" type="application/rss+xml" /><item>
     <title>Ethereum White Paper</title>
-    <link>http://jwanp.github.io/git-blog/posts/ethereum-white-paper/</link>
+    <link>http://jwanp.github.io/posts/ethereum-white-paper/</link>
     <pubDate>Sun, 26 Mar 2023 15:29:59 &#43;0900</pubDate>
-    <author>박주환</author>
-    <guid>http://jwanp.github.io/git-blog/posts/ethereum-white-paper/</guid>
+    <author>Author</author>
+    <guid>http://jwanp.github.io/posts/ethereum-white-paper/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ethereum-white-paper/ethereum-main.png" referrerpolicy="no-referrer">
             </div>SKKRPTO 11기
@@ -18,10 +18,10 @@ Vitalik Buterin. (2014). 차세대 스마트 컨트랙트와 탈중앙화된 어
 </item>
 <item>
     <title>Bitcoin White Paper</title>
-    <link>http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/</link>
+    <link>http://jwanp.github.io/posts/bitcoin-white-paper/</link>
     <pubDate>Sun, 26 Mar 2023 15:29:48 &#43;0900</pubDate>
-    <author>박주환</author>
-    <guid>http://jwanp.github.io/git-blog/posts/bitcoin-white-paper/</guid>
+    <author>Author</author>
+    <guid>http://jwanp.github.io/posts/bitcoin-white-paper/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/bitcoin-white-paper-review/bitcoin-main.png" referrerpolicy="no-referrer">
             </div>SKKRPTO 11기

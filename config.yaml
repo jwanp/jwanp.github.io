@@ -1,3 +1,5 @@
+
+---
 baseURL: 'http://jwanp.github.io'
 theme: LoveIt
 title: Joohwan's blog
@@ -6,6 +8,13 @@ languageName: English
 googleAnalytics: G-DZ2VH32QXR
 paginate: 12
 enableRobotsTXT: true
+
+algolia:
+      index: jwanp
+      appID: ${HUGO_ALGOLIA_APP_ID} 
+      key: ${HUGO_ALGOLIA_KEY} 
+
+---
 
 author:
   name: 박주환
@@ -38,10 +47,7 @@ params:
     snippetLength: 30
     highlightTag: em
     absoluteURL: false
-    algolia:
-      index: git-blog
-      appID: NHNYJRG99Q
-      key: 8a1b6e86e2304fd4735c8d6ab035f76f
+    
   analytics:
     enable: true
     google:

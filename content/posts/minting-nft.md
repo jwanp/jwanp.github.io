@@ -1,7 +1,7 @@
 ---
 title: "Minting Nft"
 date: 2023-07-16T19:59:12+09:00
-draft: true
+draft: false
 tags: ["block-chain","NFT"]
 categories: ["block-chain"]
 featuredImage: /images/minting-nft/opensea.png

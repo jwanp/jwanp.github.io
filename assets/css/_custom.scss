@@ -1,6 +1,7 @@
 img.lazyloaded{
     object-fit: contain;
     height: 100%;
+    width: auto;
   }
 
   .home[data-home=posts] .summary .featured-image-preview img.lazyloaded {

@@ -88,10 +88,11 @@ IPFS 는 분산형 파일 시스템에 데이터를 저장하고 인터넷으로
 그럼 본격적으로 pinata 에서 해당 metadata 를 저장해보자.
 
 먼저 pinata 에 그림파일을 업로드 한후에 해당 **CID** number 를 복사한다.
+<br>
 ![pinata](/images/minting-nft/pinata.png)  
-
+<br>
 metadata.json 파일에 해당 NFT 의 이름, image url, description 등을 작성 한뒤에 pinata 에 업로드 한다. 여기에서 image  에는 **ipfs://** **뒤에** 복사한 **CID** number 를 넣어준다.
-
+<br>
 ```json
 {
   "description": "Winnie the Pooh created by DALL E",  
@@ -99,7 +100,7 @@ metadata.json 파일에 해당 NFT 의 이름, image url, description 등을 작
   "name": "WINNIE_SECOND"
 }
 ```
-
+<br><br>
 
 
 ## ERC-721 token contract
@@ -135,15 +136,15 @@ contract MyToken is ERC721 {
     }
 }
 ```
-
+<br>
 해당 코드는 solidity 로 작성한 smart contract 이다. constructor() 에 자신이 원하는 token 이름과 심볼을 넣어준다. _baseURI() 함수 에서 YOUR_URL 에 아까 작성했던 **pinata** metadata.json 의 URL 을 넣어준다.
-
+<br>
 ![pinata](/images/minting-nft/metamaskdeploy.png)  
-
-[remix](https://remix.ethereum.org/) 에서 해당 contract 를 **metamask** 지갑과 연결 한뒤에 **sepolia testnet** 에 **deploy** 해주고 **mintNFT 함수**에 자신의 지갑 주소를 넣고 실행 시켜 주면 끝!
+<br>
+[Remix](https://remix.ethereum.org/) 에서 해당 contract 를 **metamask** 지갑과 연결 한뒤에 **sepolia testnet** 에 **deploy** 해주고 **mintNFT 함수**에 자신의 지갑 주소를 넣고 실행 시켜 주면 끝!
 
 ![pinata](/images/minting-nft/mintingnft.png)  
-
+<br>
 ### NFT 확인하기
 
 1. **metamask wallet**: 자신의 metamask 에서 NFT 섹션에 NFT 가져오기 버튼을 눌러서 deploy 된 contract 의 주소와 아이디를 넣어주고 가져와 주면 metamask 지갑에서 볼 수 있다. 아이디는 1 을 입력 하면되는데 이는 위에 코드에서 **_tokenIdCounter** 이다.
@@ -151,7 +152,7 @@ contract MyToken is ERC721 {
 ![pinata](/images/minting-nft/nftin.png)  
 
 해당 NFT 를 가져오게 되면 metamask 지갑에서 확인 할 수 있다.
-
+<br>
 ![pinata](/images/minting-nft/nftreceive.png)
 
 2. **opensea**: [opensea testnet](https://testnets.opensea.io/) 에서 배포된 contract 주소를 치면 NFT를 볼 수 있다. Opensea 에서 NFT 를 거래하는 것 도 가능하다.

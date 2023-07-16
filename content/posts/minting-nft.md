@@ -153,6 +153,7 @@ contract MyToken is ERC721 {
 
 해당 NFT 를 가져오게 되면 metamask 지갑에서 확인 할 수 있다.
 <br>
+
 ![pinata](/images/minting-nft/nftreceive.png)
 
 2. **opensea**: [opensea testnet](https://testnets.opensea.io/) 에서 배포된 contract 주소를 치면 NFT를 볼 수 있다. Opensea 에서 NFT 를 거래하는 것 도 가능하다.

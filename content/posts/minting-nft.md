@@ -157,4 +157,4 @@ contract MyToken is ERC721 {
 
 2. **opensea**: [opensea testnet](https://testnets.opensea.io/) 에서 배포된 contract 주소를 치면 NFT를 볼 수 있다. Opensea 에서 NFT 를 거래하는 것 도 가능하다.
 
-![pinata](/images/minting-nft/opensea.png/)  
+![pinata](/images/minting-nft/opensea.png)  

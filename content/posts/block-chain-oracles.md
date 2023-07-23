@@ -37,6 +37,7 @@ featuredImage: /images/block-chain-oracle/blockchainoracleDalle.png
 
 2. Job 이 수행할 요청은 **req 변수**에 저장되어 보내지고 job 이 결과값을 response 하면 **fullfill 함수**에서 parameter 값으로 이를 받아서 처리한다.
 
+해당 코드는 PredictGame 의 코드 일부분만을 가져온 것 이다. 해당 smart contract 의 전체 코드가 궁금하면 [PredictGame.sol](https://github.com/jwanp/SKKUOracleTeam3/blob/main/contracts/PredictGame.sol) 를 참고
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
@@ -105,33 +106,32 @@ contract PredictGame is ChainlinkClient, ConfirmedOwner {
 		}
 
 		function fulfill(bytes32 _requestId, uint256 _price) public recordChainlinkFulfillment(_requestId) {
-        // Parse the requestId to get the day index (0-6) for the price
-        emit RequestVolume(_requestId, _price);
-        
-        // datetemp[startdate] 으로 startdate 해당하는 가격을 어디까지 불러왔는지 알 수 있다.
-        //ethUsdPrices[20230627] 이 [2131511,23155,0,0] 이면 datetemp[20230627] 의 값은 2 
-				// 예 datetemp[20230627] 의 값이 2 이면 20230627 에 시작하는 날짜의 가격
-        if(datetemp[getYearMonthDay(block.timestamp)] == 0){ 
-            ethUsdPrices[getYearMonthDay(block.timestamp)][datetemp[getYearMonthDay(block.timestamp)]++] = _price; 
-        } 
-        // 전에 불러왔던 가격이 현재 받은 가격과 다르면 ethUsdPrices 에 저장. 
-        // 두개의 가격이 같으면 같은 response 를 받은 것이다.
-        else if(ethUsdPrices[getYearMonthDay(block.timestamp)][datetemp[getYearMonthDay(block.timestamp) - 1]] != _price){
-            ethUsdPrices[getYearMonthDay(block.timestamp)][datetemp[getYearMonthDay(block.timestamp)]++] = _price; 
-        }
+			emit RequestVolume(_requestId, _price);
+			
+			// datetemp[startdate] 으로 startdate 해당하는 가격을 어디까지 불러왔는지 알 수 있다.
+			//ethUsdPrices[20230627] 이 [2131511,23155,0,0] 이면 datetemp[20230627] 의 값은 2 
+					// 예 datetemp[20230627] 의 값이 2 이면 20230627 에 시작하는 날짜의 가격
+			if(datetemp[getYearMonthDay(block.timestamp)] == 0){ 
+				ethUsdPrices[getYearMonthDay(block.timestamp)][datetemp[getYearMonthDay(block.timestamp)]++] = _price; 
+			} 
+			// 전에 불러왔던 가격이 현재 받은 가격과 다르면 ethUsdPrices 에 저장. 
+			// 두개의 가격이 같으면 같은 response 를 받은 것이다.
+			else if(ethUsdPrices[getYearMonthDay(block.timestamp)][datetemp[getYearMonthDay(block.timestamp) - 1]] != _price){
+				ethUsdPrices[getYearMonthDay(block.timestamp)][datetemp[getYearMonthDay(block.timestamp)]++] = _price; 
+			}
         
 		}
 
 		function getYearMonthDay(uint256 timestamp) internal pure returns (uint256) {
-		// 31556926 is the number of seconds in a year
-        uint256 year = (timestamp / 31556926) + 1970; 
-        // 2629743 is the number of seconds in a month
-        uint256 month = (timestamp / 2629743) % 12; 
-        uint256 day = (timestamp / 86400) % 31; // 86400 is the number of seconds in a day
+			// 31556926 is the number of seconds in a year
+			uint256 year = (timestamp / 31556926) + 1970; 
+			// 2629743 is the number of seconds in a month
+			uint256 month = (timestamp / 2629743) % 12; 
+			uint256 day = (timestamp / 86400) % 31; // 86400 is the number of seconds in a day
 
-        // Combine the components into a single uint256 value
-        uint256 date = (year * 10000) + (month * 100) + day;
-        return date;
+			// Combine the components into a single uint256 value
+			uint256 date = (year * 10000) + (month * 100) + day;
+			return date;
     }
 		
 ```
@@ -145,6 +145,5 @@ contract PredictGame is ChainlinkClient, ConfirmedOwner {
 | :-------------------------------------------------: | :----------------------------------------------------------: |
 | **getYearMonthDay**(uint256 timestamp) returns date |    timestamp 를 날짜로 바꿔준다. ex) 16782917 → 20200702     |
 |     **getDaysEthUsdPrices**(uint256 _timestamp)     | 해당 timestamp 에 해당하는 ETH/USD 시세에 대한 API call 을 보낸다. |
-|   **fulfill**(bytes32 _requestId, uint256 _price)   |       response 를 받아서 스마트 계약 변수에 저장한다.        |
+|   **fulfill**(bytes32 _requestId, uint256 _price)   |       response 를 받아서 스마트 계약 변수에 저장한다. fullfill 함수는 response 가 오면 자동으로 실행 되기 때문에 따로 실행해주지 않아도 된다.  |
 
-해당 smart contract 가 궁금하면 [PredictGame.sol](https://github.com/jwanp/SKKUOracleTeam3/blob/main/contracts/PredictGame.sol) 를 참고

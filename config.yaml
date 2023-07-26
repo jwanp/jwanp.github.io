@@ -1,5 +1,4 @@
 ---
-baseURL: "/"
 algolia:
   index: jwanp
   appID: 6QK332EH1T

@@ -1,9 +1,4 @@
 ---
-algolia:
-  index: jwanp
-  appID: 6QK332EH1T
----
-
 baseURL: 'http://jwanp.github.io'
 theme: LoveIt
 title: Joohwan's blog
@@ -18,6 +13,12 @@ author:
   name: 박주환
   email: ''
   link: ''
+algolia:
+  index: jwanp
+  appID: 6QK332EH1T
+---
+
+
 
 
 params:

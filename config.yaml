@@ -39,9 +39,9 @@ params:
     highlightTag: em
     absoluteURL: false
     algolia:
-      index: git-blog
-      appID: NHNYJRG99Q
-      key: 8a1b6e86e2304fd4735c8d6ab035f76f
+      index: jwanp
+      appID: 6QK332EH1T
+      searchKey: 79b39b96ee30ec1c39a4bf1a4037c605
   analytics:
     enable: true
     google:

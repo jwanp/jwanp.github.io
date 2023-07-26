@@ -6,7 +6,19 @@
     <description>Recent content on Joohwan&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Jul 2023 19:59:12 +0900</lastBuildDate><atom:link href="http://jwanp.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jul 2023 19:12:15 +0900</lastBuildDate><atom:link href="http://jwanp.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Block Chain Oracles</title>
+      <link>http://jwanp.github.io/posts/block-chain-oracles/</link>
+      <pubDate>Sun, 23 Jul 2023 19:12:15 +0900</pubDate>
+      
+      <guid>http://jwanp.github.io/posts/block-chain-oracles/</guid>
+      <description>Blockchain Oracle Oracle 은 무었인가? Chainlink Education
+Blockchain oracles are entities that connect blockchains to external systems, thereby enabling smart contracts to execute based upon inputs and outputs from the real world.
+스마트 계약이 블록체인 외부의 데이터를 가져올 수 있게 연결해주는 entity 이다. 또한, 블록체인 안의 데이터 뿐만 아니라 외부의 데이터와 상호작용 할 수 있는 스마트 계약을 hybrid smart contract 라고 부른다.
+Smart Contract 의 양면성 Smart Contract 는 blockchain 위에서 동작하기 때문에 탈중앙화가 되어있고 누군가가 임의적으로 데이터를 수정하지 못하고 코드에 의해서만 동작한다.</description>
+    </item>
+    
     <item>
       <title>Minting Nft</title>
       <link>http://jwanp.github.io/posts/minting-nft/</link>

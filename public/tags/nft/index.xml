@@ -1,23 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>NFT on Joohwan&#39;s blog</title>
-    <link>http://jwanp.github.io/tags/nft/</link>
-    <description>Recent content in NFT on Joohwan&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 16 Jul 2023 19:59:12 +0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/nft/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Minting Nft</title>
-      <link>http://jwanp.github.io/posts/minting-nft/</link>
-      <pubDate>Sun, 16 Jul 2023 19:59:12 +0900</pubDate>
-      
-      <guid>http://jwanp.github.io/posts/minting-nft/</guid>
-      <description>나만의 NFT 만들기 remix, pinata 를이용해서 Sepolia test net 에 NFT 를 배포하는 법을 알아보자
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>NFT - Tag - Joohwan&#39;s blog</title>
+        <link>http://jwanp.github.io/tags/nft/</link>
+        <description>NFT - Tag - Joohwan&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 16 Jul 2023 19:59:12 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/nft/" rel="self" type="application/rss+xml" /><item>
+    <title>Minting Nft</title>
+    <link>http://jwanp.github.io/posts/minting-nft/</link>
+    <pubDate>Sun, 16 Jul 2023 19:59:12 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/minting-nft/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/minting-nft/opensea.png" referrerpolicy="no-referrer">
+            </div>나만의 NFT 만들기 remix, pinata 를이용해서 Sepolia test net 에 NFT 를 배포하는 법을 알아보자
 NFT란 무었인가? NFT: Non-Fungible Tokens
 한글로 번역하면 뭔가를 다른 무엇인가로 바꿀수 없는 토큰이다.
-NFTs are tokens that we can use to represent ownership of unique items*. They let us tokenise things like* art, collectibles, even real estate. They can only have one official owner at a time and they&amp;rsquo;re secured by the Ethereum blockchain – no one can modify the record of ownership or copy/paste a new NFT into existence.</description>
-    </item>
-    
-  </channel>
+NFTs are tokens that we can use to represent ownership of unique items*. They let us tokenise things like* art, collectibles, even real estate. They can only have one official owner at a time and they&rsquo;re secured by the Ethereum blockchain – no one can modify the record of ownership or copy/paste a new NFT into existence.]]></description>
+</item>
+</channel>
 </rss>

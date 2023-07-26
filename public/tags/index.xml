@@ -1,83 +1,71 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on Joohwan&#39;s blog</title>
-    <link>http://jwanp.github.io/tags/</link>
-    <description>Recent content in Tags on Joohwan&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 23 Jul 2023 19:12:15 +0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>block-chain</title>
-      <link>http://jwanp.github.io/tags/block-chain/</link>
-      <pubDate>Sun, 23 Jul 2023 19:12:15 +0900</pubDate>
-      
-      <guid>http://jwanp.github.io/tags/block-chain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>block-chain-oracle</title>
-      <link>http://jwanp.github.io/tags/block-chain-oracle/</link>
-      <pubDate>Sun, 23 Jul 2023 19:12:15 +0900</pubDate>
-      
-      <guid>http://jwanp.github.io/tags/block-chain-oracle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>smart-contract</title>
-      <link>http://jwanp.github.io/tags/smart-contract/</link>
-      <pubDate>Sun, 23 Jul 2023 19:12:15 +0900</pubDate>
-      
-      <guid>http://jwanp.github.io/tags/smart-contract/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NFT</title>
-      <link>http://jwanp.github.io/tags/nft/</link>
-      <pubDate>Sun, 16 Jul 2023 19:59:12 +0900</pubDate>
-      
-      <guid>http://jwanp.github.io/tags/nft/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ethereum</title>
-      <link>http://jwanp.github.io/tags/ethereum/</link>
-      <pubDate>Sun, 26 Mar 2023 15:29:59 +0900</pubDate>
-      
-      <guid>http://jwanp.github.io/tags/ethereum/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>paper</title>
-      <link>http://jwanp.github.io/tags/paper/</link>
-      <pubDate>Sun, 26 Mar 2023 15:29:59 +0900</pubDate>
-      
-      <guid>http://jwanp.github.io/tags/paper/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>skkrpto</title>
-      <link>http://jwanp.github.io/tags/skkrpto/</link>
-      <pubDate>Sun, 26 Mar 2023 15:29:59 +0900</pubDate>
-      
-      <guid>http://jwanp.github.io/tags/skkrpto/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bitcoin</title>
-      <link>http://jwanp.github.io/tags/bitcoin/</link>
-      <pubDate>Sun, 26 Mar 2023 15:29:48 +0900</pubDate>
-      
-      <guid>http://jwanp.github.io/tags/bitcoin/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - Joohwan&#39;s blog</title>
+        <link>http://jwanp.github.io/tags/</link>
+        <description>Tags - Tag - Joohwan&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 23 Jul 2023 19:12:15 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>block-chain</title>
+    <link>http://jwanp.github.io/tags/block-chain/</link>
+    <pubDate>Sun, 23 Jul 2023 19:12:15 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/tags/block-chain/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>block-chain-oracle</title>
+    <link>http://jwanp.github.io/tags/block-chain-oracle/</link>
+    <pubDate>Sun, 23 Jul 2023 19:12:15 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/tags/block-chain-oracle/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>smart-contract</title>
+    <link>http://jwanp.github.io/tags/smart-contract/</link>
+    <pubDate>Sun, 23 Jul 2023 19:12:15 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/tags/smart-contract/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>NFT</title>
+    <link>http://jwanp.github.io/tags/nft/</link>
+    <pubDate>Sun, 16 Jul 2023 19:59:12 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/tags/nft/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>ethereum</title>
+    <link>http://jwanp.github.io/tags/ethereum/</link>
+    <pubDate>Sun, 26 Mar 2023 15:29:59 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/tags/ethereum/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>paper</title>
+    <link>http://jwanp.github.io/tags/paper/</link>
+    <pubDate>Sun, 26 Mar 2023 15:29:59 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/tags/paper/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>skkrpto</title>
+    <link>http://jwanp.github.io/tags/skkrpto/</link>
+    <pubDate>Sun, 26 Mar 2023 15:29:59 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/tags/skkrpto/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>bitcoin</title>
+    <link>http://jwanp.github.io/tags/bitcoin/</link>
+    <pubDate>Sun, 26 Mar 2023 15:29:48 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/tags/bitcoin/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

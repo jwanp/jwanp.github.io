@@ -1,3 +1,10 @@
+---
+baseURL: "/"
+algolia:
+  index: jwanp
+  appID: 6QK332EH1T
+---
+
 baseURL: 'http://jwanp.github.io'
 theme: LoveIt
 title: Joohwan's blog
@@ -6,6 +13,7 @@ languageName: English
 googleAnalytics: G-DZ2VH32QXR
 paginate: 12
 enableRobotsTXT: true
+
 
 author:
   name: 박주환

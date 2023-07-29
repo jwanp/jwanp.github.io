@@ -3,9 +3,22 @@
         <title>Joohwan&#39;s blog</title>
         <link>http://jwanp.github.io/</link>
         <description>Hello this is description</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 23 Jul 2023 19:12:15 &#43;0900</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 30 Jul 2023 02:28:34 &#43;0900</lastBuildDate>
             <atom:link href="http://jwanp.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>개발 블로그 이렇게 하면 어떨까?</title>
+    <link>http://jwanp.github.io/posts/%EA%B0%9C%EB%B0%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EB%A0%87%EA%B2%8C-%ED%95%98%EB%A9%B4-%EC%96%B4%EB%96%A8%EA%B9%8C/</link>
+    <pubDate>Sun, 30 Jul 2023 02:28:34 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/%EA%B0%9C%EB%B0%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EB%A0%87%EA%B2%8C-%ED%95%98%EB%A9%B4-%EC%96%B4%EB%96%A8%EA%B9%8C/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/20230730/20230730.png" referrerpolicy="no-referrer">
+            </div>taetaetae 님의 블로그 포스트를 읽던 와중 꽂히던 말 이 있었다.
+정답형 블로그(A는 B)가 아니라 본인의 개발 이야기가 담긴 내용으로 구성
+그 후에 블로그에 글을 쓰는 목적과 방향성에 대해 생각 해보았다. 그러다가 블로그를 굳이 정보전달의 목적으로만 사용 할 필요가 있나? 라는 생각이 들었다. 해서 개발 블로그의 방향성을 정보전달에서 개발 문제해결 과정, 그 외에도 나만의 경험과 생각을 기록하는 곳으로 탈바꿈하고자 한다.
+개발 블로그의 시작 지금 생각해보면 개발 블로그를 시작한 것은 너무 잘한 일 이다.]]></description>
+</item>
+<item>
     <title>Block Chain Oracles</title>
     <link>http://jwanp.github.io/posts/block-chain-oracles/</link>
     <pubDate>Sun, 23 Jul 2023 19:12:15 &#43;0900</pubDate>

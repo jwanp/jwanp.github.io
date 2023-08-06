@@ -4,6 +4,8 @@ date: 2023-08-06T22:33:26+09:00
 draft: false
 tags: ["block-chain","web3.js","smart-contract"]
 categories: ["block-chain"]
+featuredImage: /images/web3.js/web3_js.png
+
 ---
 
 지금까지는 스마트 컨트렉트를 개발하는 것에 초점이 맞춰져 있었다. 그렇다면 frontend 랑 스마트 컨트렉트와 연결은 어떻게 할까? 

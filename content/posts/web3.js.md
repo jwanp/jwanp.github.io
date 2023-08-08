@@ -34,7 +34,7 @@ blockchain 노드상에 있는 스마트 컨트렉트 정보들은 blockchain �
 
 # Provider			 			 			 			 		
 
-우리는 Provider 를 통해서 block chain node 에 접근 할 수 있다. 지금은 Provider 을 이해하기 쉽게 blockchain 노드에 있는 API server 라고 생각하면 될 것 같다.
+우리는 Provider 를 통해서 blockchain node 에 접근 할 수 있다. 지금은 Provider 을 이해하기 쉽게 blockchain 노드에 있는 API server 라고 생각하면 될 것 같다.
 
 [https://docs.web3js.org/guides/web3_providers_guide/](https://docs.web3js.org/guides/web3_providers_guide/)
 
@@ -46,6 +46,7 @@ blockchain 노드상에 있는 스마트 컨트렉트 정보들은 blockchain �
 일반적인 web 에서는 frontend 가 API server 와 통신을 주고 받을때 HTTP protocol 로 통신한다. 하지만 provider 는 JSON-RPC 라는 통신 규약 에 의해서 소통한다. 
 
 ![provider 구조도](/images/web3.js/Wed3js구조도.jpeg) 
+
 [마이크로소프즈웨어 393호 발췌 (web3.js 구조도)](http://wiki.hash.kr/index.php/%ED%8C%8C%EC%9D%BC:Wed3js%EA%B5%AC%EC%A1%B0%EB%8F%84.jpg)
 
 Provider 는 다음과 같은 것들이 있다. 한번씩 들어봤던가 써봤던 것들이다. 
@@ -143,7 +144,8 @@ Web3.js 는 블록체인과 상호작용하는 메서드를 단일한 **web3** �
 
 두개의 장점만을 나열하면 다음과 같다.
 
-**web3.js** : popularity, ethereum foundation, documentation <br>**ethers.js** : performance, usability, hardhat-tutorial, documentation(getting-started, playground)
+- **web3.js** : popularity, ethereum foundation, documentation
+- **ethers.js** : performance, usability, hardhat-tutorial, documentation(getting-started, playground)
 
 ### 결론
 

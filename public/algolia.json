@@ -86,5 +86,37 @@
             "block-chain"
         ],
         "featuredImage": "/images/minting-nft/opensea.png"
+    },
+    {
+        "title": "Web3.js",
+        "uri": "posts/web3.js",
+        "content": "frontend                         web        front end   back end                API                   HTTP                      front end          Web2        back end   smart contract      front end                                  Blockchain node   provider   JSON RPC                    smart contract                                                                         Web3 js   ethers js                                   ethereum foundation            Web3 js           Web3 js    web3 org   Web3 js collection libraries allow interact local remote ethereum node using HTTP  IPC WebSocket  Web3 js                           javascript                             ethereum node                   javascript                             DApp  Decentralized application                        solidity     smart contract                     frontend       smart contract                       web3 js     blockchain                       blockchain                                                                                                                smart contract               blockchain                            Provider     Provider       blockchain node                  Provider           blockchain        API server                 https   docs web3js org guides web3providersguide    web3 js providers objects responsible enabling connectivity Ethereum network various ways  Provider   ethereum network     JSON RPC                    ethereum node     JSONRPC vs HTTP protocol                          web     frontend   API server              HTTP protocol             provider   JSON RPC                                393      web3 js      Provider                                      Remote Node Provider   alchemy    Injected Provider   MetaMask         Alchemy  Infura  Metamask    provider                                                       provider               Web3 js                                                                                 Tutorial           Getting Started        Web3 js                                                         constructor    provider        Web3       Provider         HttpProvider  WebsocketProvider                   constructor    url                                      provider            const web3   new Web3 new Web3 providers HttpProvider  http   loc   const web3   new Web3 new Web3 providers WebsocketProvider  ws   loc                        ws       http   url        Web3 js                     const   Web3     require  web3    const web3   new Web3    PROVIDER     MetaMask metamask     window ethereum                          window ethereum         metamask                    Web3               web3   new Web3 window ethereum   deploy SmartContract smartcontract   compile    abi   bytecode             compile      solc        hardhat                 abi   bytecode                             const MyContract   new web3 eth Contract abi   const myContract   MyContract deploy   data   0x    bytecode  arguments   1       const gas   await myContract estimateGas   from  account      const tx   await myContract send   from  account  gas  gasPrice 10000000000                     MyContract deploy                                                              send                  send        call      SmartContract         abi                contract address         const MyContract   new web3 eth Contract abi  deployedAddress          SmartContract             send      call                                                  send     gas          call     gas               smart contract        send    smart contract                    estimatedgas  gasPrice     call    smart contract                      pure  view Web3 js vs Ethers js          ethers js                                         Ethers js                                            web3 js   ethers js                                                                                                                                                                 Feb 2015   Jul 2016     github stars   17 8k stars   6 9k stars     github contributors   16     1     size   590kb   116kb             Web3 js                                  Web3 js                         web3               ethers js  API                    Provider                      Signer                                                                                          ethers js                                         web3 js   popularity  ethereum foundation  documentation ethers js   performance  usability  hardhat tutorial  documentation getting started  playground                                  ethers js                       hardhat tutorial   ethers js",
+        "objectID": "posts/web3.js",
+        "date": "2023-08-06T13:33:26.000Z",
+        "draft": false,
+        "tags": [
+            "block-chain",
+            "web3.js",
+            "smart-contract"
+        ],
+        "categories": [
+            "block-chain"
+        ],
+        "featuredImage": "/images/web3.js/web3_js.png"
+    },
+    {
+        "title": "개발 블로그 이렇게 하면 어떨까?",
+        "uri": "posts/개발-블로그-이렇게-하면-어떨까?",
+        "content": "taetaetae                                          A  B                                                                                                                                                                                                                                                                                                                                                                                                                                            HUGO                                                                                                                                                                                                                                                                        chat gpt   copilot                                                                                                                                                                                                                                                  22                          2                                                                                                                                                                                                                    long run                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              10            1",
+        "objectID": "posts/개발-블로그-이렇게-하면-어떨까?",
+        "date": "2023-07-29T17:28:34.000Z",
+        "draft": false,
+        "tags": [
+            "2023-collection"
+        ],
+        "categories": [
+            "essay"
+        ],
+        "featuredImage": "/images/20230730/20230730.png"
     }
 ]

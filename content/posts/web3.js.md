@@ -16,7 +16,7 @@ Web2 과 유사하게 back-end 는 smart-contract 로 보고 front-end 는 동�
 
 이 과정을 우리가 일일히 다 코딩하면 머리 아프고 귀찮다. 따라서 Web3.js 나 ethers.js 와 같은 라이브러리가 있는 것이다.  이번 글에서는 그중에서도 ethereum foundation 에서 관리하고 있는 Web3.js 를 살펴볼것이다.
 
-# Web3.js 란?
+## Web3.js 란?
 
 [web3.org](https://docs.web3js.org/)
 
@@ -32,7 +32,7 @@ blockchain 노드상에 있는 스마트 컨트렉트 정보들은 blockchain �
 
 그렇다면 smart contract 정보에 접근하기 위해서는 blockchain 에 접속해야 하는데 어떻게 접속을 한단 말인가? 
 
-# Provider			 			 			 			 		
+## Provider			 			 			 			 		
 
 우리는 Provider 를 통해서 blockchain node 에 접근 할 수 있다. 지금은 Provider 을 이해하기 쉽게 blockchain 노드에 있는 API server 라고 생각하면 될 것 같다.
 
@@ -56,11 +56,11 @@ Provider 는 다음과 같은 것들이 있다. 한번씩 들어봤던가 써봤
 
 고맙게도 Alchemy, Infura, Metamask 같은 provider 들이 이미 구현 되어있어서 우리는 이것들과 정보를 주고 받으면서 쓰기 만 하면 된다. 또 이러한 provider 와 상호작용 하는 코드도 Web3.js 라이브러리에 다 구현이 되어 있다.. 너무 편한 세상이다. 이런것들을 오픈소스로 제공해 주는 사람들이 아직 많은 것을 보니 우리의 미래는밝다.
 
-# Tutorial
+## Tutorial
 
 [공식 홈페이지](https://docs.web3js.org/) 의 Getting Started 를 따라하면 Web3.js 를 어떻게 사용하는지 알 수 있다. 그중에서 주의 해야할 점과 인상 깊게 봤던 부분들을 공유하겠다.
 
-## constructor 에서 provider 자동 할당.
+### constructor 에서 provider 자동 할당.
 
 Web3 객체 에서 Provider 를 할당 할때 HttpProvider, WebsocketProvider 등 으로 따로 할당을 해야하는데 constructor 에서 url 을 보고 자동으로 할당 시켜 준다고 한다.
 
@@ -80,7 +80,7 @@ const { Web3 } = require('web3');
 const web3 = new Web3(/* PROVIDER*/); 
 ```
 
-## MetaMask
+### MetaMask
 
 metamask 에서는 window.ethereum 이라는 객체가 브라우저에서 생성한다. 따라서 window.ethereum 객체가 없다면 metamask 가 안 깔린 것이다.
 
@@ -90,7 +90,7 @@ metamask 에서는 window.ethereum 이라는 객체가 브라우저에서 생성
 web3 = new Web3(window.ethereum);
 ```
 
-## deploy SmartContract
+### deploy SmartContract
 
 smartcontract 를 compile 하면 abi 와 bytecode 가 주어진다. 어떻게 compile 하냐고? solc 라이브러리나 hardhat 라이브러리를 이용하면 된다.
 
@@ -104,7 +104,7 @@ const gas = await myContract.estimateGas({ from: account, }); const tx = await m
 
 여기에서 주의 해야할 점은 MyContract.deploy() 한다고 끝이 아니다. <br>스마트 컨트렉트를 배포하는것은 블록체인 노드의 변화를 야기 하므로 가스비가 든다.  .send() 함수 까지 해줘야 한다.
 
-## .send() 함수와 .call() 함수
+### .send() 함수와 .call() 함수
 
 SmartContract 를 가져올때는 abi 와 블록체인 상에서 가져올 contract address 가 필요하다.
 
@@ -120,7 +120,7 @@ const MyContract = new web3.eth.Contract(abi, deployedAddress);
 
 - **.call()**: smart contract 의 상태를 변경하지 않는 함수 호출: pure, view
 
-# Web3.js vs Ethers.js
+## Web3.js vs Ethers.js
 
 해당 포스트에서 ethers.js 는 다루지 않았지만 둘중 어느 라이브러리를 사용해야 한단 말인가? <br>나는 Ethers.js 의 손을 들어 주고 싶다. 하지만 먼저 두개를 비교하면 다음과 같다.
 

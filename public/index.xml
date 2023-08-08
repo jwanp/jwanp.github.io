@@ -3,9 +3,21 @@
         <title>Joohwan&#39;s blog</title>
         <link>http://jwanp.github.io/</link>
         <description>Hello this is description</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 30 Jul 2023 02:28:34 &#43;0900</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 06 Aug 2023 22:33:26 &#43;0900</lastBuildDate>
             <atom:link href="http://jwanp.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Web3.js</title>
+    <link>http://jwanp.github.io/posts/web3.js/</link>
+    <pubDate>Sun, 06 Aug 2023 22:33:26 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/web3.js/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/web3.js/web3_js.png" referrerpolicy="no-referrer">
+            </div>지금까지는 스마트 컨트렉트를 개발하는 것에 초점이 맞춰져 있었다. 그렇다면 frontend 랑 스마트 컨트렉트와 연결은 어떻게 할까?
+web 개발은 크게 front-end 와 back-end 로 나누어서 볼 수 있다. API 서버를 만들어서 필요한 정보들을 HTTP 프로토콜로 가져오든지 해서 보기 좋게 front-end 에서 뿌려준다.
+Web2 과 유사하게 back-end 는 smart-contract 로 보고 front-end 는 동일하다. 그렇다면 소통 방식도 같을까? 그렇지 않다. Blockchain node 의 provider 는 JSON-RPC 라는 통신 규약을 사용하고 우리는 smart-contract 에서 정보들을 가져올때 이러한 규약들을 이용해서 소통해야한다.]]></description>
+</item>
+<item>
     <title>개발 블로그 이렇게 하면 어떨까?</title>
     <link>http://jwanp.github.io/posts/%EA%B0%9C%EB%B0%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EB%A0%87%EA%B2%8C-%ED%95%98%EB%A9%B4-%EC%96%B4%EB%96%A8%EA%B9%8C/</link>
     <pubDate>Sun, 30 Jul 2023 02:28:34 &#43;0900</pubDate>

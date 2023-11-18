@@ -51,7 +51,8 @@ HashMap<String, String> map = new HashMap<>();
 
 ### HashMap(int initialCapacity)
 
-선언시에 미리 사이즈를 정해두면 메모리 공간에 상당히 도움된다.<br>크기를 알 수 있다면 initialCapacity 를 설정 해 두도록 하자.
+선언시에 미리 사이즈를 정해두면 메모리 공간에 상당히 도움된다.<br>
+크기를 알 수 있다면 initialCapacity 를 설정 해 두도록 하자.
 
 ```java
 HashMap<String, String> map = new HashMap<>(10);
@@ -73,7 +74,8 @@ HashMap<String, String> map = new HashMap<String,String>(){{
 
 ## Methods
 
-HashMap 클래스의 기본적인 함수들이다.<br>사용 법은 `hm.함수명;` 이런식으로 쓰면된다.
+HashMap 클래스의 기본적인 함수들이다.<br>
+사용 법은 `hm.함수명;` 이런식으로 쓰면된다.
 
 ### clear, clone
 
@@ -101,7 +103,8 @@ map.clear(); //모든 값 제거
 
 ### Set
 
-Key 와 Value 값을 순환할때는 **entrySet()** 을 하는 것이 더 효율적이다.<br> KeySet() 을 사용하면 map.get() 함수를 써야해서 성능이 하락된다.
+Key 와 Value 값을 순환할때는 **entrySet()** 을 하는 것이 더 효율적이다.<br> 
+KeySet() 을 사용하면 map.get() 함수를 써야해서 성능이 하락된다.
 
 - **entrySet()** -> Set<Map.Entry<K,V>>
 

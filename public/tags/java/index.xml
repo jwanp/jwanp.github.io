@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Java - Tag - Joohwan&#39;s blog</title>
+        <link>http://jwanp.github.io/tags/java/</link>
+        <description>Java - Tag - Joohwan&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 19 Nov 2023 02:57:06 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/java/" rel="self" type="application/rss+xml" /><item>
+    <title>[Java] HashMap Class</title>
+    <link>http://jwanp.github.io/posts/hashmap-class/</link>
+    <pubDate>Sun, 19 Nov 2023 02:57:06 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/hashmap-class/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/Java/Java.png" referrerpolicy="no-referrer">
+            </div>Java HashMap Class 를 알아보자.
+먼저 HashMap 은 탐색에 매우 효율적이다.
+Key-value pair 로서 값을 저장한다. key 값과 value 값을 hashfunction 을 이용해 매우 빠르게 찾는다. 탐색시 O(1) 의 성능을 보인다. 해당 사이트들을 참고하여 작성하였다.
+https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html
+https://coding-factory.tistory.com/556
+import HashMap&lt;K,V&gt;
+K - key 값의 type V - value 값의 type import java.util.HashMap; Constructors default load factor - 0.75
+HashMap() HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(); HashMap&lt;String, String&gt; map = new HashMap&lt;&gt;(); HashMap(int initialCapacity) 선언시에 미리 사이즈를 정해두면 메모리 공간에 상당히 도움된다.]]></description>
+</item>
+</channel>
+</rss>

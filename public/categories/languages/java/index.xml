@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>languages/Java - Category - Joohwan&#39;s blog</title>
+        <link>http://jwanp.github.io/categories/languages/java/</link>
+        <description>languages/Java - Category - Joohwan&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="http://jwanp.github.io/categories/languages/java/" rel="self" type="application/rss+xml" /><item>
+    <title>[Java] HashMap Class</title>
+    <link>http://jwanp.github.io/posts/java-hashmap-class/</link>
+    <pubDate>Sun, 19 Nov 2023 02:32:56 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/java-hashmap-class/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/minting-nft/opensea.png" referrerpolicy="no-referrer">
+            </div>hello world]]></description>
+</item>
+</channel>
+</rss>

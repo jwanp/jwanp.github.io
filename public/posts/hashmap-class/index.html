@@ -32,7 +32,7 @@ HashMap() HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://jwanp.github.io/posts/hashmap-class/" /><link rel="prev" href="http://jwanp.github.io/posts/web3.js/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://jwanp.github.io/posts/hashmap-class/" /><link rel="prev" href="http://jwanp.github.io/posts/web3.js/" /><link rel="next" href="http://jwanp.github.io/posts/2024-%EB%A7%88%EC%9D%B8%EB%93%9C%EC%85%8B/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -164,7 +164,8 @@ HashMap() HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>Java HashMap Class 를 알아보자.</p>
+            </div><div class="content" id="content"><hr>
+<p>Java HashMap Class 를 알아보자.</p>
 <p>먼저 HashMap 은 탐색에 매우 효율적이다.</p>
 <ul>
 <li>Key-value pair 로서 값을 저장한다.</li>
@@ -174,6 +175,8 @@ HashMap() HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(
 <p>해당 사이트들을 참고하여 작성하였다.</p>
 <p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html" target="_blank" rel="noopener noreffer ">https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html</a></p>
 <p><a href="https://coding-factory.tistory.com/556" target="_blank" rel="noopener noreffer ">https://coding-factory.tistory.com/556</a></p>
+<hr>
+<hr>
 <h2 id="import">import</h2>
 <p>HashMap&lt;K,V&gt;</p>
 <ul>
@@ -182,6 +185,7 @@ HashMap() HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
 </span></span></code></pre></div><hr>
+<hr>
 <h2 id="constructors">Constructors</h2>
 <p>default load factor - 0.75</p>
 <h3 id="hashmap">HashMap()</h3>
@@ -197,7 +201,9 @@ HashMap() HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;(){{</span>
 </span></span><span class="line"><span class="cl">	<span class="n">put</span><span class="o">(</span><span class="s">&#34;key&#34;</span><span class="o">,</span><span class="s">&#34;value&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}};</span>
-</span></span></code></pre></div><h2 id="methods">Methods</h2>
+</span></span></code></pre></div><hr>
+<hr>
+<h2 id="methods">Methods</h2>
 <p>HashMap 클래스의 기본적인 함수들이다.<!-- raw HTML omitted -->
 사용 법은 <code>hm.함수명;</code> 이런식으로 쓰면된다.</p>
 <h3 id="clear-clone">clear, clone</h3>
@@ -324,7 +330,9 @@ KeySet() 을 사용하면 map.get() 함수를 써야해서 성능이 하락된�
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// values() 값들 ArrayList 로 변환
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">length_list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">hm</span><span class="o">.</span><span class="na">values</span><span class="o">());</span>
-</span></span></code></pre></div><h2 id="hashmap-sorting">HashMap Sorting</h2>
+</span></span></code></pre></div><hr>
+<hr>
+<h2 id="hashmap-sorting">HashMap Sorting</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
@@ -360,7 +368,8 @@ KeySet() 을 사용하면 map.get() 함수를 써야해서 성능이 하락된�
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/web3.js/" class="prev" rel="prev" title="Web3.js"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Web3.js</a></div>
+    <div class="post-nav"><a href="/posts/web3.js/" class="prev" rel="prev" title="Web3.js"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Web3.js</a>
+            <a href="/posts/2024-%EB%A7%88%EC%9D%B8%EB%93%9C%EC%85%8B/" class="next" rel="next" title="2024 마인드셋">2024 마인드셋<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="utterances" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">utterances</a>.

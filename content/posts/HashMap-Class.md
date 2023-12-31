@@ -8,7 +8,7 @@ featuredImage: /images/Java/Java.png
 ---
 
 
-
+---
 Java HashMap Class 를 알아보자.
 
 먼저 HashMap 은 탐색에 매우 효율적이다. 
@@ -21,8 +21,10 @@ Java HashMap Class 를 알아보자.
 
 https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html
 
- https://coding-factory.tistory.com/556 
+https://coding-factory.tistory.com/556 
 
+---
+---
 ## import
 
 HashMap<K,V>
@@ -33,9 +35,8 @@ HashMap<K,V>
 ```java
 import java.util.HashMap;
 ```
-
-
-
+---
+---
 ## Constructors
 
 default load factor - 0.75
@@ -71,7 +72,8 @@ HashMap<String, String> map = new HashMap<String,String>(){{
 	put("key","value");
 }};
 ```
-
+---
+---
 ## Methods
 
 HashMap 클래스의 기본적인 함수들이다.<br>
@@ -206,6 +208,8 @@ map.replaceAll((key, value) -> {
 // values() 값들 ArrayList 로 변환
 List<Integer> length_list = new ArrayList<>(hm.values());
 ```
+---
+---
 
 ## HashMap Sorting
 

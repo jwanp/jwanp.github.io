@@ -43,7 +43,7 @@ HashMap() HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/jwanp.github.io\/posts\/hashmap-class\/"
-        },"image": ["https:\/\/user-images.githubusercontent.com\/77142334\/227780652-4a867037-5843-4d78-b5e7-9c27f6203e23.png"],"genre": "posts","keywords": "Java, HashMap, 코딩테스트","wordcount":  487 ,
+        },"image": ["https:\/\/user-images.githubusercontent.com\/77142334\/227780652-4a867037-5843-4d78-b5e7-9c27f6203e23.png"],"genre": "posts","keywords": "Java, HashMap, 코딩테스트","wordcount":  489 ,
         "url": "http:\/\/jwanp.github.io\/posts\/hashmap-class\/","datePublished": "2023-11-19T02:57:06+09:00","dateModified": "2023-11-19T02:57:06+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -117,7 +117,7 @@ HashMap() HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">[Java] HashMap Class</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>박주환</a></span>&nbsp;<span class="post-category">included in <a href="/categories/java/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Java</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-11-19">2023-11-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;487 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-11-19">2023-11-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;489 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -181,13 +181,15 @@ HashMap() HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(
 <li>V - value 값의 type</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-</span></span></code></pre></div><h2 id="constructors">Constructors</h2>
+</span></span></code></pre></div><hr>
+<h2 id="constructors">Constructors</h2>
 <p>default load factor - 0.75</p>
 <h3 id="hashmap">HashMap()</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
 </span></span><span class="line"><span class="cl"><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span> 
 </span></span></code></pre></div><h3 id="hashmapint-initialcapacity">HashMap(int initialCapacity)</h3>
-<p>선언시에 미리 사이즈를 정해두면 메모리 공간에 상당히 도움된다.<!-- raw HTML omitted -->크기를 알 수 있다면 initialCapacity 를 설정 해 두도록 하자.</p>
+<p>선언시에 미리 사이즈를 정해두면 메모리 공간에 상당히 도움된다.<!-- raw HTML omitted -->
+크기를 알 수 있다면 initialCapacity 를 설정 해 두도록 하자.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;(</span><span class="mi">10</span><span class="o">);</span>
 </span></span></code></pre></div><h3 id="hashmapinit-initialcapacity-float-loadfactor"><strong>HashMap(init initialCapacity, float loadFactor)</strong></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;(</span><span class="mi">10</span><span class="o">,</span><span class="mf">0.7f</span><span class="o">);</span>
@@ -196,7 +198,8 @@ HashMap() HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(
 </span></span><span class="line"><span class="cl">	<span class="n">put</span><span class="o">(</span><span class="s">&#34;key&#34;</span><span class="o">,</span><span class="s">&#34;value&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}};</span>
 </span></span></code></pre></div><h2 id="methods">Methods</h2>
-<p>HashMap 클래스의 기본적인 함수들이다.<!-- raw HTML omitted -->사용 법은 <code>hm.함수명;</code> 이런식으로 쓰면된다.</p>
+<p>HashMap 클래스의 기본적인 함수들이다.<!-- raw HTML omitted -->
+사용 법은 <code>hm.함수명;</code> 이런식으로 쓰면된다.</p>
 <h3 id="clear-clone">clear, clone</h3>
 <ul>
 <li>
@@ -221,7 +224,8 @@ HashMap() HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(
 </li>
 </ul>
 <h3 id="set">Set</h3>
-<p>Key 와 Value 값을 순환할때는 <strong>entrySet()</strong> 을 하는 것이 더 효율적이다.<!-- raw HTML omitted --> KeySet() 을 사용하면 map.get() 함수를 써야해서 성능이 하락된다.</p>
+<p>Key 와 Value 값을 순환할때는 <strong>entrySet()</strong> 을 하는 것이 더 효율적이다.<!-- raw HTML omitted -->
+KeySet() 을 사용하면 map.get() 함수를 써야해서 성능이 하락된다.</p>
 <ul>
 <li>
 <p><strong>entrySet()</strong> -&gt; Set&lt;Map.Entry&lt;K,V&raquo;</p>

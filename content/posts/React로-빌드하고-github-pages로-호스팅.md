@@ -28,7 +28,7 @@ React 프로젝트 의 루트폴더에서 `npm run build`를 하면 build 폴더
 1. repository 이름 아무거나 만들고 build 폴더의 내용물들을 해당 repository에 넣어준다.
 2. Settings => Pages에서
 
-![githubPages](/images/Tech/React로-빌드하고-github-pages로-호스팅/githubPages.png)
+![githubPages](/images/tech/React로-빌드하고-github-pages로-호스팅/githubPages.png)
 
 Branch를 main으로 설정하고 Save를 누르면 끝이다. 너무 쉽다!
 이제 `http(s)://<username>.github.io/<repository>` 으로 접속하면 웹사이트가 나와야 하는데... 😇
@@ -38,7 +38,7 @@ Branch를 main으로 설정하고 Save를 누르면 끝이다. 너무 쉽다!
 에러가 뜨면 기쁘다. 해결할 때 생각을 할 수 있어서 좋다. 해결하면 더 기쁘다. 다만 결과에 집착하면 안 된다.
 
 먼저 에러의 원인을 찾아야 한다. 마지막에서 2번째에 단서가 있다.
-![404Error](/images/Tech/React로-빌드하고-github-pages로-호스팅/404Error.png)
+![404Error](/images/tech/React로-빌드하고-github-pages로-호스팅/404Error.png)
 
 `http(s)://jwanp.github.io/manifest` 이부분이 수상하다. 위에서 `http(s)://<username>.github.io/<repository>` 으로 접속해야 한다고 했다.
 

@@ -3,7 +3,33 @@
         <title>All Posts - Joohwan&#39;s blog</title>
         <link>http://jwanp.github.io/posts/</link>
         <description>All Posts | Joohwan&#39;s blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 13 Jan 2024 14:03:59 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 22 Jan 2024 10:15:17 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Visual Studio Code --file-write: EPERM 해결</title>
+    <link>http://jwanp.github.io/posts/vsc--file-write-error/</link>
+    <pubDate>Mon, 22 Jan 2024 10:15:17 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/vsc--file-write-error/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/featuredImage/VSC--file-write-Error.png" referrerpolicy="no-referrer">
+            </div>잘 작업해 오던 작업 폴더에서 저장이 안된다. 마지막에 branch merge 하고 작업 branch 삭제후 다시 분기했었다. 그 후부터 익숙하지만 좀 더 까다로운 에러가 뜬다.
+비번을 입력해도 왜 계속 에러가 뜨지 먼저 저장을 하면 비번을 입력하라고 나온다. 여기까지는 익숙하다. 그리고 비번을 치면 저장이 되어야 하는데&hellip; 또 다시 에러가 뜬다.
+이런적은 처음이어서 굉장히 당황스러웠다.
+왜 이럴까? 일단 EPERM을 보니 권한 문제인 것 같다. 따라서 폴더의 권한을 나로 바꿔야 하고 구글링을 해서 해결하였다.]]></description>
+</item>
+<item>
+    <title>React로 빌드하고 github pages 로 호스팅 해보았다. (feat. 404에러)</title>
+    <link>http://jwanp.github.io/posts/react%EB%A1%9C-%EB%B9%8C%EB%93%9C%ED%95%98%EA%B3%A0-github-pages%EB%A1%9C-%ED%98%B8%EC%8A%A4%ED%8C%85/</link>
+    <pubDate>Sat, 20 Jan 2024 14:07:47 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/react%EB%A1%9C-%EB%B9%8C%EB%93%9C%ED%95%98%EA%B3%A0-github-pages%EB%A1%9C-%ED%98%B8%EC%8A%A4%ED%8C%85/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/featuredImage/React%eb%a1%9c-%eb%b9%8c%eb%93%9c%ed%95%98%ea%b3%a0-github-pages%eb%a1%9c-%ed%98%b8%ec%8a%a4%ed%8c%85.jpg" referrerpolicy="no-referrer">
+            </div>사진: Unsplash의 Roman Synkevych
+Github Pages Github Pages는 static site hosting 서비스로 레파지토리에 HTML, CSS, Javascript 파일을 올리면 웹사이트를 배포해 주는 기능이다.
+보통은 개인 블로그를 github.io 도메인을 사용하여 배포한다. 내 블로그도 HUGO 라는 Static Site Genegrator 와 Github Pages 를 이용하여 배포하였다. Github Pages를 이용하려면 github.io 도메인을 이용하기 때문에 &lt;username&gt;.github.io 레파지토리는 무조건 있어야 한다. 만드는 법은 여기 참고.
+Github Pages가 좋은점은 모든 public 레파지토리를 이 도메인을 사용하여 배포할 수 있다는 점이다.]]></description>
+</item>
+<item>
     <title>[ESLint, React] 모든 Import 에 Casing 오류가 뜬다</title>
     <link>http://jwanp.github.io/posts/%EB%AA%A8%EB%93%A0-import-%EC%97%90-casing-%EC%98%A4%EB%A5%98%EA%B0%80-%EB%9C%AC%EB%8B%A4/</link>
     <pubDate>Sat, 13 Jan 2024 14:03:59 &#43;0900</pubDate>
@@ -27,9 +53,9 @@ Case Sensitivity Check the File System File Extension IDE/File Explorer Case Sen
                 <img src="/images/featuredImage/20240112.jpg" referrerpolicy="no-referrer">
             </div>Pixabay로부터 입수된 Maike und Björn Bröskamp님의 이미지 입니다.
 실생활에서 마주하는 문제를 코딩을 이용하면 꽤 효율적으로 해결할 수 있다. 특히 문서작업에서 자동화를 한다면 훨씬 효율적으로 일할 수 있다.
-최근에 동아리의 팀 자동 배정 프로그램을 만들어 보았다. 만약 이 프로그램이 없다면 매우 힘들었을 것이다. 왜냐하면 100명에 해당하는 사람들의 시간들을 직접 확인하면서 팀을 짜야하기 때문이다.
+최근에 동아리의 팀 자동 배정 프로그램을 만들어 보았다. 만약 이 프로그램이 없다면 매우 힘들었을 것이다. 왜냐하면 많은수의 해당하는 사람들의 시간들을 직접 확인하면서 팀을 짜야하기 때문이다.
 이는 많은 시행착오가 필요하지만 코드는 돌리기만 하면 자동으로 배정된다.
-목적 코드의 목적은 100명 이상의 사람들의 팀을 자동 배정하는 것이다.]]></description>
+목적 코드의 목적은 많은수의 사람들의 팀을 자동 배정하는 것이다.]]></description>
 </item>
 <item>
     <title>2024 마인드셋</title>
@@ -110,32 +136,6 @@ Smart Contract 의 양면성 Smart Contract 는 blockchain 위에서 동작하�
 NFT란 무었인가? NFT: Non-Fungible Tokens
 한글로 번역하면 뭔가를 다른 무엇인가로 바꿀수 없는 토큰이다.
 NFTs are tokens that we can use to represent ownership of unique items*. They let us tokenise things like* art, collectibles, even real estate. They can only have one official owner at a time and they&rsquo;re secured by the Ethereum blockchain – no one can modify the record of ownership or copy/paste a new NFT into existence.]]></description>
-</item>
-<item>
-    <title>Ethereum White Paper</title>
-    <link>http://jwanp.github.io/posts/ethereum-white-paper/</link>
-    <pubDate>Sun, 26 Mar 2023 15:29:59 &#43;0900</pubDate>
-    <author>박주환</author>
-    <guid>http://jwanp.github.io/posts/ethereum-white-paper/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/ethereum-white-paper/ethereum-main.png" referrerpolicy="no-referrer">
-            </div>SKKRPTO 11기
-Vitalik Buterin. (2014). Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform. Retrieved from https://ethereum.org/en/whitepaper/
-Vitalik Buterin. (2014). 차세대 스마트 컨트랙트와 탈중앙화된 어플리케이션 플랫폼. (EthereumKorea 편역) Retrieved from https://ethereum.org/ko/whitepaper/
-서론 사토시 나카모토에 의해 2009 년 개발된 비트코인은 종종 화폐와 통화분야에서 매우 근본적인 혁신으로 묘사되어 왔는데, 이것은 비트코인이 어떤 담보나 내재적인 가치를 가지지 않으며, 중앙화된 발행기관이나 통제기관도 없는 디지털 자산의 첫 번째 사례였기 때문이다. 하지만 비트코인 실험의 더욱 중요한 측면은 비트코인을 떠받치고 있는 분산 합의 수단으로서의 블록체인 기술이며, 이에 대한 관심이 급격하게 늘어나고 있다.]]></description>
-</item>
-<item>
-    <title>Bitcoin White Paper</title>
-    <link>http://jwanp.github.io/posts/bitcoin-white-paper/</link>
-    <pubDate>Sun, 26 Mar 2023 15:29:48 &#43;0900</pubDate>
-    <author>박주환</author>
-    <guid>http://jwanp.github.io/posts/bitcoin-white-paper/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/bitcoin-white-paper-review/bitcoin-main.png" referrerpolicy="no-referrer">
-            </div>SKKRPTO 11기
-Satoshi Nakamoto. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Retrieved from https://bitcoin.org/bitcoin.pdf
-Satoshi Nakamoto (2008). 비트코인: 개인 대 개인 전자 화폐 시스템. (임민철 역)(2013) Retrieved from https://mincheol.im/bitcoin
-Abstract. A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending.]]></description>
 </item>
 </channel>
 </rss>

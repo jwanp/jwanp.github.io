@@ -2,8 +2,8 @@
 title: "Minting Nft"
 date: 2023-07-16T19:59:12+09:00
 draft: false
-tags: ["block-chain","NFT","smart-contract"]
-categories: ["block-chain"]
+tags: ["block-chain"]
+categories: ["Tech"]
 featuredImage: /images/minting-nft/opensea.png
 ---
 

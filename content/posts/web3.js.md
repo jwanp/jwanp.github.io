@@ -2,8 +2,8 @@
 title: "Web3.js"
 date: 2023-08-06T22:33:26+09:00
 draft: false
-tags: ["block-chain","web3.js","smart-contract"]
-categories: ["block-chain"]
+tags: ["block-chain"]
+categories: ["Tech"]
 featuredImage: /images/web3.js/web3_js.png
 
 ---

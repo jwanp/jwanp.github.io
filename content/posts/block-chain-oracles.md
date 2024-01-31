@@ -2,8 +2,8 @@
 title: "Block Chain Oracles"
 date: 2023-07-23T19:12:15+09:00
 draft: false
-tags: ["block-chain","smart-contract","block-chain-oracle"]
-categories: ["block-chain"]
+tags: ["block-chain"]
+categories: ["Tech"]
 featuredImage: /images/block-chain-oracle/blockchainoracleDalle.png
 ---
 

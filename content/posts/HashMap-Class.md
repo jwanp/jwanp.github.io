@@ -2,8 +2,8 @@
 title: "[Java] HashMap Class"
 date: 2023-11-19T02:57:06+09:00
 draft: false
-tags: ["Java","HashMap","코딩테스트"]
-categories: ["Java"]
+tags: ["java"]
+categories: ["Tech"]
 featuredImage: /images/Java/Java.png
 ---
 

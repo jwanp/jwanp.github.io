@@ -2,9 +2,8 @@
 title: "Ethereum White Paper"
 date: 2023-03-26T15:29:59+09:00
 draft: false
-
-tags: ["ethereum","block-chain","paper","skkrpto"]
-categories: ["block-chain","paper-review"]
+tags: ["block-chain"]
+categories: ["Tech"]
 featuredImage: /images/ethereum-white-paper/ethereum-main.png
 ---
 **SKKRPTO 11기**

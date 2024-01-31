@@ -2,7 +2,7 @@
 title: 'React로 빌드하고 github pages 로 호스팅 해보았다. (feat. 404에러)'
 date: 2024-01-20T14:07:47+09:00
 draft: false
-tags: ['react', 'github-pages', '2024-collection']
+tags: ['react']
 categories: ['Tech']
 featuredImage: /images/featuredImage/React로-빌드하고-github-pages로-호스팅.jpg
 ---

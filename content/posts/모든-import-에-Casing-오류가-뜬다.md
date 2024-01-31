@@ -2,7 +2,7 @@
 title: "[ESLint, React] 모든 Import 에 Casing 오류가 뜬다"
 date: 2024-01-13T14:03:59+09:00
 draft: false
-tags: ["2024-collection","React","ESLint"]
+tags: ["react"]
 categories: ["Tech"]
 featuredImage: /images/Tech/202040113-ESLint.webp
 ---

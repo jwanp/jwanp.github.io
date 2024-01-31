@@ -5,7 +5,6 @@ draft: false
 tags: ["block-chain"]
 categories: ["Tech"]
 featuredImage: /images/web3.js/web3_js.png
-
 ---
 
 지금까지는 스마트 컨트렉트를 개발하는 것에 초점이 맞춰져 있었다. 그렇다면 frontend 랑 스마트 컨트렉트와 연결은 어떻게 할까? 

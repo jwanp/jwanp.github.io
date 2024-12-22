@@ -23,7 +23,7 @@
         "date": "2023-12-31T11:26:36.000Z",
         "draft": false,
         "categories": [
-            "essay"
+            "Essay"
         ],
         "featuredImage": "/images/featuredImage/2024-마인드셋.jpg"
     },
@@ -35,14 +35,10 @@
         "date": "2023-03-26T06:29:48.000Z",
         "draft": false,
         "tags": [
-            "bitcoin",
-            "block-chain",
-            "paper",
-            "skkrpto"
+            "block-chain"
         ],
         "categories": [
-            "block-chain",
-            "paper-review"
+            "Tech"
         ],
         "featuredImage": "/images/bitcoin-white-paper-review/bitcoin-main.png"
     },
@@ -54,12 +50,10 @@
         "date": "2023-07-23T10:12:15.000Z",
         "draft": false,
         "tags": [
-            "block-chain",
-            "smart-contract",
-            "block-chain-oracle"
+            "block-chain"
         ],
         "categories": [
-            "block-chain"
+            "Tech"
         ],
         "featuredImage": "/images/block-chain-oracle/blockchainoracleDalle.png"
     },
@@ -71,14 +65,10 @@
         "date": "2023-03-26T06:29:59.000Z",
         "draft": false,
         "tags": [
-            "ethereum",
-            "block-chain",
-            "paper",
-            "skkrpto"
+            "block-chain"
         ],
         "categories": [
-            "block-chain",
-            "paper-review"
+            "Tech"
         ],
         "featuredImage": "/images/ethereum-white-paper/ethereum-main.png"
     },
@@ -90,12 +80,10 @@
         "date": "2023-11-18T17:57:06.000Z",
         "draft": false,
         "tags": [
-            "Java",
-            "HashMap",
-            "코딩테스트"
+            "java"
         ],
         "categories": [
-            "Java"
+            "Tech"
         ],
         "featuredImage": "/images/Java/Java.png"
     },
@@ -107,12 +95,10 @@
         "date": "2023-07-16T10:59:12.000Z",
         "draft": false,
         "tags": [
-            "block-chain",
-            "NFT",
-            "smart-contract"
+            "block-chain"
         ],
         "categories": [
-            "block-chain"
+            "Tech"
         ],
         "featuredImage": "/images/minting-nft/opensea.png"
     },
@@ -124,14 +110,28 @@
         "date": "2024-01-20T05:07:47.000Z",
         "draft": false,
         "tags": [
-            "react",
-            "github-pages",
-            "2024-collection"
+            "react"
         ],
         "categories": [
             "Tech"
         ],
         "featuredImage": "/images/featuredImage/React로-빌드하고-github-pages로-호스팅.jpg"
+    },
+    {
+        "title": "[Javascript] Sieve of Eratosthenes",
+        "uri": "posts/Sieve-of-Eratosthenes",
+        "content": "Made                                                                                                                                                                                 loop                                 for 1      2      4       3                true              true              false    break             let   2                        Array   fill        new Array        fill             const output   new Array limit  1  fill true             Math pow      base     exponent      power     Math pow base  exponent          Math pow 2  4      2 x 2 x 2 x 2   16 Math pow 16  0 5       2 x 2     2 x 2    4      reduce    reduce                  element                  accumulator               array reduce                                    accumulator  cur  index     accumulator   cur              accumulator                callback function   4   arguments         accumulator                           return       accumulator            cur            index          index arr      array      const array1    1  2  3  4      0   1   2   3   4 const initialValue   0  const sumWithInitial   array1 reduce  accumulator  currentValue     accumulator   currentValue  initialValue   console log sumWithInitial      Expected output  10     mozila reduce      Sieve Eratosthenes       input  limit output  prime numbers limit                          ex  input 10  10                   output  2 3 5 7   10                               limit                           true          false                              true                      2               limit                  edge      0    1               if limit    4   limit     2          false          2 x 2   4   false 2 x 3   6   false 2 x 4   8   false until  2 x number    limit                                                                        let   2  output 4    false j  2 x 3    output 6    false j  2 x 4    output 8    false j  2 x 5    output 10    false     j  2 x 10    output 20    false     until     j  2 x 12    output 24    false i  3  3         false          j  3 x 2    output 6    false j  3 x 3    output 9    false j  3 x 4    output 12    false j  3 x 5    output 15    false until     j  3 x 8    output 24    false i  4  2   false                 i  5  5         false          j  5 x 2    output 10    false j  5 x 3    output 15    false j  5 x 4    output 20    false j  5 x 5    output 25    false                       output 6  output 10  output 15  output 20  3 x 2   i  2    2 x 3         5 x 2   i  2    2 x 5         5 x 3   i  3    3 x 5         5 x 4   i  2    2 x 10                              inner loop                                      inner loop           x                            let   2     inner loop                    edge case        inner loop                              outer loop            2                 inner loop               outer loop                    inner loop          outer loop        i             inner loop   x   limit        inner loop                     outer loop        limit  square root                              let   2           reduce   true                           const result   output reduce  accumulator  curr  index        curr    accumulator push index     return accumulator                function sieveOfEratosthenes limit       edge cases  limit    curr    accumulator push index     return accumulator",
+        "objectID": "posts/Sieve-of-Eratosthenes",
+        "date": "2024-12-21T08:06:52.000Z",
+        "draft": false,
+        "tags": [
+            "javascript",
+            "coding-test"
+        ],
+        "categories": [
+            "Tech"
+        ],
+        "featuredImage": "/images/tech/javascript-coding-test/소수테이블.png"
     },
     {
         "title": "Visual Studio Code --file-write: EPERM 해결",
@@ -153,12 +153,10 @@
         "date": "2023-08-06T13:33:26.000Z",
         "draft": false,
         "tags": [
-            "block-chain",
-            "web3.js",
-            "smart-contract"
+            "block-chain"
         ],
         "categories": [
-            "block-chain"
+            "Tech"
         ],
         "featuredImage": "/images/web3.js/web3_js.png"
     },
@@ -169,11 +167,8 @@
         "objectID": "posts/개발-블로그-이렇게-하면-어떨까?",
         "date": "2023-07-29T17:28:34.000Z",
         "draft": false,
-        "tags": [
-            "2023-collection"
-        ],
         "categories": [
-            "essay"
+            "Essay"
         ],
         "featuredImage": "/images/20230730/20230730.png"
     },
@@ -185,14 +180,28 @@
         "date": "2024-01-13T05:03:59.000Z",
         "draft": false,
         "tags": [
-            "2024-collection",
-            "React",
-            "ESLint"
+            "react"
         ],
         "categories": [
             "Tech"
         ],
         "featuredImage": "/images/Tech/202040113-ESLint.webp"
+    },
+    {
+        "title": "읽기만 해도 도움 되는 Javascript 코딩테스트",
+        "uri": "posts/읽기만-해도-도움-되는-Javascript-코딩테스트",
+        "content": "pictured                                                                                                                                                Python                                                                   Javascript    Java                                                                                                                        Node        Javascript                         Javascript                                                 Javascript                                                                                                                                         JS                                                                                                                               Sieve Eratosthenes",
+        "objectID": "posts/읽기만-해도-도움-되는-Javascript-코딩테스트",
+        "date": "2024-12-21T06:37:04.000Z",
+        "draft": false,
+        "tags": [
+            "javascript",
+            "coding-test"
+        ],
+        "categories": [
+            "Tech"
+        ],
+        "featuredImage": "/images/tech/javascript-coding-test/snow-and-tree.png"
     },
     {
         "title": "자동 팀 배정 프로그램을 만들어 보았다",
@@ -202,7 +211,7 @@
         "date": "2024-01-12T13:00:03.000Z",
         "draft": false,
         "tags": [
-            "2024-collection"
+            "python"
         ],
         "categories": [
             "Tech"

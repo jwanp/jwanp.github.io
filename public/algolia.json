@@ -2,7 +2,7 @@
     {
         "title": "About Me",
         "uri": "about",
-        "content": "Introduction Hello   I m Joohwan Park  skilled software engineer student Sungkyunkwan University Suwon  South Korea  strong interest blockchain development exploring its potential revolutionize various industries  worked 1 year Django website project Book Recommendation System based User Behavior History Content Analysis using AI  opportunity work intern period two months further develop project fast api server  I m always eager learn explore new technologies  including blockchain   AI Web development  Skills Programming Languages  JavaScript  Python  C  Solidity Tools Frameworks  Django  Fast api  docker  nginx Education Bachelor Software Engineering Sungkyunkwan University  Suwon  South Korea Relevant coursework  Algorithms  Data Structures  Database Systems  Web Development  Software Engineering Achievements Certifications Industrial Engineer Information Processing  Human Resources Development Service Korea          2                S top Encouragement Award  Development User Behavior History Content Analysis based Book Recommendation System  Contact Email  joohwan726 naver com GitHub  github com jwanp Feel free reach inquiries opportunities  look forward connecting you",
+        "content": "Introduction Skills Programming Languages  JavaScript  Python  C  Solidity Tools Frameworks  Django  Fast api  docker  nginx Education Bachelor Software Engineering Sungkyunkwan University  Suwon  South Korea Relevant coursework  Algorithms  Data Structures  Database Systems  Web Development  Software Engineering Achievements Certifications Industrial Engineer Information Processing  Human Resources Development Service Korea          2                S top Encouragement Award  Development User Behavior History Content Analysis based Book Recommendation System  Contact Email  joohwan726 naver com GitHub  github com jwanp Feel free reach inquiries opportunities  look forward connecting you",
         "objectID": "about",
         "date": "2023-05-28T06:03:17.000Z",
         "draft": false,
@@ -56,6 +56,22 @@
             "Tech"
         ],
         "featuredImage": "/images/block-chain-oracle/blockchainoracleDalle.png"
+    },
+    {
+        "title": "[Javascript] Capturing Rainwater",
+        "uri": "posts/Capturing-rainwater",
+        "content": "Made                two pointer two pointer                                                                                     loop              O n                   Math max   1    2                      console log Math max 1  3  2       Expected output  3 console log Math max  1   3   2       Expected output   1 const array1    1  3  2   console log Math max    array1       Expected output  3    while                                       var n   0  var x   0   n height  4  2  1  3  0  1  2             index 2                                                                                                                                                        index 0                 4                   4      4   4   0                                          index 1            4             3          3   2   1   index 3           4                  3           3   3   0    index                    two pointer         two pointer                    leftBound               rightBound             pointer  leftPointer       pointer  rightPointer                 pointer   leftBound  rightBound                                                       leftPointer  rightBound         rightPointer  leftBound                                                    leftBound  rightBound                                                     bound               leftPointer  leftBound  rightPointer  rightPointer             bound        pointer     bound                   bound                               bound    two pointer                                            left pointer index  0 leftBound           rightBound                    0 index  1 leftBound  4     rightBound            right pointer index  6 leftBound           rightBound                    0 index  5 leftBound          rightBound  2          1                            bound                            bound                            4 leftPointer leftBound    2  rightPointer rightBound      rightPointer           2 rightPointer rightBound    1 rightPointer height     1                              leftBound  rightBound        pointer    bound                     bound  update                  totalWater          pointer    function capturingRainWater heights    let totalWater   0  let leftPointer   0  let leftBound   heights leftPointer   let rightPointer   heights length   1  let rightBound   heights rightPointer   let currentHeight   0                  leftPointer   rightPointer          X                            leftBound",
+        "objectID": "posts/Capturing-rainwater",
+        "date": "2025-01-15T15:16:43.000Z",
+        "draft": false,
+        "tags": [
+            "javascript",
+            "coding-test"
+        ],
+        "categories": [
+            "Tech"
+        ],
+        "featuredImage": "/images/tech/javascript-coding-test/capturing-rainwater.png"
     },
     {
         "title": "Ethereum White Paper",

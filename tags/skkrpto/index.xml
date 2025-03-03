@@ -1,0 +1,33 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>skkrpto - Tag - Joohwan&#39;s blog</title>
+        <link>http://jwanp.github.io/tags/skkrpto/</link>
+        <description>skkrpto - Tag - Joohwan&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 26 Mar 2023 15:29:59 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/skkrpto/" rel="self" type="application/rss+xml" /><item>
+    <title>Ethereum White Paper</title>
+    <link>http://jwanp.github.io/posts/ethereum-white-paper/</link>
+    <pubDate>Sun, 26 Mar 2023 15:29:59 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/ethereum-white-paper/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/ethereum-white-paper/ethereum-main.png" referrerpolicy="no-referrer">
+            </div>SKKRPTO 11기
+Vitalik Buterin. (2014). Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform. Retrieved from https://ethereum.org/en/whitepaper/
+Vitalik Buterin. (2014). 차세대 스마트 컨트랙트와 탈중앙화된 어플리케이션 플랫폼. (EthereumKorea 편역) Retrieved from https://ethereum.org/ko/whitepaper/
+서론 사토시 나카모토에 의해 2009 년 개발된 비트코인은 종종 화폐와 통화분야에서 매우 근본적인 혁신으로 묘사되어 왔는데, 이것은 비트코인이 어떤 담보나 내재적인 가치를 가지지 않으며, 중앙화된 발행기관이나 통제기관도 없는 디지털 자산의 첫 번째 사례였기 때문이다. 하지만 비트코인 실험의 더욱 중요한 측면은 비트코인을 떠받치고 있는 분산 합의 수단으로서의 블록체인 기술이며, 이에 대한 관심이 급격하게 늘어나고 있다.]]></description>
+</item>
+<item>
+    <title>Bitcoin White Paper</title>
+    <link>http://jwanp.github.io/posts/bitcoin-white-paper/</link>
+    <pubDate>Sun, 26 Mar 2023 15:29:48 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/bitcoin-white-paper/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/bitcoin-white-paper-review/bitcoin-main.png" referrerpolicy="no-referrer">
+            </div>SKKRPTO 11기
+Satoshi Nakamoto. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Retrieved from https://bitcoin.org/bitcoin.pdf
+Satoshi Nakamoto (2008). 비트코인: 개인 대 개인 전자 화폐 시스템. (임민철 역)(2013) Retrieved from https://mincheol.im/bitcoin
+Abstract. A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending.]]></description>
+</item>
+</channel>
+</rss>

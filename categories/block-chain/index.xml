@@ -1,0 +1,71 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>block-chain - Category - Joohwan&#39;s blog</title>
+        <link>http://jwanp.github.io/categories/block-chain/</link>
+        <description>block-chain - Category - Joohwan&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 06 Aug 2023 22:33:26 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/categories/block-chain/" rel="self" type="application/rss+xml" /><item>
+    <title>Web3.js</title>
+    <link>http://jwanp.github.io/posts/web3.js/</link>
+    <pubDate>Sun, 06 Aug 2023 22:33:26 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/web3.js/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/web3.js/web3_js.png" referrerpolicy="no-referrer">
+            </div>지금까지는 스마트 컨트렉트를 개발하는 것에 초점이 맞춰져 있었다. 그렇다면 frontend 랑 스마트 컨트렉트와 연결은 어떻게 할까?
+web 개발은 크게 front-end 와 back-end 로 나누어서 볼 수 있다. API 서버를 만들어서 필요한 정보들을 HTTP 프로토콜로 가져오든지 해서 보기 좋게 front-end 에서 뿌려준다.
+Web2 과 유사하게 back-end 는 smart-contract 로 보고 front-end 는 동일하다. 그렇다면 소통 방식도 같을까? 그렇지 않다. Blockchain node 의 provider 는 JSON-RPC 라는 통신 규약을 사용하고 우리는 smart-contract 에서 정보들을 가져올때 이러한 규약들을 이용해서 소통해야한다.]]></description>
+</item>
+<item>
+    <title>Block Chain Oracles</title>
+    <link>http://jwanp.github.io/posts/block-chain-oracles/</link>
+    <pubDate>Sun, 23 Jul 2023 19:12:15 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/block-chain-oracles/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/block-chain-oracle/blockchainoracleDalle.png" referrerpolicy="no-referrer">
+            </div>Blockchain Oracle Oracle 은 무었인가? Chainlink Education
+Blockchain oracles are entities that connect blockchains to external systems, thereby enabling smart contracts to execute based upon inputs and outputs from the real world.
+스마트 계약이 블록체인 외부의 데이터를 가져올 수 있게 연결해주는 entity 이다. 또한, 블록체인 안의 데이터 뿐만 아니라 외부의 데이터와 상호작용 할 수 있는 스마트 계약을 hybrid smart contract 라고 부른다.
+Smart Contract 의 양면성 Smart Contract 는 blockchain 위에서 동작하기 때문에 탈중앙화가 되어있고 누군가가 임의적으로 데이터를 수정하지 못하고 코드에 의해서만 동작한다.]]></description>
+</item>
+<item>
+    <title>Minting Nft</title>
+    <link>http://jwanp.github.io/posts/minting-nft/</link>
+    <pubDate>Sun, 16 Jul 2023 19:59:12 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/minting-nft/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/minting-nft/opensea.png" referrerpolicy="no-referrer">
+            </div>나만의 NFT 만들기 remix, pinata 를이용해서 Sepolia test net 에 NFT 를 배포하는 법을 알아보자
+NFT란 무었인가? NFT: Non-Fungible Tokens
+한글로 번역하면 뭔가를 다른 무엇인가로 바꿀수 없는 토큰이다.
+NFTs are tokens that we can use to represent ownership of unique items*. They let us tokenise things like* art, collectibles, even real estate. They can only have one official owner at a time and they&rsquo;re secured by the Ethereum blockchain – no one can modify the record of ownership or copy/paste a new NFT into existence.]]></description>
+</item>
+<item>
+    <title>Ethereum White Paper</title>
+    <link>http://jwanp.github.io/posts/ethereum-white-paper/</link>
+    <pubDate>Sun, 26 Mar 2023 15:29:59 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/ethereum-white-paper/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/ethereum-white-paper/ethereum-main.png" referrerpolicy="no-referrer">
+            </div>SKKRPTO 11기
+Vitalik Buterin. (2014). Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform. Retrieved from https://ethereum.org/en/whitepaper/
+Vitalik Buterin. (2014). 차세대 스마트 컨트랙트와 탈중앙화된 어플리케이션 플랫폼. (EthereumKorea 편역) Retrieved from https://ethereum.org/ko/whitepaper/
+서론 사토시 나카모토에 의해 2009 년 개발된 비트코인은 종종 화폐와 통화분야에서 매우 근본적인 혁신으로 묘사되어 왔는데, 이것은 비트코인이 어떤 담보나 내재적인 가치를 가지지 않으며, 중앙화된 발행기관이나 통제기관도 없는 디지털 자산의 첫 번째 사례였기 때문이다. 하지만 비트코인 실험의 더욱 중요한 측면은 비트코인을 떠받치고 있는 분산 합의 수단으로서의 블록체인 기술이며, 이에 대한 관심이 급격하게 늘어나고 있다.]]></description>
+</item>
+<item>
+    <title>Bitcoin White Paper</title>
+    <link>http://jwanp.github.io/posts/bitcoin-white-paper/</link>
+    <pubDate>Sun, 26 Mar 2023 15:29:48 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/bitcoin-white-paper/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/bitcoin-white-paper-review/bitcoin-main.png" referrerpolicy="no-referrer">
+            </div>SKKRPTO 11기
+Satoshi Nakamoto. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Retrieved from https://bitcoin.org/bitcoin.pdf
+Satoshi Nakamoto (2008). 비트코인: 개인 대 개인 전자 화폐 시스템. (임민철 역)(2013) Retrieved from https://mincheol.im/bitcoin
+Abstract. A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending.]]></description>
+</item>
+</channel>
+</rss>

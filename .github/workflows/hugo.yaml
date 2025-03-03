@@ -77,93 +77,32 @@
 #               id: deployment
 #               uses: actions/deploy-pages@v2
 
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
-name: Deploy Hugo site to Pages
+name: github pages
 
 on:
     push:
         branches:
-            - main
-    workflow_dispatch:
-
-permissions:
-    contents: read
-    pages: write
-    id-token: write
-
-concurrency:
-    group: 'pages'
-    cancel-in-progress: true
-
-defaults:
-    run:
-        shell: bash
+            - main # Set a branch name to trigger deployment
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        env:
-            HUGO_VERSION: 0.111.3
-        steps:
-            - name: Install Hugo CLI
-              run: |
-                  wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-                  && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-            - name: Install Dart Sass Embedded
-              run: sudo snap install dart-sass-embedded
-            - name: Checkout Repository
-              uses: actions/checkout@v3
-              with:
-                  submodules: recursive
-                  fetch-depth: 0
-            - name: Setup Pages
-              id: pages
-              uses: actions/configure-pages@v3
-            - name: Install Node.js Dependencies
-              run: '[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true'
-            - name: Build with Hugo
-              env:
-                  HUGO_ENVIRONMENT: production
-                  HUGO_ENV: production
-              run: |
-                  hugo \
-                    --gc \
-                    --minify \
-                    --baseURL "${{ steps.pages.outputs.base_url }}/"
-
-            # Debugging: Check if Hugo output directory is correctly generated
-            - name: Debug Hugo Build Output
-              run: |
-                  echo "Checking Hugo build output..."
-                  ls -la ./public
-                  du -sh ./public || echo "No public directory found"
-
-            - name: Upload Artifact
-              uses: actions/upload-pages-artifact@v3
-              with:
-                  name: github-pages # Explicitly setting the artifact name
-                  path: ./public
-
     deploy:
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-        runs-on: ubuntu-latest
-        needs: build
+        runs-on: ubuntu-22.04
         steps:
-            - name: Download Artifact
-              uses: actions/download-artifact@v4
+            - uses: actions/checkout@v2
               with:
-                  name: github-pages # Ensure this matches the upload step
-                  path: ./public
+                  submodules: true # Fetch Hugo themes (true OR recursive)
+                  fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
-            # Debugging: Check if artifact was downloaded successfully
-            - name: Debug Downloaded Artifact
-              run: |
-                  echo "Checking downloaded artifact content..."
-                  ls -la ./public
-                  du -sh ./public || echo "No public directory found after artifact download"
+            - name: Setup Hugo
+              uses: peaceiris/actions-hugo@v2
+              with:
+                  hugo-version: '0.74.3'
 
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v2
+            - name: Build
+              run: hugo --minify
+
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./public

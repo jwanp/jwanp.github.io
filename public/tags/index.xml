@@ -3,20 +3,20 @@
         <title>Tags - Tag - Joohwan&#39;s blog</title>
         <link>http://jwanp.github.io/tags/</link>
         <description>Tags - Tag - Joohwan&#39;s blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 20 Jan 2024 14:07:47 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>2024-collection</title>
-    <link>http://jwanp.github.io/tags/2024-collection/</link>
-    <pubDate>Sat, 20 Jan 2024 14:07:47 &#43;0900</pubDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 03 Mar 2025 14:01:03 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>coding-test</title>
+    <link>http://jwanp.github.io/tags/coding-test/</link>
+    <pubDate>Mon, 03 Mar 2025 14:01:03 &#43;0900</pubDate>
     <author>박주환</author>
-    <guid>http://jwanp.github.io/tags/2024-collection/</guid>
+    <guid>http://jwanp.github.io/tags/coding-test/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>github-pages</title>
-    <link>http://jwanp.github.io/tags/github-pages/</link>
-    <pubDate>Sat, 20 Jan 2024 14:07:47 &#43;0900</pubDate>
+    <title>javascript</title>
+    <link>http://jwanp.github.io/tags/javascript/</link>
+    <pubDate>Mon, 03 Mar 2025 14:01:03 &#43;0900</pubDate>
     <author>박주환</author>
-    <guid>http://jwanp.github.io/tags/github-pages/</guid>
+    <guid>http://jwanp.github.io/tags/javascript/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -28,35 +28,19 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>ESLint</title>
-    <link>http://jwanp.github.io/tags/eslint/</link>
-    <pubDate>Sat, 13 Jan 2024 14:03:59 &#43;0900</pubDate>
+    <title>python</title>
+    <link>http://jwanp.github.io/tags/python/</link>
+    <pubDate>Fri, 12 Jan 2024 22:00:03 &#43;0900</pubDate>
     <author>박주환</author>
-    <guid>http://jwanp.github.io/tags/eslint/</guid>
+    <guid>http://jwanp.github.io/tags/python/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>HashMap</title>
-    <link>http://jwanp.github.io/tags/hashmap/</link>
-    <pubDate>Sun, 19 Nov 2023 02:57:06 &#43;0900</pubDate>
-    <author>박주환</author>
-    <guid>http://jwanp.github.io/tags/hashmap/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Java</title>
+    <title>java</title>
     <link>http://jwanp.github.io/tags/java/</link>
     <pubDate>Sun, 19 Nov 2023 02:57:06 &#43;0900</pubDate>
     <author>박주환</author>
     <guid>http://jwanp.github.io/tags/java/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>코딩테스트</title>
-    <link>http://jwanp.github.io/tags/%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
-    <pubDate>Sun, 19 Nov 2023 02:57:06 &#43;0900</pubDate>
-    <author>박주환</author>
-    <guid>http://jwanp.github.io/tags/%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -65,22 +49,6 @@
     <pubDate>Sun, 06 Aug 2023 22:33:26 &#43;0900</pubDate>
     <author>박주환</author>
     <guid>http://jwanp.github.io/tags/block-chain/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>smart-contract</title>
-    <link>http://jwanp.github.io/tags/smart-contract/</link>
-    <pubDate>Sun, 06 Aug 2023 22:33:26 &#43;0900</pubDate>
-    <author>박주환</author>
-    <guid>http://jwanp.github.io/tags/smart-contract/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>web3.js</title>
-    <link>http://jwanp.github.io/tags/web3.js/</link>
-    <pubDate>Sun, 06 Aug 2023 22:33:26 &#43;0900</pubDate>
-    <author>박주환</author>
-    <guid>http://jwanp.github.io/tags/web3.js/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

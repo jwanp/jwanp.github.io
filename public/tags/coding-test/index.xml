@@ -1,0 +1,53 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>coding-test - Tag - Joohwan&#39;s blog</title>
+        <link>http://jwanp.github.io/tags/coding-test/</link>
+        <description>coding-test - Tag - Joohwan&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 03 Mar 2025 14:01:03 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/coding-test/" rel="self" type="application/rss+xml" /><item>
+    <title>[Javascript] 커스텀 함수로 배열 정렬하기</title>
+    <link>http://jwanp.github.io/posts/%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%95%A8%EC%88%98%EB%A1%9C-%EB%B0%B0%EC%97%B4-%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0/</link>
+    <pubDate>Mon, 03 Mar 2025 14:01:03 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%95%A8%EC%88%98%EB%A1%9C-%EB%B0%B0%EC%97%B4-%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/tech/javascript-coding-test/sorting.jpg" referrerpolicy="no-referrer">
+            </div>사진: Unsplash의 Julia Taubitz
+함수 및 개념 정리 arr.indexOf(searchElement, fromIndex) arr 배열에서 첫번째로 등장한 searchElement의 index를 반환한다. searchElement를 찾을 수 없다면 -1 을 반환한다. fromIndex부터 찾는다. 출처 : Array.prototype.indexOf() const array = [2, 9, 9]; array.indexOf(2); // 0 array.indexOf(7); // -1 array.indexOf(9, 2); // 2 array.indexOf(2, -1); // -1 array.indexOf(2, -3); // 0 const array = [NaN]; // NaN은 검색할 수 없다. array.indexOf(NaN); // -1 arr.includes(searchElement, fromIndex) arr 배열에서 searchElement가 포함되어 있는지를 반환한다.]]></description>
+</item>
+<item>
+    <title>[Javascript] Capturing Rainwater</title>
+    <link>http://jwanp.github.io/posts/capturing-rainwater/</link>
+    <pubDate>Thu, 16 Jan 2025 00:16:43 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/capturing-rainwater/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/tech/javascript-coding-test/capturing-rainwater.png" referrerpolicy="no-referrer">
+            </div>Made by 박주환
+함수 및 개념 정리 two pointer two pointer란 배열에서 양쪽의 두개의 포인터가 서로를 향해 이동하면서 문제를 푸는 방법입니다.
+배열 문제에서 주로 쓰입니다. 배열의 복사본이 필요하지 않고 한번의 loop(배열의 길이 만큼 == O(n))으로 문제를 풀 수 있습니다. Math.max(요소1, 요소2, &hellip;): 가장 큰것을 반환합니다. console.log(Math.max(1, 3, 2)); // Expected output: 3 console.log(Math.max(-1, -3, -2)); // Expected output: -1 const array1 = [1, 3, 2]; console.log(Math.max(...array1)); // Expected output: 3 출처 while(조건){ 실행문 } : 문장안을 실행하기 전에 조건문을 확인합니다.]]></description>
+</item>
+<item>
+    <title>[Javascript] Sieve of Eratosthenes</title>
+    <link>http://jwanp.github.io/posts/sieve-of-eratosthenes/</link>
+    <pubDate>Sat, 21 Dec 2024 17:06:52 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/sieve-of-eratosthenes/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/tech/javascript-coding-test/%ec%86%8c%ec%88%98%ed%85%8c%ec%9d%b4%eb%b8%94.png" referrerpolicy="no-referrer">
+            </div>Made by 박주환
+함수 및 개념 정리 문제를 보기전에 필요한 함수들을 살펴 보겠습니다. 기초적인 내용도 포함되어 있지만 다시한번 개념을 명확하게 하고 모르던 함수가 있다면 참고 하시면 좋습니다.
+지금 당장 눈에 들어오지 않는다면 문제를보다가 궁금하면 다시 위로 올라와서 공부하는 것이 더 도움이 될 수도 있습니다.
+for loop 진행 순서: 항상 조건문을 들렸다가 실행문을 실행합니다. for(1.초기화; 2.조건문; 4.증감식){ 3.실행문 } 초기화 조건문: true 실행문 증감식 조건문: true 실행문 증감식 조건문: false -&gt; break // 예시 for (let i = 2; i &lt;= limit; i++) { 실행문; } 배열 생성 및 초기화하는 방법 : Array().]]></description>
+</item>
+<item>
+    <title>읽기만 해도 도움 되는 Javascript 코딩테스트</title>
+    <link>http://jwanp.github.io/posts/%EC%9D%BD%EA%B8%B0%EB%A7%8C-%ED%95%B4%EB%8F%84-%EB%8F%84%EC%9B%80-%EB%90%98%EB%8A%94-javascript-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
+    <pubDate>Sat, 21 Dec 2024 15:37:04 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/%EC%9D%BD%EA%B8%B0%EB%A7%8C-%ED%95%B4%EB%8F%84-%EB%8F%84%EC%9B%80-%EB%90%98%EB%8A%94-javascript-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/tech/javascript-coding-test/snow-and-tree.png" referrerpolicy="no-referrer">
+            </div>pictured by 박주환 아름다운 눈을 보며 힐링하기 좋은 날씨입니다. 오랜만에 본가에 온 김에, 눈으로 뒤덮인 자연이 아름다워 사진을 찍어봤습니다. 여러분도 가끔 자연을 바라보며 마음의 여유를 가져보세요. 기업들의 코딩테스트 추세 저는 주로 효율이 좋은 Python으로 코딩 테스트를 준비해 왔습니다. 하지만 취업 준비를 하면서 생각보다 많은 회사가 프론트엔드 직무로 지원하면 언어를 Javascript 혹은 Java로 제한하는 경우가 많았습니다. 저의 경우에는 작년에 지원했던 여기어때, 현대 오토에버, 소프티어 부트캠프 등이 있습니다. 그래도 대부분의 회사가 여러 언어를 지원하지만 더 많은 선택지를 가지려면 프론트나 Node개발자 분들은 Javascript으로 준비하는게 더 좋지 않을까 생각합니다.]]></description>
+</item>
+</channel>
+</rss>

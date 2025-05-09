@@ -6,9 +6,15 @@ categories: ['Tech']
 featuredImage: /images/tech/React-describing-the-ui.png
 ---
 
+{{< line_break >}}
+
 해당 내용은 React 공식문서 내용을 복습한 것입니다. 읽어보면서 기초적인 내용도 있지만 간과하고 넘어갔던 부분들도 있었습니다. 무엇을 하든지 항상 기초 위에서 하면 좋습니다. 기초가 탄탄하면 복잡한 개념도 더 쉽게 이해할 수 있고, 문제를 해결할 때도 본질에 집중할 수 있기 때문입니다. 특히 React처럼 컴포넌트 중심의 UI 프레임워크에서는 작은 개념 하나하나가 전체 구조와 흐름에 큰 영향을 미칠 수 있으므로, 문서에 나와 있는 기본 개념들을 꼼꼼히 짚고 넘어가는 것이 중요하다고 느꼈습니다.
 
+{{< line_break >}}
+
 제가 정리한 내용들은 **Describing the UI** 섹션에서 다른 분들이 까먹고 지나갔을 법한 내용들, 혹은 다시 상기하면 좋겠다 싶은 내용들을 중심으로 구성했습니다.
+
+{{< line_break >}}
 
 ## Describing the UI
 
@@ -18,6 +24,8 @@ featuredImage: /images/tech/React-describing-the-ui.png
 
 - `<section>` is lowercase, so React knows we refer to an HTML tag.
 - `<Profile />` starts with a capital `P`, so React knows that we want to use our component called `Profile`.
+
+{{< line_break >}}
 
 ### [Nesting and organizing components](https://react.dev/learn/your-first-component#nesting-and-organizing-components)
 
@@ -33,16 +41,24 @@ export default function Gallery() {
 }
 ```
 
+{{< line_break >}}
+
 ### [Why do multiple JSX tags need to be wrapped?](https://react.dev/learn/writing-markup-with-jsx#why-do-multiple-jsx-tags-need-to-be-wrapped)
 
-JSX 함수는 리턴할때 무조건 root 태그 하나로 감싸줘야한다. 이렇게 하는 이유는 JSX 함수는 하나의 javascript object를 반환하도록 되어 있기 때문이다. 만약 여러개의 태그를 나란히 반환하면 여러개의 javascript object를 반환하는 것이 된다.
+- JSX 함수는 리턴할때 무조건 root 태그 하나로 감싸줘야한다. 이렇게 하는 이유는 JSX 함수는 하나의 javascript object를 반환하도록 되어 있기 때문이다. 만약 여러개의 태그를 나란히 반환하면 여러개의 javascript object를 반환하는 것이 된다.
 
-### [camelCase ~~all~~ most of the things!](https://react.dev/learn/writing-markup-with-jsx#3-camelcase-salls-most-of-the-things)
+{{< line_break >}}
+
+### camelCase ~~all~~ most of the things!
+
+- [camelCase ~~all~~ most of the things!](https://react.dev/learn/writing-markup-with-jsx#3-camelcase-salls-most-of-the-things)
 
 JSX에서는 기존에 사용하던 태그 속성들의 이름을 camelCase으로 해줘야한다. 우리는 JSX에서 태그들의 속성들을 javascript object으로 활용한다. 하지만 javascript에서는 변수에 관련해서 dashes를 포함하면 안된다던지, `class`이름을 사용못하게 하는 naming-rule들이 있다.
 
 예를 들어서 `stroke-width` 대신에 `strokeWidth`를 써야하고 `class`대신에 `className`을 써야한다.
 추가 적인 정보는 [list of dom component props](https://react.dev/reference/react-dom/components/common)에서 확인 할수 있다.
+
+{{< line_break >}}
 
 ### [Where to Use curly braces](https://react.dev/learn/javascript-in-jsx-with-curly-braces#where-to-use-curly-braces)
 
@@ -50,6 +66,8 @@ JSX에서의 `{}`는 특별한 의미를 갖고 있다. 왜냐하면 HTML태그 
 
 2. JSX 태그 안에서 javascript 값을 문자형태로 변환하기 위해서 쓸 수 있다. `<h1>{name}'s To Do List</h1>`
 3. JSX 태그의 속성에 값을 부여하기 위해서 `=` 사인 바로뒤에 쓸 수 있다.`src={avatar}`는 avatar 변수를 불러오지만 `src="{avatar}"`는 `=` 바로뒤에 `{}`가 나오지 않기 때문에 `"{avatar}"`를 반환한다.
+
+{{< line_break >}}
 
 ### [Using “double curlies”: CSS and other objects in JSX](https://react.dev/learn/javascript-in-jsx-with-curly-braces#using-double-curlies-css-and-other-objects-in-jsx)
 
@@ -64,7 +82,9 @@ JSX에서의 `{}`는 특별한 의미를 갖고 있다. 왜냐하면 HTML태그 
 }}>
 ```
 
-### [Specifying a default value for a prop](https://react.dev/learn/passing-props-to-a-component#specifying-a-default-value-for-a-prop 'Link for Specifying a default value for a prop')
+{{< line_break >}}
+
+### [Specifying a default value for a prop](https://react.dev/learn/passing-props-to-a-component#specifying-a-default-value-for-a-prop)
 
 JSX 컴포넌트에서 props를 받아올때 default value를 설정할 수 있다.
 
@@ -75,6 +95,8 @@ function Avatar({ person, size = 100 }) {
 ```
 
 이때는 `size={null}`이거나 `size={false}`라고 100이 할당되는 것이 아니라 `size={undefined}`일때만 `size={100}` 이 할당된다.
+
+{{< line_break >}}
 
 ### [Passing JSX as children](https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children) ⭐️
 
@@ -143,6 +165,8 @@ export default function Profile() {
 }
 ```
 
+{{< line_break >}}
+
 ### **Don’t put numbers on the left side of `&&`**
 
 우리는 jsx 안에 `&&`를 활용하여 다음과 같은 코드를 넣곤 한다. `messageCount && <p>New messages</p>`. 이는 `messageCount가` `true`라면 뒤로 넘어가고 `false`라면 앞에서 멈춘다.
@@ -182,6 +206,8 @@ export default function List() {
   return <ul>{listItems}</ul>;
 }
 ```
+
+{{< line_break >}}
 
 ### [Purity: Components as formulas](https://react.dev/learn/keeping-components-pure#purity-components-as-formulas)
 
@@ -230,6 +256,7 @@ export default function TeaGathering() {
 }
 ```
 
+{{< line_break >}}
 **그럼에도 불구하고,** 컴포넌트가 렌더링이 된뒤에 애니메이션, 화면 변화, 데이터 변화 등이 일어날 수도 있다. 이것을 **side effects**라고 부르는데, 이는 대부분 **event handler**에 의해서 일어난다.
 
 우리는 렌더링 도중에 event handler를 등록함으로 purity를 유지하는데에 큰 문제는 없지만, 적당한 event handler를 찾지 못하는 경우에는 **마지막 옵션으로 useEffect**를 쓸것을 제시한다.

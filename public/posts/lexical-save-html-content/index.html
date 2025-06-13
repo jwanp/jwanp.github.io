@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6248994341461229"
+     crossorigin="anonymous"></script>
+        <title>[React] Lexical 에더터에서 HTML 저장하는 두가지 방법 - Joohwan&#39;s blog</title><meta name="Description" content="Hello this is description"><meta property="og:title" content="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법" />
+<meta property="og:description" content="약알고 프로젝트에서는 글 꾸밈 기능을 구현할 때 Meta에서 관리 중인 오픈소스 라이브러리인 Lexical 에디터를 활용하였습니다. React Lexical 에디터에서 내용을 HTML로 저장하는 가장 대표적인 구현 방법은 저장 버튼을 플러그인으로 두는 것입니다. 하지만 버튼 플러그인으로 개발하면 몇 가지 단점이 있습니다.
+버튼 플러그인 방식의 단점 1. 해당 버튼의 동작이 특정되어 확장성에 좋지 않음 동일한 에디터를 가져다 쓰되, 저장 버튼의 동작 방식을 다르게 하고 싶을 때가 있습니다. 약알고 서비스도 QnA와 게시물 두 곳에서 같은 에디터를 사용하지만, 두 개의 &lsquo;저장&rsquo; 버튼은 다르게 동작해야 합니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jwanp.github.io/posts/lexical-save-html-content/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-06-12T14:39:34+09:00" />
+<meta property="article:modified_time" content="2025-06-12T14:39:34+09:00" /><meta property="og:site_name" content="Hello this is title" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법"/>
+<meta name="twitter:description" content="약알고 프로젝트에서는 글 꾸밈 기능을 구현할 때 Meta에서 관리 중인 오픈소스 라이브러리인 Lexical 에디터를 활용하였습니다. React Lexical 에디터에서 내용을 HTML로 저장하는 가장 대표적인 구현 방법은 저장 버튼을 플러그인으로 두는 것입니다. 하지만 버튼 플러그인으로 개발하면 몇 가지 단점이 있습니다.
+버튼 플러그인 방식의 단점 1. 해당 버튼의 동작이 특정되어 확장성에 좋지 않음 동일한 에디터를 가져다 쓰되, 저장 버튼의 동작 방식을 다르게 하고 싶을 때가 있습니다. 약알고 서비스도 QnA와 게시물 두 곳에서 같은 에디터를 사용하지만, 두 개의 &lsquo;저장&rsquo; 버튼은 다르게 동작해야 합니다."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://jwanp.github.io/posts/lexical-save-html-content/" /><link rel="prev" href="http://jwanp.github.io/posts/react-adding-interactivity/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[React] Lexical 에더터에서 HTML 저장하는 두가지 방법",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/jwanp.github.io\/posts\/lexical-save-html-content\/"
+        },"image": ["https:\/\/user-images.githubusercontent.com\/77142334\/227780652-4a867037-5843-4d78-b5e7-9c27f6203e23.png"],"genre": "posts","keywords": "javascript, react, lexical","wordcount":  792 ,
+        "url": "http:\/\/jwanp.github.io\/posts\/lexical-save-html-content\/","datePublished": "2025-06-12T14:39:34+09:00","dateModified": "2025-06-12T14:39:34+09:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "박주환"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Joohwan&#39;s blog">Joohwan&#39;s dev blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Joohwan&#39;s blog">Joohwan&#39;s dev blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">[React] Lexical 에더터에서 HTML 저장하는 두가지 방법</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>박주환</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tech</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-06-12">2025-06-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;792 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/tech/javascript-coding-test/lexical.webp"
+        data-srcset="/images/tech/javascript-coding-test/lexical.webp, /images/tech/javascript-coding-test/lexical.webp 1.5x, /images/tech/javascript-coding-test/lexical.webp 2x"
+        data-sizes="auto"
+        alt="/images/tech/javascript-coding-test/lexical.webp"
+        title="/images/tech/javascript-coding-test/lexical.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#버튼-플러그인-방식의-단점">버튼 플러그인 방식의 단점</a>
+      <ul>
+        <li><a href="#1-해당-버튼의-동작이-특정되어-확장성에-좋지-않음">1. <strong>해당 버튼의 동작이 특정되어 확장성에 좋지 않음</strong></a></li>
+        <li><a href="#2-ui가-자연스럽지-않고-조작하기-번거로움">2. <strong>UI가 자연스럽지 않고 조작하기 번거로움</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#그래서-버튼을-플러그인으로-두지-않고-html로-변환하여-저장">그래서, 버튼을 플러그인으로 두지 않고 HTML로 변환하여 저장</a></li>
+    <li><a href="#1-플러그인을-활용해서-에디터의-html-저장하기">1. 플러그인을 활용해서 에디터의 HTML 저장하기</a>
+      <ul>
+        <li><a href="#에디터-구현-예시">에디터 구현 예시</a></li>
+        <li><a href="#사용-예시">사용 예시</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-createeditor로-새로운-에디터에서-html-불러오기">2. <code>createEditor</code>로 새로운 에디터에서 HTML 불러오기</a>
+      <ul>
+        <li><a href="#html-변환-함수">HTML 변환 함수</a></li>
+        <li><a href="#저장-버튼과-연결된-에디터-구현-예시">저장 버튼과 연결된 에디터 구현 예시</a></li>
+      </ul>
+    </li>
+    <li><a href="#결론">결론</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><a href="https://yakalgo.kr" target="_blank" rel="noopener noreffer ">약알고</a> 프로젝트에서는 글 꾸밈 기능을 구현할 때 Meta에서 관리 중인 오픈소스 라이브러리인 <strong><a href="https://lexical.dev/" target="_blank" rel="noopener noreffer ">Lexical</a> 에디터</strong>를 활용하였습니다. <strong>React Lexical 에디터에서 내용을 HTML로 저장</strong>하는 가장 대표적인 구현 방법은 저장 버튼을 플러그인으로 두는 것입니다. 하지만 <strong>버튼 플러그인으로 개발하면 몇 가지 단점</strong>이 있습니다.</p>
+<h2 id="버튼-플러그인-방식의-단점">버튼 플러그인 방식의 단점</h2>
+<h3 id="1-해당-버튼의-동작이-특정되어-확장성에-좋지-않음">1. <strong>해당 버튼의 동작이 특정되어 확장성에 좋지 않음</strong></h3>
+<p>동일한 에디터를 가져다 쓰되, 저장 버튼의 동작 방식을 다르게 하고 싶을 때가 있습니다. 약알고 서비스도 QnA와 게시물 두 곳에서 같은 에디터를 사용하지만, 두 개의 &lsquo;저장&rsquo; 버튼은 다르게 동작해야 합니다. 이 경우 버튼만 다른 두 개의 에디터를 만들어야 하므로 코드 중복이 발생하고, 에디터 자체의 확장성이 떨어집니다.</p>
+<h3 id="2-ui가-자연스럽지-않고-조작하기-번거로움">2. <strong>UI가 자연스럽지 않고 조작하기 번거로움</strong></h3>
+<p>보통 저장 버튼은 취소 버튼 옆에 위치하거나, 에디터와 독립적인 UI로 구성합니다. &lsquo;약알고&rsquo; 게시물 작성 UI도 제목과 내용을 입력하는 섹션과, 취소/저장 버튼이 있는 섹션이 별도로 구분되어 보여집니다. 따라서 에디터 안에서 버튼 UI를 구성하려면 더 까다로운 과정을 거쳐야 합니다.</p>
+<h2 id="그래서-버튼을-플러그인으로-두지-않고-html로-변환하여-저장">그래서, 버튼을 플러그인으로 두지 않고 HTML로 변환하여 저장</h2>
+<p>저는 버튼을 에디터의 플러그인으로 두지 않고, 버튼을 별개의 로직으로 분리하여 HTML로 변환한 뒤 저장하였습니다.</p>
+<p>이 방식은 크게 두 가지로 구현할 수 있습니다.</p>
+<ol>
+<li><strong>HTML 변환 플러그인을 통해 글 수정 시마다 HTML string 받아오기</strong></li>
+<li><strong><code>createEditor</code>에 <code>theme</code>를 주입하여, 새로운 에디터에서 HTML string 받아오기</strong></li>
+</ol>
+<ul>
+<li>첫 번째 방법은 에디터를 수정할 때마다 실시간으로 HTML을 받아올 수 있다는 장점이 있습니다.</li>
+<li>두 번째 방법은 추가 렌더링이나 연산 없이, 저장 버튼을 누른 시점에만 HTML 연산을 수행하면 된다는 장점이 있습니다.</li>
+</ul>
+<p>각 방법의 장점은 서로의 단점이기도 합니다. 저도 처음에는 첫 번째 방법을 사용했습니다.</p>
+<p>그러나 &lsquo;저장할 때만 HTML이 필요한데 더 효율적인 방법은 없을까?&rsquo; 라고 생각하여 두번째 방법을 고안하게 되었습니다.</p>
+<p><strong>html가져오는 방법 간단 요약</strong></p>
+<ul>
+<li><code>import { $generateHtmlFromNodes } from &quot;@lexical/html&quot;;</code></li>
+<li><code>$generateHtmlFromNodes</code>에 에디터를 주입하여 html을 가져올 수 있습니다.
+<ul>
+<li>에디터를 어떻게 가져올 것인가?</li>
+</ul>
+<ol>
+<li>플러그인으로 삽입하여 에디터 주입</li>
+<li>새로운 에디터 생성하여 에디터 주입</li>
+</ol>
+</li>
+</ul>
+<h2 id="1-플러그인을-활용해서-에디터의-html-저장하기">1. 플러그인을 활용해서 에디터의 HTML 저장하기</h2>
+<p>React에서 Lexical을 사용할 때 HTML 변환 플러그인을 만들지 않고 HTML로 변환하는 방법은 공식 문서에 나와 있지 않습니다.</p>
+<blockquote>
+<p>⚠️ <code>LexicalComposer</code> 내부에서만 <code>useLexicalComposerContext</code>를 통해 <code>editor</code> 인스턴스를 가져올 수 있습니다. 외부에서 호출 시 에러가 발생합니다.</p>
+</blockquote>
+<h3 id="에디터-구현-예시">에디터 구현 예시</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="c1">// MyEditor.tsx
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span> <span class="kr">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">LexicalComposer</span><span class="p">,</span> <span class="nx">ContentEditable</span><span class="p">,</span> <span class="nx">RichTextPlugin</span><span class="p">,</span> <span class="nx">HistoryPlugin</span><span class="p">,</span> <span class="nx">OnChangePlugin</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@lexical/react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">LexicalErrorBoundary</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@lexical/react/LexicalErrorBoundary&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useLexicalComposerContext</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@lexical/react/LexicalComposerContext&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">$generateHtmlFromNodes</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@lexical/html&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">theme</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 원하는 스타일 적용
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">editorConfig</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">theme</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">onError</span><span class="p">(</span><span class="nx">error</span>: <span class="kt">Error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Lexical Error:&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">namespace</span><span class="o">:</span> <span class="s1">&#39;MyEditor&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">nodes</span><span class="o">:</span> <span class="p">[],</span> <span class="c1">// 필요한 노드 추가
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 글 내용을 html으로 실시간 변환하는 플러그인
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">ExportHtmlPlugin</span><span class="p">({</span> <span class="nx">onHtmlChange</span> <span class="p">}</span><span class="o">:</span> <span class="p">{</span> <span class="nx">onHtmlChange</span><span class="o">:</span> <span class="p">(</span><span class="nx">html</span>: <span class="kt">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">editor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useLexicalComposerContext</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">React</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">registerUpdateListener</span><span class="p">(({</span> <span class="nx">editorState</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">editorState</span><span class="p">.</span><span class="nx">read</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">htmlString</span> <span class="o">=</span> <span class="nx">$generateHtmlFromNodes</span><span class="p">(</span><span class="nx">editor</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">onHtmlChange</span><span class="p">(</span><span class="nx">htmlString</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="p">[</span><span class="nx">editor</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 에디터 컴포넌트: 플러그인들을 넣어서 사용한다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">MyEditor</span><span class="p">({</span> <span class="nx">onHtmlChange</span> <span class="p">}</span><span class="o">:</span> <span class="p">{</span> <span class="nx">onHtmlChange</span><span class="o">:</span> <span class="p">(</span><span class="nx">html</span>: <span class="kt">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">LexicalComposer</span> <span class="na">initialConfig</span><span class="o">=</span><span class="p">{</span><span class="nx">editorConfig</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">RichTextPlugin</span>
+</span></span><span class="line"><span class="cl">        <span class="na">contentEditable</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">ContentEditable</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;editor-input&#34;</span> <span class="p">/&gt;}</span>
+</span></span><span class="line"><span class="cl">        <span class="na">placeholder</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;editor-placeholder&#34;</span><span class="p">&gt;</span><span class="err">텍스트를</span> <span class="err">입력하세요</span><span class="p">...&lt;/</span><span class="nt">div</span><span class="p">&gt;}</span>
+</span></span><span class="line"><span class="cl">        <span class="na">ErrorBoundary</span><span class="o">=</span><span class="p">{</span><span class="nx">LexicalErrorBoundary</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">HistoryPlugin</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">ExportHtmlPlugin</span> <span class="na">onHtmlChange</span><span class="o">=</span><span class="p">{</span><span class="nx">onHtmlChange</span><span class="p">}</span> <span class="p">/&gt;</span> <span class="c1">// html 실시간 변환
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">&lt;/</span><span class="nt">LexicalComposer</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="사용-예시">사용 예시</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">MyEditor</span> <span class="nx">from</span> <span class="s1">&#39;./MyEditor&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">EditorPage</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">html</span><span class="p">,</span> <span class="nx">setHtml</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="c1">// 여기에 글의 html이 실시간으로 수정됩니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Lexical</span> <span class="nx">에디터</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">MyEditor</span> <span class="na">onHtmlChange</span><span class="o">=</span><span class="p">{</span><span class="nx">setHtml</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span><span class="nx">HTML</span> <span class="nx">Output</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;{</span><span class="nx">html</span><span class="p">}&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="2-createeditor로-새로운-에디터에서-html-불러오기">2. <code>createEditor</code>로 새로운 에디터에서 HTML 불러오기</h2>
+<p>약알고에서는 DB에 에디터의 HTML뿐만 아니라 <code>editorState</code>도 JSON 형태로 저장하고 있습니다. 이를 위해 <code>onChangePlugin</code>을 통해 <code>useRef</code>에 상태를 저장하고, 이후 저장시 <code>editorState</code>를 HTML로 변환합니다.</p>
+<blockquote>
+<p>이 방식은 불필요한 플러그인 없이 <code>editor =&gt; HTML</code> 변환만 수행하면 되므로 <code>lexical/react</code>를 사용하지 않고 <code>lexical</code>만 사용합니다.</p>
+</blockquote>
+<h3 id="html-변환-함수">HTML 변환 함수</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createEditor</span><span class="p">,</span> <span class="nx">SerializedEditorState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;lexical&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">$generateHtmlFromNodes</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@lexical/html&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">nodes</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@/components/blocks/editor-x/nodes&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">editorTheme</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@/components/editor/themes/editor-theme&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getEditorHtmlFromJSON</span> <span class="o">=</span> <span class="p">(</span><span class="nx">json</span><span class="o">:</span> <span class="nx">SerializedEditorState</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">createEditor</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">nodes</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">theme</span><span class="o">:</span> <span class="nx">editorTheme</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">editor</span><span class="p">.</span><span class="nx">setEditorState</span><span class="p">(</span><span class="nx">editor</span><span class="p">.</span><span class="nx">parseEditorState</span><span class="p">(</span><span class="nx">json</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">editor</span><span class="p">.</span><span class="nx">update</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">html</span> <span class="o">=</span> <span class="nx">$generateHtmlFromNodes</span><span class="p">(</span><span class="nx">editor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">html</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="저장-버튼과-연결된-에디터-구현-예시">저장 버튼과 연결된 에디터 구현 예시</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="s1">&#39;use client&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useRef</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">dynamic</span> <span class="nx">from</span> <span class="s1">&#39;next/dynamic&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Button</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@/components/ui/button&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">SerializedEditorState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;lexical&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">getEditorHtmlFromJSON</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@/lib/community/getEditorHtmlFromJSON&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">Editor</span> <span class="o">=</span> <span class="nx">dynamic</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="kr">import</span><span class="p">(</span><span class="s1">&#39;@/components/blocks/editor-y/editor&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">mod</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">mod</span><span class="p">.</span><span class="nx">Editor</span><span class="p">),</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">ssr</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">loading</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;h-72 w-full animate-pulse rounded-lg bg-muted&#34;</span> <span class="p">/&gt;,</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">EditorWithSaveButton</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">editorState</span> <span class="o">=</span> <span class="p">(</span><span class="nx">useRef</span> <span class="o">&lt;</span> <span class="nx">SerializedEditorState</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="kc">null</span> <span class="o">&gt;</span> <span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleSave</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">editorState</span><span class="p">.</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;에디터 내용이 비어있습니다.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">html</span> <span class="o">=</span> <span class="nx">getEditorHtmlFromJSON</span><span class="p">(</span><span class="nx">editorState</span><span class="p">.</span><span class="nx">current</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;HTML content:&#39;</span><span class="p">,</span> <span class="nx">html</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 서버에 전송하거나 미리보기 등
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;flex flex-col gap-4 max-w-3xl mx-auto py-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">Editor</span> <span class="na">editorSerializedState</span><span class="o">=</span><span class="p">{</span><span class="kc">null</span><span class="p">}</span> <span class="na">onSerializedChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">value</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">editorState</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="nx">value</span><span class="p">)}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;flex justify-end&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">Button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSave</span><span class="p">}&gt;</span><span class="nx">저장</span><span class="p">&lt;/</span><span class="nt">Button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="결론">결론</h2>
+<p>Lexical 에디터의 저장 로직은 플러그인 방식과 분리 방식 모두 장단점이 있으며, 약알고 프로젝트에서는 저장 시점에만 HTML이 필요하므로 후자의 방법을 택하였습니다.</p>
+<p>이 접근 방식은 공식 문서에 없지만, React 앱 구조상 UI와 로직을 명확히 분리할 수 있다는 점에서 유지보수에 유리합니다.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-06-12</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법" data-hashtags="javascript,react,lexical"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-hashtag="javascript"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://jwanp.github.io/posts/lexical-save-html-content/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법" data-image="/images/tech/javascript-coding-test/lexical.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법" data-description=""><i class="fab fa-blogger fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/javascript/">javascript</a>,&nbsp;<a href="/tags/react/">react</a>,&nbsp;<a href="/tags/lexical/">lexical</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/react-adding-interactivity/" class="prev" rel="prev" title="[React] Adding Interactivity"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>[React] Adding Interactivity</a></div>
+</div>
+<div id="comments"><div id="utterances" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">박주환</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"Comment","lightTheme":"github-light","repo":"jwanp/blog-comment"}},"search":{"algoliaAppID":"6QK332EH1T","algoliaIndex":"jwanp","algoliaSearchKey":"79b39b96ee30ec1c39a4bf1a4037c605","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-DZ2VH32QXR', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-DZ2VH32QXR" async></script></body>
+</html>

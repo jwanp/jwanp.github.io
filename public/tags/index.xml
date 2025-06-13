@@ -3,28 +3,36 @@
         <title>Tags - Tag - Joohwan&#39;s blog</title>
         <link>http://jwanp.github.io/tags/</link>
         <description>Tags - Tag - Joohwan&#39;s blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 29 Mar 2025 18:05:00 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>coding-test</title>
-    <link>http://jwanp.github.io/tags/coding-test/</link>
-    <pubDate>Sat, 29 Mar 2025 18:05:00 &#43;0900</pubDate>
-    <author>박주환</author>
-    <guid>http://jwanp.github.io/tags/coding-test/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 12 Jun 2025 14:39:34 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/" rel="self" type="application/rss+xml" /><item>
     <title>javascript</title>
     <link>http://jwanp.github.io/tags/javascript/</link>
-    <pubDate>Sat, 29 Mar 2025 18:05:00 &#43;0900</pubDate>
+    <pubDate>Thu, 12 Jun 2025 14:39:34 &#43;0900</pubDate>
     <author>박주환</author>
     <guid>http://jwanp.github.io/tags/javascript/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
+    <title>lexical</title>
+    <link>http://jwanp.github.io/tags/lexical/</link>
+    <pubDate>Thu, 12 Jun 2025 14:39:34 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/tags/lexical/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>react</title>
     <link>http://jwanp.github.io/tags/react/</link>
-    <pubDate>Sat, 20 Jan 2024 14:07:47 &#43;0900</pubDate>
+    <pubDate>Thu, 12 Jun 2025 14:39:34 &#43;0900</pubDate>
     <author>박주환</author>
     <guid>http://jwanp.github.io/tags/react/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>coding-test</title>
+    <link>http://jwanp.github.io/tags/coding-test/</link>
+    <pubDate>Sat, 29 Mar 2025 18:05:00 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/tags/coding-test/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>

@@ -2,6 +2,7 @@
 title: '[React] Adding Interactivity'
 date: 2025-05-18T16:55:10+09:00
 draft: false
+tags: ['javascript', 'react']
 categories: ['Tech']
 featuredImage: /images/tech/React-adding-interactivity.png
 ---

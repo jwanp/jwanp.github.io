@@ -2,6 +2,7 @@
 title: '[React] Describing the UI'
 date: 2025-05-09T09:54:02+09:00
 draft: false
+tags: ['javascript', 'react']
 categories: ['Tech']
 featuredImage: /images/tech/React-describing-the-ui.png
 ---

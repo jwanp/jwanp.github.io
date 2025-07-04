@@ -20,7 +20,7 @@
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://jwanp.github.io/posts/lexical-save-html-content/" /><link rel="prev" href="http://jwanp.github.io/posts/react-adding-interactivity/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://jwanp.github.io/posts/lexical-save-html-content/" /><link rel="prev" href="http://jwanp.github.io/posts/react-adding-interactivity/" /><link rel="next" href="http://jwanp.github.io/posts/react-managing-state/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -31,7 +31,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/jwanp.github.io\/posts\/lexical-save-html-content\/"
-        },"image": ["https:\/\/user-images.githubusercontent.com\/77142334\/227780652-4a867037-5843-4d78-b5e7-9c27f6203e23.png"],"genre": "posts","keywords": "javascript, react, lexical","wordcount":  792 ,
+        },"image": ["https:\/\/user-images.githubusercontent.com\/77142334\/227780652-4a867037-5843-4d78-b5e7-9c27f6203e23.png"],"genre": "posts","keywords": "javascript, react, lexical","wordcount":  753 ,
         "url": "http:\/\/jwanp.github.io\/posts\/lexical-save-html-content\/","datePublished": "2025-06-12T14:39:34+09:00","dateModified": "2025-06-12T14:39:34+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -48,7 +48,7 @@
             <a href="/" title="Joohwan&#39;s blog">Joohwan&#39;s dev blog</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/chat/"> Chat </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -90,7 +90,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/chat/" title="">Chat</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
@@ -105,16 +105,16 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">[React] Lexical 에더터에서 HTML 저장하는 두가지 방법</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>박주환</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tech</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-06-12">2025-06-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;792 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-06-12">2025-06-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;753 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/images/tech/javascript-coding-test/lexical.webp"
-        data-srcset="/images/tech/javascript-coding-test/lexical.webp, /images/tech/javascript-coding-test/lexical.webp 1.5x, /images/tech/javascript-coding-test/lexical.webp 2x"
+        data-src="/images/tech/lexical.webp"
+        data-srcset="/images/tech/lexical.webp, /images/tech/lexical.webp 1.5x, /images/tech/lexical.webp 2x"
         data-sizes="auto"
-        alt="/images/tech/javascript-coding-test/lexical.webp"
-        title="/images/tech/javascript-coding-test/lexical.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+        alt="/images/tech/lexical.webp"
+        title="/images/tech/lexical.webp" width="1372" height="772" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
@@ -140,7 +140,6 @@
         <li><a href="#저장-버튼과-연결된-에디터-구현-예시">저장 버튼과 연결된 에디터 구현 예시</a></li>
       </ul>
     </li>
-    <li><a href="#결론">결론</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><a href="https://yakalgo.kr" target="_blank" rel="noopener noreffer ">약알고</a> 프로젝트에서는 글 꾸밈 기능을 구현할 때 Meta에서 관리 중인 오픈소스 라이브러리인 <strong><a href="https://lexical.dev/" target="_blank" rel="noopener noreffer ">Lexical</a> 에디터</strong>를 활용하였습니다. <strong>React Lexical 에디터에서 내용을 HTML로 저장</strong>하는 가장 대표적인 구현 방법은 저장 버튼을 플러그인으로 두는 것입니다. 하지만 <strong>버튼 플러그인으로 개발하면 몇 가지 단점</strong>이 있습니다.</p>
@@ -314,10 +313,7 @@
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="결론">결론</h2>
-<p>Lexical 에디터의 저장 로직은 플러그인 방식과 분리 방식 모두 장단점이 있으며, 약알고 프로젝트에서는 저장 시점에만 HTML이 필요하므로 후자의 방법을 택하였습니다.</p>
-<p>이 접근 방식은 공식 문서에 없지만, React 앱 구조상 UI와 로직을 명확히 분리할 수 있다는 점에서 유지보수에 유리합니다.</p>
-</div><div class="post-footer" id="post-footer">
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -326,7 +322,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법" data-hashtags="javascript,react,lexical"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-hashtag="javascript"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://jwanp.github.io/posts/lexical-save-html-content/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법" data-image="/images/tech/javascript-coding-test/lexical.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법" data-description=""><i class="fab fa-blogger fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법" data-hashtags="javascript,react,lexical"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-hashtag="javascript"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://jwanp.github.io/posts/lexical-save-html-content/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법" data-image="/images/tech/lexical.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="http://jwanp.github.io/posts/lexical-save-html-content/" data-title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법" data-description=""><i class="fab fa-blogger fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -338,7 +334,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/react-adding-interactivity/" class="prev" rel="prev" title="[React] Adding Interactivity"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>[React] Adding Interactivity</a></div>
+    <div class="post-nav"><a href="/posts/react-adding-interactivity/" class="prev" rel="prev" title="[React] Adding Interactivity"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>[React] Adding Interactivity</a>
+            <a href="/posts/react-managing-state/" class="next" rel="next" title="[React] Managing State">[React] Managing State<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="utterances" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">utterances</a>.

@@ -8,7 +8,6 @@ googleAnalytics: G-DZ2VH32QXR
 paginate: 12
 enableRobotsTXT: true
 
-
 author:
   name: 박주환
   email: ''
@@ -16,10 +15,6 @@ author:
 algolia:
   index: jwanp
   appID: 6QK332EH1T
-
-
-
-
 
 params:
   defaultTheme: auto
@@ -128,7 +123,15 @@ menu:
       name: About
       url: /about/
       title: ''
+    - weight: 5
+      identifier: career conversation
+      pre: ''
+      post: ''
+      name: Chat
+      url: /chat/
+      title: ''
 markup:
   highlight:
     noClasses: false
 ---
+

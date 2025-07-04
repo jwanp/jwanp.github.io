@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6248994341461229"
+     crossorigin="anonymous"></script>
+        <title>[React] Managing State - Joohwan&#39;s blog</title><meta name="Description" content="Hello this is description"><meta property="og:title" content="[React] Managing State" />
+<meta property="og:description" content="React에서 State 다루기 React에서 State는 어떤 UI를 보여줄지 결정하는 핵심 요소입니다. 특히 중복되거나 모호한 State는 디버깅이 어렵고, 버그의 원인이 됩니다.
+React 공식 문서에서는 상태 변수 관리, 유지보수 방식, 컴포넌트 간 상태 공유 방식 등에 대한 가이드라인을 제공합니다. 이번 글에서는 공식 문서를 참고하여 핵심 원리를 복습하고, 다시 살펴보면 좋을 정보들을 정리했습니다.
+Reacting to Input with State 🔗 https://react.dev/learn/reacting-to-input-with-state
+UI를 조작하는 방법에는 크게 두 가지가 있습니다: Imperative와 Declarative.
+Imperative(명령형): 택시 기사에게 계속 &ldquo;우회전하세요&rdquo;, &ldquo;좌회전하세요&quot;와 같이 명령하는 방식." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jwanp.github.io/posts/react-managing-state/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-06-29T00:24:25+09:00" />
+<meta property="article:modified_time" content="2025-06-29T00:24:25+09:00" /><meta property="og:site_name" content="Hello this is title" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[React] Managing State"/>
+<meta name="twitter:description" content="React에서 State 다루기 React에서 State는 어떤 UI를 보여줄지 결정하는 핵심 요소입니다. 특히 중복되거나 모호한 State는 디버깅이 어렵고, 버그의 원인이 됩니다.
+React 공식 문서에서는 상태 변수 관리, 유지보수 방식, 컴포넌트 간 상태 공유 방식 등에 대한 가이드라인을 제공합니다. 이번 글에서는 공식 문서를 참고하여 핵심 원리를 복습하고, 다시 살펴보면 좋을 정보들을 정리했습니다.
+Reacting to Input with State 🔗 https://react.dev/learn/reacting-to-input-with-state
+UI를 조작하는 방법에는 크게 두 가지가 있습니다: Imperative와 Declarative.
+Imperative(명령형): 택시 기사에게 계속 &ldquo;우회전하세요&rdquo;, &ldquo;좌회전하세요&quot;와 같이 명령하는 방식."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://jwanp.github.io/posts/react-managing-state/" /><link rel="prev" href="http://jwanp.github.io/posts/lexical-save-html-content/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[React] Managing State",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/jwanp.github.io\/posts\/react-managing-state\/"
+        },"image": ["https:\/\/user-images.githubusercontent.com\/77142334\/227780652-4a867037-5843-4d78-b5e7-9c27f6203e23.png"],"genre": "posts","keywords": "javascript, react","wordcount":  2348 ,
+        "url": "http:\/\/jwanp.github.io\/posts\/react-managing-state\/","datePublished": "2025-06-29T00:24:25+09:00","dateModified": "2025-06-29T00:24:25+09:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "박주환"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Joohwan&#39;s blog">Joohwan&#39;s dev blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/chat/"> Chat </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Joohwan&#39;s blog">Joohwan&#39;s dev blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/chat/" title="">Chat</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">[React] Managing State</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>박주환</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tech</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-06-29">2025-06-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2348 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/tech/React-managing-state.png"
+        data-srcset="/images/tech/React-managing-state.png, /images/tech/React-managing-state.png 1.5x, /images/tech/React-managing-state.png 2x"
+        data-sizes="auto"
+        alt="/images/tech/React-managing-state.png"
+        title="/images/tech/React-managing-state.png" width="1744" height="748" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#reacting-to-input-with-state">Reacting to Input with State</a></li>
+    <li><a href="#choosing-the-state-structure">Choosing the State Structure</a></li>
+    <li><a href="#sharing-state-between-components">Sharing State Between Components</a></li>
+    <li><a href="#preserving-and-resetting-state">Preserving and Resetting State</a>
+      <ul>
+        <li><a href="#state-is-tied-to-a-position-in-the-render-tree">State is tied to a position in the render tree</a></li>
+        <li><a href="#resetting-state-at-the-same-position">Resetting state at the same position</a></li>
+      </ul>
+    </li>
+    <li><a href="#extracting-state-logic-into-a-reducer">Extracting State Logic into a Reducer</a></li>
+    <li><a href="#passing-data-deeply-with-context">Passing Data Deeply with Context</a>
+      <ul>
+        <li><a href="#왜-context를-써야-하나">왜 Context를 써야 하나?</a></li>
+        <li><a href="#context를-활용하는-방법">Context를 활용하는 방법</a></li>
+      </ul>
+    </li>
+    <li><a href="#scaling-up-with-reducer-and-context">Scaling Up with Reducer and Context</a>
+      <ul>
+        <li><a href="#step-1-createthe-context">Step 1: <strong>Create</strong> the context.</a></li>
+        <li><a href="#step-2-put-state-and-dispatch-into-context">Step 2: Put state and dispatch into context</a></li>
+        <li><a href="#step-3-use-context-anywhere-in-the-tree">Step 3: Use context anywhere in the tree</a></li>
+        <li><a href="#감싸는-context를-모두-한곳에-모으기">감싸는 Context를 모두 한곳에 모으기</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="react에서-state-다루기">React에서 State 다루기</h1>
+<p>React에서 State는 어떤 UI를 보여줄지 결정하는 핵심 요소입니다. 특히 중복되거나 모호한 State는 디버깅이 어렵고, 버그의 원인이 됩니다.</p>
+<p>React 공식 문서에서는 상태 변수 관리, 유지보수 방식, 컴포넌트 간 상태 공유 방식 등에 대한 가이드라인을 제공합니다. 이번 글에서는 공식 문서를 참고하여 핵심 원리를 복습하고, 다시 살펴보면 좋을 정보들을 정리했습니다.</p>
+<hr>
+<h2 id="reacting-to-input-with-state">Reacting to Input with State</h2>
+<p>🔗 <a href="https://react.dev/learn/reacting-to-input-with-state" target="_blank" rel="noopener noreffer ">https://react.dev/learn/reacting-to-input-with-state</a></p>
+<p>UI를 조작하는 방법에는 크게 두 가지가 있습니다: <strong>Imperative</strong>와 <strong>Declarative</strong>.</p>
+<ul>
+<li><strong>Imperative(명령형)</strong>: 택시 기사에게 계속 &ldquo;우회전하세요&rdquo;, &ldquo;좌회전하세요&quot;와 같이 명령하는 방식.</li>
+<li><strong>Declarative(선언형)</strong>: 목적지를 말하면 택시 기사가 스스로 판단해 도착하는 방식.</li>
+</ul>
+<p>React 없이 DOM을 직접 조작하는 방식은 Imperative이며, React를 사용하여 상태에 따라 UI를 선언하는 방식은 Declarative입니다.</p>
+<p>React에서 상태를 다룰 때는 다음과 같은 명령형 사고 순서를 따릅니다:</p>
+<ol>
+<li><strong>Identify</strong> 컴포넌트의 다양한 시각적 상태를 정의합니다.</li>
+<li><strong>Determine</strong> 상태 변화의 트리거를 파악합니다.</li>
+<li><strong>Represent</strong> 상태를 <code>useState</code>를 이용해 메모리에 표현합니다.</li>
+<li><strong>Remove</strong> 불필요한 상태 변수는 제거합니다.</li>
+<li><strong>Connect</strong> 이벤트 핸들러와 상태를 연결합니다.</li>
+</ol>
+<p>특히 4번에서는 상태를 리팩토링하는 방법을 다루며, 가능한 상태 변수를 줄이고 하나로 통합하는 것이 좋다고 설명합니다.</p>
+<p>예시:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// 불필요하게 나뉜 상태
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">isTyping</span><span class="p">,</span> <span class="nx">setIsTyping</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">isSubmitting</span><span class="p">,</span> <span class="nx">setIsSubmitting</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">isSuccess</span><span class="p">,</span> <span class="nx">setIsSuccess</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 하나의 상태로 통합
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">status</span><span class="p">,</span> <span class="nx">setStatus</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;typing&#39;</span><span class="p">);</span> <span class="c1">// &#39;typing&#39; | &#39;submitting&#39; | &#39;success&#39;
+</span></span></span></code></pre></div><h2 id="choosing-the-state-structure">Choosing the State Structure</h2>
+<ul>
+<li><a href="https://react.dev/learn/choosing-the-state-structure" target="_blank" rel="noopener noreffer ">https://react.dev/learn/choosing-the-state-structure</a></li>
+</ul>
+<p>상태변수를 잘 설계하는 것은 버그와 리팩터링 하는것을 훨씬 쉽게해줍니다. 따라서 공식문서에서는 상태변수를 설계하기 위한 5가지 원칙을 제시합니다.</p>
+<ol>
+<li><strong>Group related state.</strong> 항상 두개 이상의 상태변수를 함께 수정한다면 그 두개를 합친다.</li>
+<li><strong>Avoid contradictions in state.</strong> 몇개의 상태변수들이 서로 모순되는 상태가 있을 수 있다. 따라서 상태변수들간에 서로 모순이 없는지 잘 살펴본다.</li>
+<li><strong>Avoid redundant state.</strong> 많은 상태변수를 피해라. 렌더링 중에 이미 가지고 있는 상태변수를 활용해서 계산할 수 있는 변수라면 이를 새로운 상태 변수로 만드는 것을 지양.</li>
+<li><strong>Avoid duplication in state.</strong> 같은 정보가 여러 상태변수에 포함되어 있다면, 그 정보에 대해서 일관되게 유지하는 것이 어렵기 때문에 중복된 정보를 줄이자.</li>
+<li><strong>Avoid deeply nested state.</strong> 너무 깊게 중첩된 구조는 업데이트하기가 어렵기 때문에 flat한 방식으로 유지.</li>
+</ol>
+<p>이 원칙들의 목표는 상태 변수들을 실수 없이 쉽게 업데이트하기 위함입니다.
+각 원칙들에 대해서 짧은 예시들은 다음과 같습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// 1. Group related state.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">setX</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">y</span><span class="p">,</span> <span class="nx">setY</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 위의 두개 변수는 항상 함께 update 됨으로 이렇게 하나로 합칠 수 있습니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">position</span><span class="p">,</span> <span class="nx">setPosition</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">({</span> <span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 2. Avoid contradictions in state.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">text</span><span class="p">,</span> <span class="nx">setText</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">isSending</span><span class="p">,</span> <span class="nx">setIsSending</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">isSent</span><span class="p">,</span> <span class="nx">setIsSent</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// isSending이 false 이면 항상 isSent를 true로 해줘야하는데 이를 까먹을 수도 있습니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 이는 서로 모순을 불러옵니다. 따라서 두개를 합쳐서 다음과 같이 선언해야 합니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="kr">const</span> <span class="p">[</span><span class="nx">status</span><span class="p">,</span> <span class="nx">setStatus</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;typing&#39;</span><span class="p">);</span> <span class="c1">// typing | sending | sent
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 3. Avoid redundant state.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">setFirstName</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">lastName</span><span class="p">,</span> <span class="nx">setLastName</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">fullName</span><span class="p">,</span> <span class="nx">setFullName</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// firstName과 lastName은 따로 입력을 받습니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 하지만 fullName은 firstName과 lastName으로 렌더링 중에 계산할 수 있으므로 useState를 쓰지 않습니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="nx">firstName</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">lastName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 4. Avoid duplication in state.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">items</span><span class="p">,</span> <span class="nx">setItems</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">initialItems</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">selectedItem</span><span class="p">,</span> <span class="nx">setSelectedItem</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 위에서 처럼 하면 items와 selectedItem이 겹칩니다. 따라서 이 두개를 싱크를 계속 맞출때 까먹거나 몰라서 update를 못하는 상황이 대부분입니다. 따라서 그런 경우를 피하기 위해서 다음과 같이 해야합니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">items</span><span class="p">,</span> <span class="nx">setItems</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">initialItems</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">selectedId</span><span class="p">,</span> <span class="nx">setSelectedId</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">selectedItem</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">selectedId</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 5. Avoid deeply nested state.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">places</span><span class="p">,</span> <span class="nx">setPlaces</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">id</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;(Root)&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">childPlaces</span><span class="o">:</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Earth&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">childPlaces</span><span class="o">:</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Africa&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">childPlaces</span><span class="o">:</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">id</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Botswana&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">childPlaces</span><span class="o">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">id</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Egypt&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">childPlaces</span><span class="o">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 다음과 같이 모두 nest된 형태로 두면 너무 복잡해진다. 따라서 다음과 같이 id로 분류해서 childPlaces를 표시한다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">places</span><span class="p">,</span> <span class="nx">setPlaces</span><span class="p">]</span> <span class="o">=</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">0</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">id</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;(Root)&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">childIds</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">46</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">1</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Earth&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">childIds</span><span class="o">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">34</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span></code></pre></div><p>추가적으로 <strong>props를 state로 두면 안됩니다.</strong> Props는 이미 일종의 state처럼 관리 되기 때문에 props가 바뀔때마다 UI가 변하도록 부모에서 관리하는 것이 원칙입니다.</p>
+<p>만약 <strong>props가 바뀌더라도 만약에 이를 state를 선언해서 쓰고 있다면, UI가 업데이트 되지 않을 것</strong>임으로 이는 혼란을 초례합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Message</span><span class="p">({</span> <span class="nx">messageColor</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kr">const</span> <span class="p">[</span><span class="nx">color</span><span class="p">,</span> <span class="nx">setColor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">messageColor</span><span class="p">);</span> <span class="c1">//이렇게 말고
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Message</span><span class="p">({</span> <span class="nx">messageColor</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kr">const</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">messageColor</span><span class="p">;</span> <span class="c1">// 이렇게 써야합니다.
+</span></span></span></code></pre></div><h2 id="sharing-state-between-components">Sharing State Between Components</h2>
+<ul>
+<li><a href="https://react.dev/learn/sharing-state-between-components" target="_blank" rel="noopener noreffer ">https://react.dev/learn/sharing-state-between-components</a></li>
+</ul>
+<p>가끔 두개의 컴포넌트의 선언된 두개의 각각 다른 state가 항상 함께 업데이트되어야 합니다. 이럴때 두개를 가장 가까운 공통 부모 componenet으로 옮긴다음에 합쳐서 써야합니다. 이를 <em>lifting state up</em> 이라고 부릅니다.</p>
+<h2 id="preserving-and-resetting-state">Preserving and Resetting State</h2>
+<ul>
+<li><a href="https://react.dev/learn/preserving-and-resetting-state" target="_blank" rel="noopener noreffer ">https://react.dev/learn/preserving-and-resetting-state</a></li>
+</ul>
+<h3 id="state-is-tied-to-a-position-in-the-render-tree">State is tied to a position in the render tree</h3>
+<p>react의 동작원리나 컴포넌트의 state가 언제 초기화 되는지 알려면 React는 <a href="https://react.dev/learn/understanding-your-ui-as-a-tree#the-render-tree" target="_blank" rel="noopener noreffer ">render tree</a>구조에 의해서 이루어진다는 것을 알아야합니다. 즉 tree구조의 변화에 의해서 state가 초기화 되고 그대로 유지될 수 도 있습니다.</p>
+<p>공식문서에는 다양한 UI의 예시를 들면서 render tree와 컴포넌트간의 상호작용의 이해를 돕고 있습니다.</p>
+<p>아마 이것은 Counter가 각각 별개로 호출된 컴포넌트이기 때문에 다른 state를 가지고 있다고 생각할 것입니다. 하지만 이렇게 이해하기 보다는 다른 방식으로 이해를 해야합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">Counter</span> <span class="p">/&gt;</span> <span class="c1">// 이것의 state가 바뀌어도
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">&lt;</span><span class="nt">Counter</span> <span class="p">/&gt;</span> <span class="c1">// 이것의 state는 바뀌지 않는다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>두개의 <code>Counter</code>는 state를 서로 공유하고 있지 않습니다. 이것을 서로 별개로 호출되서 따로 관리된다고 알기 쉽지만, <strong>render tree에 서로 다른 곳에 위치하고 있기 때문에 state를 공유 하지 않는다고 이해해야 합니다.</strong></p>
+<p>예를 들어서 다음 if문으로 분기한 서로 다른 위치에서 호출된 Counter는 state는 별개로 호출되었기 때문에 state를 공유 하지 않는다고 이해하기 쉽습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">isFancy</span><span class="p">,</span> <span class="nx">setIsFancy</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span><span class="nx">isFancy</span> <span class="o">?</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">Counter</span> <span class="na">isFancy</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span> <span class="p">/&gt;</span>  <span class="c1">// 여기에서 count가 2였다면
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">)</span> <span class="o">:</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">Counter</span> <span class="na">isFancy</span><span class="o">=</span><span class="p">{</span><span class="kc">false</span><span class="p">}</span> <span class="p">/&gt;</span> <span class="c1">// isFancy === false 일때도 count는 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">)}</span>
+</span></span></code></pre></div><p>하지만 두개의 Counter 컴포넌트는 부모에서 <code>count</code> 상태를 공유하지 않아도 <code>render tree</code>에서 같은 곳에 위치해 있기 때문에 전의 count 상태를 그대로 가져다가 씁니다.</p>
+<p>그렇다면 다음은 어떨까요?
+다음 컴포넌트는 tree상 같은 위치에 있고 심지어 한번밖에 호출 되지 않았습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">showB</span><span class="p">,</span> <span class="nx">setShowB</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span><span class="nx">showB</span> <span class="o">&amp;&amp;</span> <span class="p">&lt;</span><span class="nt">Counter</span> <span class="p">/&gt;}</span> <span class="c1">// showB가 바뀌었을때 count 상태 변수는 유지될까요?
+</span></span></span></code></pre></div><p><code>render tree</code>는 전에 렌더링 된 트리를 기반으로 컴포넌트를 봅니다. 따라서 만약 전 렌더링에서 <code>showB</code>가 <code>false</code> 였다면 Counter 위치에는 비어있었습니다. 따라서 해당 컴포넌트는는 사라지고 새로운 <code>Counter</code>를 호출하기 때문에 count변수는 초기화 됩니다.</p>
+<p>마찬가지로 <code>render tree</code>의 같은 위치에서 컴포넌트를 렌더링 해도 <strong>태그가 다르면 서로 다른 sub-tree으로 인식 되서 상태 변수가 초기화 됩니다.</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">isFancy</span><span class="p">,</span> <span class="nx">setIsFancy</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span><span class="nx">isFancy</span> <span class="o">?</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span> <span class="c1">// div 태그 이고
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="p">&lt;</span><span class="nt">Counter</span> <span class="na">isFancy</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">)</span> <span class="o">:</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span> <span class="c1">// section 태그 이기 때문에 서로 다른 트리로 인식된다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="p">&lt;</span><span class="nt">Counter</span> <span class="na">isFancy</span><span class="o">=</span><span class="p">{</span><span class="kc">false</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">)}</span>
+</span></span></code></pre></div><p>즉 각각의 tree 구조가 서로 다르다면 모든 상태 변수는 초기화 됨으로, 상태 변수를 유지하고 싶다면 모든 tag를 포함한 tree 구조를 일치 시켜야합니다.</p>
+<h3 id="resetting-state-at-the-same-position">Resetting state at the same position</h3>
+<p>같은 위치에 컴포넌트를 렌더링 하면 상태 변수가 공유됩니다. 만약 <strong>컴포넌트가 같은 위치에 렌더링 되지만 서로 다른 사람이라서 상태 변수는 따로 관리하고 싶다면</strong> 어떻게 해야 할까요?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Scoreboard</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">isPlayerA</span><span class="p">,</span> <span class="nx">setIsPlayerA</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// Taylor와 Sarah의 상태가 서로 공유 된다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">{</span><span class="nx">isPlayerA</span> <span class="o">?</span> <span class="p">&lt;</span><span class="nt">Counter</span> <span class="na">person</span><span class="o">=</span><span class="s">&#34;Taylor&#34;</span> <span class="p">/&gt;</span> <span class="o">:</span> <span class="p">&lt;</span><span class="nt">Counter</span> <span class="na">person</span><span class="o">=</span><span class="s">&#34;Sarah&#34;</span> <span class="p">/&gt;}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span>
+</span></span><span class="line"><span class="cl">        <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">setIsPlayerA</span><span class="p">(</span><span class="o">!</span><span class="nx">isPlayerA</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}}&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Next</span> <span class="nx">player</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>두가지 방법이 있습니다.</p>
+<ol>
+<li><strong>두개의 컴포넌트를 서로 다른 위치에서 렌더링 한다.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Scoreboard</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">isPlayerA</span><span class="p">,</span> <span class="nx">setIsPlayerA</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 서로 다른 위치에서 렌더링
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">{</span><span class="nx">isPlayerA</span> <span class="o">&amp;&amp;</span> <span class="p">&lt;</span><span class="nt">Counter</span> <span class="na">person</span><span class="o">=</span><span class="s">&#34;Taylor&#34;</span> <span class="p">/&gt;}</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 분기로 처리하지 않고 위치를 바꾼다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">{</span><span class="o">!</span><span class="nx">isPlayerA</span> <span class="o">&amp;&amp;</span> <span class="p">&lt;</span><span class="nt">Counter</span> <span class="na">person</span><span class="o">=</span><span class="s">&#34;Sarah&#34;</span> <span class="p">/&gt;}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span>
+</span></span><span class="line"><span class="cl">        <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">setIsPlayerA</span><span class="p">(</span><span class="o">!</span><span class="nx">isPlayerA</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}}&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Next</span> <span class="nx">player</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="2">
+<li><strong>각각의 State에 key를 부여한다.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Scoreboard</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">isPlayerA</span><span class="p">,</span> <span class="nx">setIsPlayerA</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span><span class="nx">isPlayerA</span> <span class="o">?</span> <span class="p">&lt;</span><span class="nt">Counter</span> <span class="na">key</span><span class="o">=</span><span class="s">&#34;Taylor&#34;</span> <span class="na">person</span><span class="o">=</span><span class="s">&#34;Taylor&#34;</span> <span class="p">/&gt;</span> <span class="o">:</span> <span class="p">&lt;</span><span class="nt">Counter</span> <span class="na">key</span><span class="o">=</span><span class="s">&#34;Sarah&#34;</span> <span class="na">person</span><span class="o">=</span><span class="s">&#34;Sarah&#34;</span> <span class="p">/&gt;}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span>
+</span></span><span class="line"><span class="cl">        <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">setIsPlayerA</span><span class="p">(</span><span class="o">!</span><span class="nx">isPlayerA</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}}&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Next</span> <span class="nx">player</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="extracting-state-logic-into-a-reducer">Extracting State Logic into a Reducer</h2>
+<ul>
+<li><a href="https://react.dev/learn/extracting-state-logic-into-a-reducer" target="_blank" rel="noopener noreffer ">https://react.dev/learn/extracting-state-logic-into-a-reducer</a></li>
+</ul>
+<p>하나의 state에 너무 많은 update 함수들이 있다면 관리하기 힘들고 다른 파일로 뺄 수 도 없어서 번거롭습니다.</p>
+<p>React 공식문서에서는 이를 해결하기 위해서 reducer이라는 하나의 함수를 통해서 state update 로직을 관리하라고 제시합니다. 다만 해당 reducer를 사용하면 코드양이 늘어나고 구조가 조금 더 복잡해 집니다. 대신에 확장성이 좋고 state update 함수들을 한곳에서 관리할 수 있어서 디버깅 하기 좋습니다.</p>
+<p>State 변경 함수를 reducer로 변경하는 것은 3가지 단계를 거칩니다.</p>
+<ol>
+<li><strong>Move</strong> from setting state to dispatching actions.</li>
+<li><strong>Write</strong> a reducer function.</li>
+<li><strong>Use</strong> the reducer from your component.</li>
+</ol>
+<p><strong>Step 1: Move from setting state to dispatching actions</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// 이렇게 하나의 태스크를 더하는 업데이트 함수를
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">handleAddTask</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">setTasks</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span><span class="nx">tasks</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">id</span><span class="o">:</span> <span class="nx">nextId</span><span class="o">++</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">text</span><span class="o">:</span> <span class="nx">text</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 단지 type: &#39;added&#39;으로 어떤 일이 일어났는지만 기제한다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">handleAddTask</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">dispatch</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;added&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">id</span><span class="o">:</span> <span class="nx">nextId</span><span class="o">++</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">text</span><span class="o">:</span> <span class="nx">text</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Step 2: Write a reducer function</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// reducer 함수를 작성합니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// added 가 일어났을때 무었을 할지 기제 합니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">tasksReducer</span><span class="p">(</span><span class="nx">tasks</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s1">&#39;added&#39;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 항상 return 문으로 끝나야 합니다. (switch이기 때문에 default도 실행됨)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span><span class="nx">tasks</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">id</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">text</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Unknown action: &#39;</span> <span class="o">+</span> <span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Step 3: Use the reducer from your component</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useReducer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">AddTask</span> <span class="nx">from</span> <span class="s1">&#39;./AddTask.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">TaskList</span> <span class="nx">from</span> <span class="s1">&#39;./TaskList.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">tasksReducer</span> <span class="nx">from</span> <span class="s1">&#39;./tasksReducer.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">TaskApp</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">tasks</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useReducer</span><span class="p">(</span><span class="nx">tasksReducer</span><span class="p">,</span> <span class="nx">initialTasks</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">handleAddTask</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dispatch</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;added&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">id</span><span class="o">:</span> <span class="nx">nextId</span><span class="o">++</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">text</span><span class="o">:</span> <span class="nx">text</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ... 그외의 함수들
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Prague</span> <span class="nx">itinerary</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">AddTask</span> <span class="na">onAddTask</span><span class="o">=</span><span class="p">{</span><span class="nx">handleAddTask</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TaskList</span>
+</span></span><span class="line"><span class="cl">        <span class="na">tasks</span><span class="o">=</span><span class="p">{</span><span class="nx">tasks</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="na">onChangeTask</span><span class="o">=</span><span class="p">{</span><span class="nx">handleChangeTask</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="na">onDeleteTask</span><span class="o">=</span><span class="p">{</span><span class="nx">handleDeleteTask</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// tasksReducer.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">tasksReducer</span><span class="p">(</span><span class="nx">tasks</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s1">&#39;added&#39;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span><span class="nx">tasks</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">id</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">text</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="passing-data-deeply-with-context">Passing Data Deeply with Context</h2>
+<ul>
+<li><a href="https://react.dev/learn/passing-data-deeply-with-context" target="_blank" rel="noopener noreffer ">https://react.dev/learn/passing-data-deeply-with-context</a></li>
+</ul>
+<p>props를 사용하다보면 몇단계를 거처서 props 전달해야 하는 경우가 있습니다. 특히 프로젝트의 사이즈나 컴포넌트가 복잡하게 얽혀있다면 이를 관리하기 매우 어렵습니다.</p>
+<p>이를 Context활용해서 해결 할 수 있습니다. Context를 활용하면 어느 한 컴포넌트의 자식들에서 공통적으로 쓰이는 변수를 한번에 관리 할 수 있습니다.</p>
+<p>하지만 Context를 쓰기 전에 먼저</p>
+<ol>
+<li>props를 작성하는 것부터 시작하세요. 왜냐하면 props를 사용함으로서 데이터 흐름을 더 정확하게 파악 할 수 있고 어떤 컴포넌트가 어떤 데이터를 쓰는지 더 명확히 구분 할 수 있기 때문입니다.</li>
+<li>컴포넌트를 추출하고 JSX를 자식 컴포넌트로 전달하는 것을 먼저 고려하세요. 이는 제가 전에 <a href="https://jwanp.github.io/posts/react-describing-the-ui/#passing-jsx-as-childrenhttpsreactdevlearnpassing-props-to-a-componentpassing-jsx-as-children-" target="_blank" rel="noopener noreffer ">Passing JSX as children</a> 에 정리 해놨습니다.</li>
+</ol>
+<h3 id="왜-context를-써야-하나">왜 Context를 써야 하나?</h3>
+<p>다음과 같은 컴포넌트에서는 <code>Heading</code>에 <code>level</code> props가 필요합니다. 하지만 하나의 <code>&lt;section&gt;</code>에 속한 <code>Heading</code>은 모두 동일한 <code>level</code>을 활용합니다. 이를 Context를 활용하면 Section에서 한번에 관리 할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Heading</span> <span class="nx">from</span> <span class="s1">&#39;./Heading.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Section</span> <span class="nx">from</span> <span class="s1">&#39;./Section.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Page</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">Heading</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">}&gt;</span><span class="nx">Title</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">Heading</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">}&gt;</span><span class="nx">Heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">Heading</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">}&gt;</span><span class="nx">Heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">Heading</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">}&gt;</span><span class="nx">Heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">Heading</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">3</span><span class="p">}&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">Heading</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">3</span><span class="p">}&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">Heading</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">3</span><span class="p">}&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">Heading</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">4</span><span class="p">}&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">Heading</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">4</span><span class="p">}&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">Heading</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">4</span><span class="p">}&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;/</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="context를-활용하는-방법">Context를 활용하는 방법</h3>
+<ol>
+<li><code>createContext</code>를 활용해서 상태 변수를 만듭니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// LevelContext.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">createContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">LevelContext</span> <span class="o">=</span> <span class="nx">createContext</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span></code></pre></div><ol start="2">
+<li>상태 변수가 필요한 곳에서 context를 가져옵니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// Heading.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">useContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">LevelContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./LevelContext.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Heading</span><span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">level</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">LevelContext</span><span class="p">);</span> <span class="c1">// level 변수를 가져옵니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">switch</span> <span class="p">(</span><span class="nx">level</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="nx">children</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;{</span><span class="nx">children</span><span class="p">}&lt;/</span><span class="nt">h2</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;{</span><span class="nx">children</span><span class="p">}&lt;/</span><span class="nt">h3</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;{</span><span class="nx">children</span><span class="p">}&lt;/</span><span class="nt">h4</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h5</span><span class="p">&gt;{</span><span class="nx">children</span><span class="p">}&lt;/</span><span class="nt">h5</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">6</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h6</span><span class="p">&gt;{</span><span class="nx">children</span><span class="p">}&lt;/</span><span class="nt">h6</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Unknown level: &#39;</span> <span class="o">+</span> <span class="nx">level</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="3">
+<li>부모 컴포넌트에서 Context를 제공합니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// Section.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">useContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">LevelContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./LevelContext.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Section</span><span class="p">({</span> <span class="nx">level</span><span class="p">,</span> <span class="nx">children</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;section&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">LevelContext</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">level</span><span class="p">}&gt;</span> <span class="c1">// level context 으로 감쌉니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">{</span><span class="nx">children</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">LevelContext</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// App.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="nx">Heading</span> <span class="nx">from</span> <span class="s1">&#39;./Heading.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Section</span> <span class="nx">from</span> <span class="s1">&#39;./Section.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Page</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">Section</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">Heading</span><span class="p">&gt;</span><span class="nx">Title</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">Section</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">Heading</span><span class="p">&gt;</span><span class="nx">Heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">Heading</span><span class="p">&gt;</span><span class="nx">Heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">Heading</span><span class="p">&gt;</span><span class="nx">Heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">Section</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">3</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">Heading</span><span class="p">&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">Heading</span><span class="p">&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">Heading</span><span class="p">&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">Section</span> <span class="na">level</span><span class="o">=</span><span class="p">{</span><span class="mi">4</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">Heading</span><span class="p">&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">Heading</span><span class="p">&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">Heading</span><span class="p">&gt;</span><span class="nx">Sub</span><span class="o">-</span><span class="nx">sub</span><span class="o">-</span><span class="nx">heading</span><span class="p">&lt;/</span><span class="nt">Heading</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;/</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">Section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="scaling-up-with-reducer-and-context">Scaling Up with Reducer and Context</h2>
+<ul>
+<li><a href="https://react.dev/learn/scaling-up-with-reducer-and-context" target="_blank" rel="noopener noreffer ">https://react.dev/learn/scaling-up-with-reducer-and-context</a></li>
+</ul>
+<p>앞에서 살펴보았던 reducer와 context를 결합해서 전역상태관리를 구현하는 법을 알아보겠습니다.</p>
+<p>다음과 같은 과정을 통해서 reducer를 context와 결합할 수 있습니다.</p>
+<ol>
+<li><strong>Create</strong> the context.</li>
+<li><strong>Put</strong> state and dispatch into context.</li>
+<li><strong>Use</strong> context anywhere in the tree.</li>
+</ol>
+<hr>
+<h3 id="step-1-createthe-context">Step 1: <strong>Create</strong> the context.</h3>
+<p>총 2개의 context를생성해야 합니다. Task를 담고 있는 <code>TasksContent</code>와 Tasks를 수정할 <code>TasksDispatchContext</code>를 생성합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// TasksContext.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">createContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">TasksContext</span> <span class="o">=</span> <span class="nx">createContext</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">TasksDispatchContext</span> <span class="o">=</span> <span class="nx">createContext</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</span></span></code></pre></div><p>해당 컨텍스트에는 먼저 null을 할당합니다. 실제 값은 나중에 TaskApp 컴포넌트에서 Context으로 감싸줄때 주입합니다.</p>
+<h3 id="step-2-put-state-and-dispatch-into-context">Step 2: Put state and dispatch into context</h3>
+<p>context를 사용할 가장 상위 컴포넌트(<code>TasksApp</code>) 에서 reducer를 호출하여 생성된 상태변수(<code>tasks</code>)와 <code>dispatch</code>를 Context에 주입하여 <code>children</code>을 감싸줍니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// TasksApp.jsx
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksContext</span><span class="p">,</span> <span class="nx">TasksDispatchContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./TasksContext.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">TaskApp</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">tasks</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useReducer</span><span class="p">(</span><span class="nx">tasksReducer</span><span class="p">,</span> <span class="nx">initialTasks</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">TasksContext</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">tasks</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TasksDispatchContext</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">dispatch</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">AddTask</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">TaskList</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">TasksDispatchContext</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">TasksContext</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// reducer 함수
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">tasksReducer</span><span class="p">(</span><span class="nx">tasks</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s1">&#39;added&#39;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span><span class="nx">tasks</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">id</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">text</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Unknown action: &#39;</span> <span class="o">+</span> <span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">nextId</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">initialTasks</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Philosopher’s Path&#39;</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">true</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Visit the temple&#39;</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Drink matcha&#39;</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span></code></pre></div><h3 id="step-3-use-context-anywhere-in-the-tree">Step 3: Use context anywhere in the tree</h3>
+<p>이제 <code>TasksApp</code> 하위 컴포넌트의 어디서든지 tasks와 dispatch를 불러와서 사용할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// AddTask.jsx
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksDispatchContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./TasksContext.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">AddTask</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">text</span><span class="p">,</span> <span class="nx">setText</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">TasksDispatchContext</span><span class="p">);</span> <span class="c1">// context를 불러와서 사용합니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;Add task&#34;</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">text</span><span class="p">}</span> <span class="na">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setText</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span>
+</span></span><span class="line"><span class="cl">        <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">setText</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">dispatch</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// reducer를 불러와서 실행
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;added&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">id</span><span class="o">:</span> <span class="nx">nextId</span><span class="o">++</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">text</span><span class="o">:</span> <span class="nx">text</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}}&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Add</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">nextId</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span></code></pre></div><h3 id="감싸는-context를-모두-한곳에-모으기">감싸는 Context를 모두 한곳에 모으기</h3>
+<p>만약 Context가 적다면 가장 상위 컴포넌트에서 children을 감싸면 됩니다. 하지만 이것이 점점 많아진다면 관리하기 힘듦으로 하나의 파일에 관리 할 수도 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// TasksProvider.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createContext</span><span class="p">,</span> <span class="nx">useContext</span><span class="p">,</span> <span class="nx">useReducer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// context 생성
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">TasksContext</span> <span class="o">=</span> <span class="nx">createContext</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">TasksDispatchContext</span> <span class="o">=</span> <span class="nx">createContext</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Provider 컴포넌트
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">TasksProvider</span><span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// reducer 생성
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="p">[</span><span class="nx">tasks</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useReducer</span><span class="p">(</span><span class="nx">tasksReducer</span><span class="p">,</span> <span class="nx">initialTasks</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// context에 reducer를 전달
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">TasksContext</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">tasks</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TasksDispatchContext</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">dispatch</span><span class="p">}&gt;{</span><span class="nx">children</span><span class="p">}&lt;/</span><span class="nt">TasksDispatchContext</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">TasksContext</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 상태관리 변수 불러오는 훅
+</span></span></span><span class="line"><span class="cl"><span class="c1">// const tasks = useTasks(); 나중에 이런식으로 사용
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">useTasks</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">TasksContext</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 리듀서 불러오는 훅
+</span></span></span><span class="line"><span class="cl"><span class="c1">// const dispatch = useTasksDispatch(); // 나중에 이런식으로 사용
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">useTasksDispatch</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">TasksDispatchContext</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// App.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="nx">AddTask</span> <span class="nx">from</span> <span class="s1">&#39;./AddTask.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">TaskList</span> <span class="nx">from</span> <span class="s1">&#39;./TaskList.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksProvider</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./TasksContext.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">TaskApp</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">TasksProvider</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Day</span> <span class="nx">off</span> <span class="k">in</span> <span class="nx">Kyoto</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">AddTask</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TaskList</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">TasksProvider</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-06-29</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://jwanp.github.io/posts/react-managing-state/" data-title="[React] Managing State" data-hashtags="javascript,react"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://jwanp.github.io/posts/react-managing-state/" data-hashtag="javascript"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://jwanp.github.io/posts/react-managing-state/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://jwanp.github.io/posts/react-managing-state/" data-title="[React] Managing State"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://jwanp.github.io/posts/react-managing-state/" data-title="[React] Managing State"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://jwanp.github.io/posts/react-managing-state/" data-title="[React] Managing State" data-image="/images/tech/React-managing-state.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="http://jwanp.github.io/posts/react-managing-state/" data-title="[React] Managing State" data-description=""><i class="fab fa-blogger fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/javascript/">javascript</a>,&nbsp;<a href="/tags/react/">react</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/lexical-save-html-content/" class="prev" rel="prev" title="[React] Lexical 에더터에서 HTML 저장하는 두가지 방법"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>[React] Lexical 에더터에서 HTML 저장하는 두가지 방법</a></div>
+</div>
+<div id="comments"><div id="utterances" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">박주환</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"Comment","lightTheme":"github-light","repo":"jwanp/blog-comment"}},"search":{"algoliaAppID":"6QK332EH1T","algoliaIndex":"jwanp","algoliaSearchKey":"79b39b96ee30ec1c39a4bf1a4037c605","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-DZ2VH32QXR', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-DZ2VH32QXR" async></script></body>
+</html>

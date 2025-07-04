@@ -3,16 +3,53 @@
         <title>react - Tag - Joohwan&#39;s blog</title>
         <link>http://jwanp.github.io/tags/react/</link>
         <description>react - Tag - Joohwan&#39;s blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 12 Jun 2025 14:39:34 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/react/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 29 Jun 2025 00:24:25 &#43;0900</lastBuildDate><atom:link href="http://jwanp.github.io/tags/react/" rel="self" type="application/rss+xml" /><item>
+    <title>[React] Managing State</title>
+    <link>http://jwanp.github.io/posts/react-managing-state/</link>
+    <pubDate>Sun, 29 Jun 2025 00:24:25 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/react-managing-state/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/tech/React-managing-state.png" referrerpolicy="no-referrer">
+            </div>React에서 State 다루기 React에서 State는 어떤 UI를 보여줄지 결정하는 핵심 요소입니다. 특히 중복되거나 모호한 State는 디버깅이 어렵고, 버그의 원인이 됩니다.
+React 공식 문서에서는 상태 변수 관리, 유지보수 방식, 컴포넌트 간 상태 공유 방식 등에 대한 가이드라인을 제공합니다. 이번 글에서는 공식 문서를 참고하여 핵심 원리를 복습하고, 다시 살펴보면 좋을 정보들을 정리했습니다.
+Reacting to Input with State 🔗 https://react.dev/learn/reacting-to-input-with-state
+UI를 조작하는 방법에는 크게 두 가지가 있습니다: Imperative와 Declarative.
+Imperative(명령형): 택시 기사에게 계속 &ldquo;우회전하세요&rdquo;, &ldquo;좌회전하세요&quot;와 같이 명령하는 방식.]]></description>
+</item>
+<item>
     <title>[React] Lexical 에더터에서 HTML 저장하는 두가지 방법</title>
     <link>http://jwanp.github.io/posts/lexical-save-html-content/</link>
     <pubDate>Thu, 12 Jun 2025 14:39:34 &#43;0900</pubDate>
     <author>박주환</author>
     <guid>http://jwanp.github.io/posts/lexical-save-html-content/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/images/tech/javascript-coding-test/lexical.webp" referrerpolicy="no-referrer">
+                <img src="/images/tech/lexical.webp" referrerpolicy="no-referrer">
             </div>약알고 프로젝트에서는 글 꾸밈 기능을 구현할 때 Meta에서 관리 중인 오픈소스 라이브러리인 Lexical 에디터를 활용하였습니다. React Lexical 에디터에서 내용을 HTML로 저장하는 가장 대표적인 구현 방법은 저장 버튼을 플러그인으로 두는 것입니다. 하지만 버튼 플러그인으로 개발하면 몇 가지 단점이 있습니다.
 버튼 플러그인 방식의 단점 1. 해당 버튼의 동작이 특정되어 확장성에 좋지 않음 동일한 에디터를 가져다 쓰되, 저장 버튼의 동작 방식을 다르게 하고 싶을 때가 있습니다. 약알고 서비스도 QnA와 게시물 두 곳에서 같은 에디터를 사용하지만, 두 개의 &lsquo;저장&rsquo; 버튼은 다르게 동작해야 합니다.]]></description>
+</item>
+<item>
+    <title>[React] Adding Interactivity</title>
+    <link>http://jwanp.github.io/posts/react-adding-interactivity/</link>
+    <pubDate>Sun, 18 May 2025 16:55:10 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/react-adding-interactivity/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/tech/React-adding-interactivity.png" referrerpolicy="no-referrer">
+            </div>Illustrated by Rachel Lee Nabors
+Adding Interactivity React의 함수는 기본적으로 pure해야 한다. 하지만 우리는 사용자의 상호작용에 의해서 함수가 렌더링 된 이후에도 값을 바꾸거나 어떤 동작을 수행하고 싶을때가 있다. 해당 React 공식문서의 Adding Interactivity 파트에서는 이러한 값들을 어디에서 어떻게 처리해야 하는지 알려준다.
+대표적으로 event handler들은 purity를 유지할 필요가 없다. 따라서 이러한 event handler 함수 안에 뭔가를 바뀌는 것들을 넣어 주면 좋다. 예를 들어서 타이핑에 따라서 변수의 값을 바꾼다던지, 버튼을 눌렀을때 함수 바깥에 있는 리스트를 바꾸는 등의 행동을 할 수 있다.]]></description>
+</item>
+<item>
+    <title>[React] Describing the UI</title>
+    <link>http://jwanp.github.io/posts/react-describing-the-ui/</link>
+    <pubDate>Fri, 09 May 2025 09:54:02 &#43;0900</pubDate>
+    <author>박주환</author>
+    <guid>http://jwanp.github.io/posts/react-describing-the-ui/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/tech/React-describing-the-ui.png" referrerpolicy="no-referrer">
+            </div>해당 내용은 React 공식문서 내용을 복습한 것입니다. 읽어보면서 기초적인 내용도 있지만 간과하고 넘어갔던 부분들도 있었습니다. 무엇을 하든지 항상 기초 위에서 하면 좋습니다. 기초가 탄탄하면 복잡한 개념도 더 쉽게 이해할 수 있고, 문제를 해결할 때도 본질에 집중할 수 있기 때문입니다. 특히 React처럼 컴포넌트 중심의 UI 프레임워크에서는 작은 개념 하나하나가 전체 구조와 흐름에 큰 영향을 미칠 수 있으므로, 문서에 나와 있는 기본 개념들을 꼼꼼히 짚고 넘어가는 것이 중요하다고 느꼈습니다.
+제가 정리한 내용들은 Describing the UI 섹션에서 다른 분들이 까먹고 지나갔을 법한 내용들, 혹은 다시 상기하면 좋겠다 싶은 내용들을 중심으로 구성했습니다.]]></description>
 </item>
 <item>
     <title>React로 빌드하고 github pages 로 호스팅 해보았다. (feat. 404에러)</title>

@@ -1,0 +1,32 @@
+{{ define "title" }} {{- .Title }} - {{ .Site.Title -}} {{ end }} {{ define "content" }}
+<article class="page single">
+  {{- /* Title */ -}}
+  <h1 class="single-title animate__animated animate__flipInX">{{ .Title | emojify }}</h1>
+
+  {{- /* Content */ -}}
+  <div class="content" id="content">
+    <style>
+      .chat-container {
+        width: 100%;
+        margin: 2rem auto;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .chat-container iframe {
+        width: 100%;
+        height: 700px;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+
+    <div class="chat-container">
+      <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.34.2/gradio.js"></script>
+      <iframe src="https://jwanp-career-conversation.hf.space"></iframe>
+    </div>
+  </div>
+
+  {{- /* Comment */ -}} {{- partial "comment.html" . -}}
+</article>
+{{ end }}
